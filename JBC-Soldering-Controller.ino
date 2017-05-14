@@ -1,6 +1,7 @@
-/*notes: on startup put into continuous internal temp mode.
+/* Copyright (c) 2017 timothyjager
+ * JBC-Soldering-Controller
  * 
- * 
+ * MIT License. See LICENSE file for details. 
  */
 
 
