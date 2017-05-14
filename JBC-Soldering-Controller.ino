@@ -3,12 +3,19 @@
  * 
  * MIT License. See LICENSE file for details. 
  */
+ 
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
+#include <dell_psu.h>
 
 #include <TimerOne.h>
 #include "DigitalIO.h"
 #include <SPI.h>
 #include "ads1118.h"
+
 
 //Pin Mapping
 const int LPINA = 9;
@@ -22,6 +29,11 @@ volatile int16_t adc_value=0;          //ADC value read by ADS1118
 volatile int16_t temperature_value=0;  //internal temp of ADS1118
 
 //Global Objects
+#define OLED_RESET 4
+Adafruit_SSD1306 display(OLED_RESET);
+
+DellPSU dell(1);   //specify the desired Arduino pin number
+
 
 //----------------Setup-------------------------
 void setup(void)
@@ -29,21 +41,13 @@ void setup(void)
   //Start our debug serial port
   Serial.begin(115200);
   while(!Serial);
-  /*
-  Serial.println(ADS1118_INT_TEMP_C(0x1000<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0FFF<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0C80<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0960<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0640<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0320<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0008<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0001<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0000<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x3FF8<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x3CE0<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x3B00<<2));
-  delay(5000);
-  */
+  
+  //Setup the OLED
+    // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
+    // Clear the buffer.
+    display.clearDisplay();
+
   //these are for debugging the Interrupts
   fastPinMode(debug_pin_A, OUTPUT);
   fastPinMode(debug_pin_B, OUTPUT);
@@ -194,18 +198,67 @@ void loop(void)
  //convert to degrees C
  temperature_copy=ADS1118_INT_TEMP_C(temperature_copy);
  
- //static int16_t last_temp=0;
+ 
+ //Serial.print(temperature_copy);
+ //Serial.print(" ");
+ //Serial.println(adc_copy);
 
- //if (last_temp!=temperature_copy)
- //{
- //Serial.print(adc_copy);
- //Serial.print("    ");
- 
- Serial.print(temperature_copy);
- Serial.print(" ");
- Serial.println(adc_copy);
- //last_temp=temperature_copy;
- //}
- delay(300);
- 
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+
+  display.print(temperature_copy);
+ display.print(" ");
+ display.println(adc_copy);
+
+display.display();
+
+ delay(300); 
 }
+
+
+/*
+   display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+
+    
+    if (dell.read_data()==true)
+  {
+    display.print(dell.watts());
+    display.print("W "); 
+    display.print(dell.millivolts());
+    display.print("mv ");
+    display.print(dell.milliamps());
+    display.println("mA ");
+    display.println(dell.response_string());
+    //Serial.println(dell.milliamps());
+    Serial.println(dell.response_string());
+  }
+  else
+  {
+    display.print("plug in adapter");
+  }
+  display.display(); 
+  delay(1000); 
+ 
+ */
+
+
+ /*
+  Serial.println(ADS1118_INT_TEMP_C(0x1000<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0FFF<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0C80<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0960<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0640<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0320<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0008<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0001<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x0000<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x3FF8<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x3CE0<<2));
+  Serial.println(ADS1118_INT_TEMP_C(0x3B00<<2));
+  delay(5000);
+  */
