@@ -13,21 +13,22 @@
 
 // |(1=Start Single-shot), (0=no effect)
 // |
-// | |Mux
+// | |Mux  (000 = P is AIN0 N is AIN1, 001 = P is AIN0 N is AIN3, 010 = P is AIN1 N is AIN3 , 011 = P is AIN2 N is AIN3
+// | |     100 = P is AIN0 N is GND, 101 = P is AIN1 N is GND, 110 = P is AIN2 N is GND, 111 = P is AIN3 N is GND)
 // | |    
-// | |   |PGA Gain
+// | |   |PGA Gain (000 = ±6.144V, 001 = ±4.096V, 010 = ±2.048V, 011 = ±1.024V, 100 = ±0.512V, 101 = ±0.256V)
 // | |   |
-// | |   |   |OneShot
+// | |   |   |Mode (0 = Continuous conversion mode, 1 = Power-down and single-shot mode (default))
 // | |   |   |
-// | |   |   | |Data Rate SPS
+// | |   |   | |Data Rate (000 = 8SPS, 001 = 16SPS, 010 = 32SPS, 011 = 64SPS, 100 = 128SPS, 101 = 250SPS, 110 = 475SPS, 111 = 860SPS)
 // | |   |   | |   
-// | |   |   | |   |(1=Internal Temp Mode, 0=ADC Mode)
+// | |   |   | |   |Sensor Mode (1=Internal Temp Mode, 0=ADC Mode)
 // | |   |   | |   | 
-// | |   |   | |   | |PullUp Enabled
+// | |   |   | |   | |PullUp (0 = Pullup resistor disabled on DOUT/DRDY pin, 1 = Pullup resistor enabled on DOUT/DRDY pin (default))
 // | |   |   | |   | |   
-// | |   |   | |   | | |Valid Data
+// | |   |   | |   | | |Update Config (01 = Valid data, update the Config register (default), 00,11,10 = do not update config register)
 // | |   |   | |   | | |  
-// | |   |   | |   | | |  |Always Write a 1
+// | |   |   | |   | | |  |You must Always Write a 1 to this bit
 // | |   |   | |   | | |  |
 // 1 000 010 1 100 1 1 01 1  = 1000010110011011 = 0x859B (this sets up a single shot for the internal temperature sensor 128SPS)
 // 1 100 101 1 111 0 1 01 1  = 1100101111101011 = 0xCBEB (this sets up a single shot for single ended AIN0, PGA 0.256V, 860SPS)
