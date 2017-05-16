@@ -18,14 +18,27 @@
 
 
 //Pin Mapping
-const int LPINA = 9;
-const int LPINB = 10;
-const int debug_pin_A = 7;
-const int debug_pin_B = 6;
-const int CS = 7; 
-const int ENC_A = 2;  //TODO: determine which interrupt pins to use on the Leonardo
-const int ENC_B = 3;  //TODO: determine which interrupt pins to use on the Leonardo
-const int ENC_BUTTON = 5; //TODO: determine which  pins to use on the Leonardo
+const int ENC_A            = 0;  //TODO: determine which interrupt pins to use on the Leonardo (0, 1, 2, 3, 7 are supported)
+const int ENC_B            = 1;  //TODO: determine which interrupt pins to use on the Leonardo
+const int I2C_SDA          = 2;
+const int I2C_SCL          = 3;
+const int SPARE_4          = 4;
+const int DELL_PSU         = 5;  //TODO: rewire this on the proto board.
+const int debug_pin_B      = 6;
+const int debug_pin_A      = 7;
+const int CS               = 7;
+const int SPARE_8          = 8;
+const int LPINA            = 9;  //Heater PWM
+const int LPINB            = 10;
+const int SPI_MISO         = 14;
+const int SPI_SCLK         = 15;
+const int SPI_MOSI         = 16;
+const int ENC_BUTTON       = 18; //Maybe this should be an interrupt. if it does, we need to move CS to a different pin
+const int SPARE_18         = 18;
+const int SPARE_19         = 19;
+const int CURRENT_FEEDBACK = 20;
+const int CRADLE_SENSOR    = 21; 
+
 
 
 //Volatile Variables used by the interrupt handlers
