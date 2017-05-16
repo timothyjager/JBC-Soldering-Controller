@@ -6,14 +6,14 @@
  
 #include <SPI.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
 
-#include <dell_psu.h>
+#include <Adafruit_GFX.h>       //https://github.com/adafruit/Adafruit-GFX-Library
+#include <Adafruit_SSD1306.h>   //https://github.com/adafruit/Adafruit_SSD1306
+#include <Encoder.h>            //https://github.com/PaulStoffregen/Encoder
+#include <TimerOne.h>           //https://github.com/PaulStoffregen/TimerOne
+#include <DigitalIO.h>          //https://github.com/greiman/DigitalIO
+#include <dell_psu.h>           //https://github.com/timothyjager/DellPSU
 
-#include <TimerOne.h>
-#include "DigitalIO.h"
-#include <SPI.h>
 #include "ads1118.h"
 
 
@@ -23,6 +23,10 @@ const int LPINB = 10;
 const int debug_pin_A = 7;
 const int debug_pin_B = 6;
 const int CS = 7; 
+const int ENC_A = 2;  //TODO: determine which interrupt pins to use on the Leonardo
+const int ENC_B = 3;  //TODO: determine which interrupt pins to use on the Leonardo
+const int ENC_BUTTON = 5; //TODO: determine which  pins to use on the Leonardo
+
 
 //Volatile Variables used by the interrupt handlers
 volatile int16_t adc_value=0;          //ADC value read by ADS1118
@@ -30,7 +34,7 @@ volatile int16_t temperature_value=0;  //internal temp of ADS1118
 
 //Global Objects
 #define OLED_RESET 4
-Adafruit_SSD1306 display(OLED_RESET);
+Adafruit_SSD1306 display(OLED_RESET);  //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
 
 DellPSU dell(1);   //specify the desired Arduino pin number
 
@@ -40,7 +44,7 @@ void setup(void)
 {
   //Start our debug serial port
   Serial.begin(115200);
-  while(!Serial);
+  //while(!Serial);
   
   //Setup the OLED
     // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
