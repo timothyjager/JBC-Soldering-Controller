@@ -36,4 +36,17 @@
 #define ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE 0x859B
 #define ADS1118_SINGLE_SHOT_ADC 0x8BEB
 
+
+//Converts the raw temperature value from the ADS1118 to an integer reading of degrees C.
+//The incomming data arrives as a 16 bit value with the MSB first. 
+//Since our actual data is 14 bit, we need to divide by 4 (or shift 2 bits to the right) to get the correct value
+//Also per the datasheet page 18, we need to multiply by 0.03125 to convert this to Degrees F
+//In order avoid floats, we will just divide by 32 which is the same as multiplying by 0.03125, but returns an integer
+//overall we are dividing by 4 and then again by 32. i.e. dividing by 128
+inline int16_t ADS1118_INT_TEMP_C(int16_t internal_temp_raw)
+{
+  return internal_temp_raw/128;
+}
+
+
 #endif

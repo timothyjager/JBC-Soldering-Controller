@@ -75,9 +75,7 @@ void setup(void)
   temperature_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
   fastDigitalWrite(CS, HIGH);
   delay(10);
-    
-  
-  
+ 
   
   /*
    * The Timer1 interrupts fire at the rising and falling edges of the PWM pulse. 
@@ -160,33 +158,11 @@ ISR(TIMER1_COMPA_vect)
    PulsePin(debug_pin_B);
    PulsePin(debug_pin_B);
    PulsePin(debug_pin_B);
-   PulsePin(debug_pin_B);
-  
+   PulsePin(debug_pin_B); 
 }
 
 
-//Converts the raw temperature value from the ADS1118 to an integer reading of degrees C.
-//The incomming data arrives as a 16 bit value with the MSB first. 
-//Since our actual data is 14 bit, we need to divide by 4 (or shift 2 bits to the right) to get the correct value
-//Also per the datasheet page 18, we need to multiply by 0.03125 to convert this to Degrees F
-//In order avoid floats, we will just divide by 32 by shifting right by 5 (plus 2 more to convert from 16 bit to 14 bit data for a total of 7 shifts)
-int16_t ADS1118_INT_TEMP_C(int16_t internal_temp_raw)
-{
-  //per the datasheet, if the data returned is negative we need to take the 2's complement, then shift the data, then multiply by -0.03125
-  return internal_temp_raw/128;
-  /*if(internal_temp_raw < 0)
-   {
-    //internal_temp_raw *= -1 *(~(internal_temp_raw - 1) & 0x3FFF);  //
-    internal_temp_raw *=-1; //2's complement (i.e. negate the value)
-    internal_temp_raw>>=7;   //divide by 4 to get a 14 bit number, then divide by 32 to get degrees C. (same as shifting by 7)
-    internal_temp_raw *=-1; //negate the number since it should be negative.   
-   }
-  else
-  {
-    internal_temp_raw>>=7;   //divide by 4 to get a 14 bit number, then divide by 32 to get degrees C. (same as shifting by 7)     
-  }
-  */
-}
+
 
 
 // The main program 
