@@ -6,6 +6,7 @@
  
 #include <SPI.h>
 #include <Wire.h>
+#include <EEPROM.h>
 
 #include <Adafruit_GFX.h>       //https://github.com/adafruit/Adafruit-GFX-Library
 #include <Adafruit_SSD1306.h>   //https://github.com/adafruit/Adafruit_SSD1306
@@ -13,6 +14,7 @@
 #include <TimerOne.h>           //https://github.com/PaulStoffregen/TimerOne
 #include <DigitalIO.h>          //https://github.com/greiman/DigitalIO
 #include <dell_psu.h>           //https://github.com/timothyjager/DellPSU
+#include <EEWrap.h>             //https://github.com/Chris--A/EEWrap
 
 #include "ads1118.h"
 
@@ -39,7 +41,16 @@ const int SPARE_19         = 19;
 const int CURRENT_FEEDBACK = 20;
 const int CRADLE_SENSOR    = 21; 
 
-
+//EEProm parameter data (https://github.com/Chris--A/EEWrap)
+//Use the xxx_e types rather than the standard types like uint8_t
+struct NVOL{
+  uint8_e a;  //TODO: add the actual non-volatile parameters to this struct.
+  int16_e b;
+  float_e c;
+  uint8_e str[2][6];
+};
+//EEMEM tells the compiler that the object resides in the EEPROM
+NVOL nvol EEMEM; 
 
 //Volatile Variables used by the interrupt handlers
 volatile int16_t adc_value=0;          //ADC value read by ADS1118
@@ -58,6 +69,9 @@ void setup(void)
   //Start our debug serial port
   Serial.begin(115200);
   //while(!Serial);
+
+  //Read the NVOL data as a test.
+  Serial.println(nvol.a);
   
   //Setup the OLED
     // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
