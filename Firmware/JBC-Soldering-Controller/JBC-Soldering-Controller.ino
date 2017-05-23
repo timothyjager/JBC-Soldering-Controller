@@ -190,7 +190,7 @@ static bool rising_edge=true;
    //read back from the ADC while simultaneously changing the config to start a oneshot read of internal temp)
    fastDigitalWrite(CS, LOW);
    adc_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
-   myPID.Compute();
+   myPID.Compute(); 
    //TODO: update the PWM duty
    fastDigitalWrite(CS, HIGH);
   }
