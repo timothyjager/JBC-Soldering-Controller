@@ -54,6 +54,14 @@ struct NVOL{
 //EEMEM tells the compiler that the object resides in the EEPROM
 NVOL nvol EEMEM; 
 
+//Hard-coded calibration points.  TODO: make these not hard-coded
+#define NUM_CAL_POINTS 4
+//uint16_t microvolts [NUM_CAL_POINTS] = {0,10,20,30,40,50};
+uint16_t adc_reading [NUM_CAL_POINTS] = {283,584,919,1098}; 
+uint16_t deg_c [NUM_CAL_POINTS] = {105,200,300,345};
+
+//x = multiMap2(raw, adc_reading, deg_c, NUM_CAL_POINTS);
+
 //Volatile Variables used by the interrupt handlers
 volatile int16_t adc_value=0;          //ADC value read by ADS1118
 volatile int16_t temperature_value=0;  //internal temp of ADS1118
@@ -182,6 +190,8 @@ static bool rising_edge=true;
    //read back from the ADC while simultaneously changing the config to start a oneshot read of internal temp)
    fastDigitalWrite(CS, LOW);
    adc_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
+   myPID.Compute();
+   //TODO: update the PWM duty
    fastDigitalWrite(CS, HIGH);
   }
   //every other interrupt will be a rising edge, we need to keep track of which is which
@@ -299,3 +309,25 @@ next_millis+=1000;
   Serial.println(ADS1118_INT_TEMP_C(0x3B00<<2));
   delay(5000);
   */
+
+
+  // note: the _in array should have increasing values
+//multimap2 allows for extrapolation if the input value is outside the bounds of the lookup array
+int multiMap2(int val, int* _in, int* _out, uint8_t size)
+{
+  // take care the value is within range
+  // val = constrain(val, _in[0], _in[size-1]);
+  if (val <= _in[0]) return _out[0];
+  //if (val >= _in[size-1]) return _out[size-1];  //extrapolate the value using the last 2 xy pairs.
+  //if (val >= _in[size-1]) return _out[size-1];  //extrapolate the value using the last 2 xy pairs.
+
+  // search right interval
+  uint8_t pos = 1;  // _in[0] allready tested
+  while(val > _in[pos] && pos<size-1) pos++;
+
+  // this will handle all exact "points" in the _in array
+  if (val == _in[pos]) return _out[pos];
+
+  // interpolate in the right segment for the rest
+  return (val - _in[pos-1]) * (_out[pos] - _out[pos-1]) / (_in[pos] - _in[pos-1]) + _out[pos-1];
+}
