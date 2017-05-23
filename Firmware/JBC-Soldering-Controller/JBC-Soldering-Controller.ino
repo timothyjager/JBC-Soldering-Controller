@@ -15,6 +15,7 @@
 #include <DigitalIO.h>          //https://github.com/greiman/DigitalIO
 #include <dell_psu.h>           //https://github.com/timothyjager/DellPSU
 #include <EEWrap.h>             //https://github.com/Chris--A/EEWrap
+#include <PID_v1.h>             //https://github.com/br3ttb/Arduino-PID-Library/
 
 #include "ads1118.h"
 
@@ -39,7 +40,8 @@ const int ENC_BUTTON       = 18; //Maybe this should be an interrupt. if it does
 const int SPARE_18         = 18;
 const int SPARE_19         = 19;
 const int CURRENT_FEEDBACK = 20;
-const int CRADLE_SENSOR    = 21; 
+const int CRADLE_SENSOR    = 21;
+const int OLED_RESET       = 4; //the library asks for a reset pin, but our OLED doesn't have one 
 
 //EEProm parameter data (https://github.com/Chris--A/EEWrap)
 //Use the xxx_e types rather than the standard types like uint8_t
@@ -55,12 +57,16 @@ NVOL nvol EEMEM;
 //Volatile Variables used by the interrupt handlers
 volatile int16_t adc_value=0;          //ADC value read by ADS1118
 volatile int16_t temperature_value=0;  //internal temp of ADS1118
+double kP=2, kI=0, kD=0;
 
 //Global Objects
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);  //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
 
-DellPSU dell(1);   //specify the desired Arduino pin number
+DellPSU dell(DELL_PSU);   //specify the desired Arduino pin number
+double Setpoint, Input, Output;
+//Specify the links and initial tuning parameters
+PID myPID(&Input, &Output, &Setpoint,kP,kI,kD, DIRECT); //TODO: map this properly
 
 
 //----------------Setup-------------------------
@@ -117,9 +123,14 @@ void setup(void)
   */
   //setup PWM and interrupts. These use the 16 bit timer1
   #define PWM_PERIOD_US 20000 //20000us = 20ms = 50Hz PWM frequency. We have to go slow enough to allow time for sampling the ADC during the PWM off time
-  #define PWM_PERIOD_MS (PWM_PERIOD_US/1000)  
+  #define PWM_PERIOD_MS (PWM_PERIOD_US/1000)
+  #define PWM_MAX_DUTY 1023 //the timer 1 libray scales the PWM duty cycle from 0 to 1023 where 0=0% and 1023=100%
+  #define ADC_SAMPLE_WINDOW_US 1200 //1200us = 1.2ms //we need 1.2 ms to sample the ADC. assuming 860 SPS setting
+  #define ADC_SAMPLE_WINDOW_PWM_DUTY (((PWM_PERIOD_US-ADC_SAMPLE_WINDOW_US)*PWM_MAX_DUTY)/PWM_PERIOD_US)  // we set our PWM duty to as close to 100% as possible while still leaving enough time for the ADC sample.
+  #define MAX_HEATER_PWM_DUTY ADC_SAMPLE_WINDOW_PWM_DUTY //our maximum allowable heater PWM duty is equal to the sampling window PWM duty.  
+    
   Timer1.initialize(PWM_PERIOD_US);  
-  Timer1.pwm(LPINB, 1023-61); //we need 1.2 ms to sample the ADC. assuming 860 SPS setting
+  Timer1.pwm(LPINB, ADC_SAMPLE_WINDOW_PWM_DUTY); 
   Timer1.pwm(LPINA, 2); //100% = 1023
   delay(PWM_PERIOD_MS); //make sure both PWM's have run at least one full period before enabling interrupts 
 
@@ -129,6 +140,10 @@ void setup(void)
   //enable comparator A interrupt vector. 
   //This will fire an interrupt on each edge of our main PWM. we only use this once to synchronise the B sampling interrupt. 
   TIMSK1 = _BV(OCIE1A);
+
+
+  //enable the PID loop
+  myPID.SetMode(AUTOMATIC);
 }
 
 void PulsePin(int pin)
@@ -196,6 +211,8 @@ ISR(TIMER1_COMPA_vect)
 void loop(void)
 {
 
+  static long next_millis = millis()+1000; 
+
  //block interrupts while retreiving the temperature values.
  noInterrupts();
  int16_t adc_copy=adc_value;
@@ -214,14 +231,27 @@ void loop(void)
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
+float tempfloat = (float)adc_copy * 0.1901 + 1.6192+(float)temperature_copy;
 
   display.print(temperature_copy);
  display.print(" ");
- display.println(adc_copy);
+ display.print(adc_copy);
+  display.print(" ");
+   display.print(tempfloat);
 
 display.display();
+ Serial.print(millis());
+ Serial.print(" ");
+ Serial.print(adc_copy);
+ Serial.print(" ");
+ Serial.println(tempfloat);
+ //delay(1000); 
 
- delay(300); 
+while (millis()<next_millis);
+
+next_millis+=1000;
+
+
 }
 
 
