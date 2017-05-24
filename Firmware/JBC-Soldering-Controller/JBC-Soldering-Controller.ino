@@ -134,11 +134,13 @@ void setup(void)
   #define PWM_PERIOD_MS (PWM_PERIOD_US/1000)
   #define PWM_MAX_DUTY 1023 //the timer 1 libray scales the PWM duty cycle from 0 to 1023 where 0=0% and 1023=100%
   #define ADC_SAMPLE_WINDOW_US 1200 //1200us = 1.2ms //we need 1.2 ms to sample the ADC. assuming 860 SPS setting
-  #define ADC_SAMPLE_WINDOW_PWM_DUTY (((PWM_PERIOD_US-ADC_SAMPLE_WINDOW_US)*PWM_MAX_DUTY)/PWM_PERIOD_US)  // we set our PWM duty to as close to 100% as possible while still leaving enough time for the ADC sample.
+  #define ADC_SAMPLE_WINDOW_PWM_DUTY 961//(((PWM_PERIOD_US-ADC_SAMPLE_WINDOW_US)*PWM_MAX_DUTY)/PWM_PERIOD_US)  // we set our PWM duty to as close to 100% as possible while still leaving enough time for the ADC sample.
   #define MAX_HEATER_PWM_DUTY ADC_SAMPLE_WINDOW_PWM_DUTY //our maximum allowable heater PWM duty is equal to the sampling window PWM duty.  
     
   Timer1.initialize(PWM_PERIOD_US);  
   Timer1.pwm(LPINB, ADC_SAMPLE_WINDOW_PWM_DUTY); 
+
+  
   Timer1.pwm(LPINA, 60); //100% = 1023
   delay(PWM_PERIOD_MS); //make sure both PWM's have run at least one full period before enabling interrupts 
 
@@ -262,7 +264,9 @@ void loop(void)
  display.display();
  //Serial.print(millis());
  //Serial.print(" ");
- Serial.println(adc_copy);
+ Serial.print(adc_copy);
+ //  Serial.print("ADC_SAMPLE_WINDOW_PWM_DUTY");
+ // Serial.println(ADC_SAMPLE_WINDOW_PWM_DUTY);
  //Serial.print(" ");
  //Serial.println(tempfloat);
   //}
