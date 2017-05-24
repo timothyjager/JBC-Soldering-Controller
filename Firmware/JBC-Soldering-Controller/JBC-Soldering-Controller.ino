@@ -26,7 +26,7 @@ const int ENC_B            = 1;  //TODO: determine which interrupt pins to use o
 const int I2C_SDA          = 2;
 const int I2C_SCL          = 3;
 const int SPARE_4          = 4;
-const int DELL_PSU         = 5;  //TODO: rewire this on the proto board.
+const int DELL_PSU         = 1;//5;  //TODO: rewire this on the proto board.
 const int debug_pin_B      = 6;
 const int debug_pin_A      = 7;
 const int CS               = 7;
@@ -139,7 +139,7 @@ void setup(void)
     
   Timer1.initialize(PWM_PERIOD_US);  
   Timer1.pwm(LPINB, ADC_SAMPLE_WINDOW_PWM_DUTY); 
-  Timer1.pwm(LPINA, 2); //100% = 1023
+  Timer1.pwm(LPINA, 60); //100% = 1023
   delay(PWM_PERIOD_MS); //make sure both PWM's have run at least one full period before enabling interrupts 
 
   //clear the A interrupt flag, so it doesn't fire right away, when we enable the A interrupt
@@ -190,7 +190,7 @@ static bool rising_edge=true;
    //read back from the ADC while simultaneously changing the config to start a oneshot read of internal temp)
    fastDigitalWrite(CS, LOW);
    adc_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
-   myPID.Compute(); 
+   //myPID.Compute(); 
    //TODO: update the PWM duty
    fastDigitalWrite(CS, HIGH);
   }
@@ -237,6 +237,44 @@ void loop(void)
  //Serial.print(" ");
  //Serial.println(adc_copy);
 
+
+///////////////
+   display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+
+    
+    //if (dell.read_data()==true)
+  //{
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+//float tempfloat = (float)adc_copy * 0.1901 + 1.6192+(float)temperature_copy;
+
+ display.print(temperature_copy);
+ display.print(" ");
+ display.print(adc_copy);
+ //display.print(" ");
+ //display.print(tempfloat);
+
+ display.display();
+ //Serial.print(millis());
+ //Serial.print(" ");
+ Serial.println(adc_copy);
+ //Serial.print(" ");
+ //Serial.println(tempfloat);
+  //}
+  //else
+ // {
+  //  display.print("plug in adapter");
+  //}
+  //display.display(); 
+
+///////////////
+
+/*
     display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(WHITE);
@@ -256,6 +294,7 @@ display.display();
  Serial.print(" ");
  Serial.println(tempfloat);
  //delay(1000); 
+*/
 
 while (millis()<next_millis);
 
