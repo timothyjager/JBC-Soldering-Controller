@@ -70,9 +70,45 @@ double kP=2, kI=0, kD=0;
 //Global Objects
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);  //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
-
+Encoder myEnc(ENC_A, ENC_B);
 DellPSU dell(DELL_PSU);   //specify the desired Arduino pin number
-double Setpoint, Input, Output;
+
+
+//Serial comm /tuning unions/structs
+union controller_packet_converter{
+  struct {
+      byte  start_of_packet; //always 0xBA. It was arbitrarily chosen.
+      byte  automatic;
+      float setpoint;
+      float input;
+      float output;
+      float kP;
+      float kI;
+      float kD;
+      float ITerm;
+  } status;
+  byte asBytes[sizeof(status)]; 
+};
+
+union host_packet_converter{
+  struct {
+      byte start_of_packet; //this should always be 0xAB. It was arbitrarily chosen
+      byte automatic;       //0=manual Auto =1
+      float setpoint;
+      float input;
+      float output;
+      float kP;
+      float kI;
+      float kD;
+  } param;
+  byte asBytes[sizeof(param)];
+};
+
+host_packet_converter host_packet;
+controller_packet_converter controller_packet;
+
+
+volatile double Setpoint, Input, Output;
 //Specify the links and initial tuning parameters
 PID myPID(&Input, &Output, &Setpoint,kP,kI,kD, DIRECT); //TODO: map this properly
 
@@ -154,6 +190,8 @@ void setup(void)
 
   //enable the PID loop
   myPID.SetMode(AUTOMATIC);
+  myPID.SetSampleTime(20); //20ms  TODO: don't leave this hard-coded
+  myPID.SetOutputLimits(0,900); //961max PWM, otherwise it will cut into the sample window TODO:dont leave hard coded
 }
 
 void PulsePin(int pin)
@@ -192,7 +230,11 @@ static bool rising_edge=true;
    //read back from the ADC while simultaneously changing the config to start a oneshot read of internal temp)
    fastDigitalWrite(CS, LOW);
    adc_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
-   //myPID.Compute(); 
+   //long time_start = millis();
+   Input =adc_value; 
+   myPID.Compute();
+   Timer1.pwm(LPINA, Output); //100% = 1023 
+   //Serial.println(millis()-time_start);
    //TODO: update the PWM duty
    fastDigitalWrite(CS, HIGH);
   }
@@ -233,12 +275,6 @@ void loop(void)
  
  //convert to degrees C
  temperature_copy=ADS1118_INT_TEMP_C(temperature_copy);
- 
- 
- //Serial.print(temperature_copy);
- //Serial.print(" ");
- //Serial.println(adc_copy);
-
 
 ///////////////
    display.clearDisplay();
@@ -264,7 +300,7 @@ void loop(void)
  display.display();
  //Serial.print(millis());
  //Serial.print(" ");
- Serial.print(adc_copy);
+ //Serial.print(adc_copy);
  //  Serial.print("ADC_SAMPLE_WINDOW_PWM_DUTY");
  // Serial.println(ADC_SAMPLE_WINDOW_PWM_DUTY);
  //Serial.print(" ");
@@ -278,33 +314,16 @@ void loop(void)
 
 ///////////////
 
-/*
-    display.clearDisplay();
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.setCursor(0,0);
-float tempfloat = (float)adc_copy * 0.1901 + 1.6192+(float)temperature_copy;
-
-  display.print(temperature_copy);
- display.print(" ");
- display.print(adc_copy);
-  display.print(" ");
-   display.print(tempfloat);
-
-display.display();
- Serial.print(millis());
- Serial.print(" ");
- Serial.print(adc_copy);
- Serial.print(" ");
- Serial.println(tempfloat);
- //delay(1000); 
-*/
-
-while (millis()<next_millis);
-
-next_millis+=1000;
-
-
+//send-receive with processing if it's time
+  if(millis()>next_millis)
+  {
+    if (Serial.available())
+    {
+      SerialReceive();
+    }
+    SendStatusPacket();
+    next_millis+=100;
+  }
 }
 
 
@@ -373,4 +392,63 @@ int multiMap2(int val, int* _in, int* _out, uint8_t size)
 
   // interpolate in the right segment for the rest
   return (val - _in[pos-1]) * (_out[pos] - _out[pos-1]) / (_in[pos] - _in[pos-1]) + _out[pos-1];
+}
+
+//this function sends all of our status values as a hex string. this reduces the CPU load on the MCU since it doesnt have to format float strings.
+void SendStatusPacket()
+{
+  controller_packet.status.start_of_packet = 0xBA;
+  controller_packet.status.setpoint = Setpoint;
+  noInterrupts(); //make sure we disable interrupts while grabing these volatile values.
+  controller_packet.status.input = Input;
+  controller_packet.status.output = Output;
+  controller_packet.status.ITerm = myPID.GetITerm();
+  interrupts();
+  controller_packet.status.kP = myPID.GetKp();
+  controller_packet.status.kI = myPID.GetKi();
+  controller_packet.status.kD = myPID.GetKd();
+  controller_packet.status.automatic = (myPID.GetMode()==AUTOMATIC);
+  int i;
+  for (i=0;i<sizeof(controller_packet_converter);i++)
+  {
+     const char lookup[] = "0123456789abcdef";
+     Serial.write(lookup[ controller_packet.asBytes[i] >> 4 ]);
+     Serial.write(lookup[ controller_packet.asBytes[i] & 0x0f ]);
+  }
+  Serial.write('\n');
+}
+
+//Receive commands from the tuning PC app
+void SerialReceive()
+{
+
+  // read the bytes sent from tuning app
+  int index=0;
+  //if there are bytes in the serial buffer, then read them until we have received a full packet
+  while(Serial.available()&&index<sizeof(host_packet_converter))
+  {
+   host_packet.asBytes[index]=Serial.read();
+   index++;
+  } 
+
+  //when there are no more bytes to read, check if we read the correct number of bytes and make sure our first byte equals our hard-coded start of packet value
+  if(index==sizeof(host_packet_converter) && host_packet.param.start_of_packet==0xAB)
+  {
+    //update PID settings
+    Setpoint=host_packet.param.setpoint;
+    //Input=host_packet.param.input;
+    //only change the outpput if we are in manual mode
+    if(host_packet.param.automatic==0)    
+    {                                     
+      Output=host_packet.param.output;    
+      myPID.SetMode(MANUAL);              
+    }
+    else
+    {
+      myPID.SetMode(AUTOMATIC);              
+    }
+    //update the gains
+    myPID.SetTunings(host_packet.param.kP, host_packet.param.kI, host_packet.param.kD);            // Set PID tunings  
+  }
+  Serial.flush();                         // * clear any random data from the serial buffer
 }
