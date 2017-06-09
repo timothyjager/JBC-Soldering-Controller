@@ -21,12 +21,12 @@
 
 
 //Pin Mapping
-const int ENC_A            = 0;  //TODO: determine which interrupt pins to use on the Leonardo (0, 1, 2, 3, 7 are supported)
-const int ENC_B            = 1;  //TODO: determine which interrupt pins to use on the Leonardo
+const int ENC_A            = 0;
+const int ENC_B            = 1;
 const int I2C_SDA          = 2;
 const int I2C_SCL          = 3;
 const int SPARE_4          = 4;
-const int DELL_PSU         = 1;//5;  //TODO: rewire this on the proto board.
+const int DELL_PSU         = 5;  
 const int debug_pin_B      = 6;
 const int debug_pin_A      = 7;
 const int CS               = 7;
@@ -37,9 +37,8 @@ const int SPI_MISO         = 14;
 const int SPI_SCLK         = 15;
 const int SPI_MOSI         = 16;
 const int ENC_BUTTON       = 18; //Maybe this should be an interrupt. if it does, we need to move CS to a different pin
-const int SPARE_18         = 18;
 const int SPARE_19         = 19;
-const int CURRENT_FEEDBACK = 20;
+const int CURRENT_SENSE    = 20;
 const int CRADLE_SENSOR    = 21;
 const int OLED_RESET       = 4; //the library asks for a reset pin, but our OLED doesn't have one 
 
@@ -65,12 +64,13 @@ uint16_t deg_c [NUM_CAL_POINTS] = {105,200,300,345};
 //Volatile Variables used by the interrupt handlers
 volatile int16_t adc_value=0;          //ADC value read by ADS1118
 volatile int16_t temperature_value=0;  //internal temp of ADS1118
+volatile int16_t current_sense_raw;    //raw adc reading
 double kP=2, kI=0, kD=0;
 
 //Global Objects
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);  //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
-Encoder myEnc(ENC_A, ENC_B);
+Encoder knob(ENC_A, ENC_B);
 DellPSU dell(DELL_PSU);   //specify the desired Arduino pin number
 
 
@@ -122,6 +122,12 @@ void setup(void)
 
   //Read the NVOL data as a test.
   Serial.println(nvol.a);
+
+  //setup cradle detect
+  fastPinMode(CRADLE_SENSOR, INPUT_PULLUP);
+
+  //setup encoder button
+  fastPinMode(ENC_BUTTON,INPUT_PULLUP);
   
   //Setup the OLED
     // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
@@ -246,15 +252,23 @@ static bool rising_edge=true;
 //This should only run at the start of the program, then it disables itself
 ISR(TIMER1_COMPA_vect)
 {
+  static bool one_shot = false;
+  if (!one_shot)
+  {
   //clear the Timer 1 B interrupt flag so it doesn't fire right after we enable it. We only want to detect new interrupts, not old ones.
   TIFR1 |= _BV(OCF1B);
   //Enable only interrupt B, This also disables A since A has done it's one and only job of synchronizing the B interrupt.
   TIMSK1 = _BV(OCIE1B);
+  one_shot = true;
+  }
 //4 pulses for debugging
    PulsePin(debug_pin_B);
    PulsePin(debug_pin_B);
+   current_sense_raw=analogRead(CURRENT_SENSE);
    PulsePin(debug_pin_B);
-   PulsePin(debug_pin_B); 
+   PulsePin(debug_pin_B);
+
+   // 
 }
 
 
@@ -267,10 +281,20 @@ void loop(void)
 
   static long next_millis = millis()+1000; 
 
+ int16_t enc = knob.read()>>2;
+ if (enc<0 || fastDigitalRead(ENC_BUTTON)==false)
+ {
+    knob.write(0);
+    enc=0;
+ }
+
+
  //block interrupts while retreiving the temperature values.
  noInterrupts();
  int16_t adc_copy=adc_value;
  int16_t temperature_copy=temperature_value;
+ int16_t current_sense_raw_copy = current_sense_raw;
+ Setpoint = enc; //set the PID loop to our encooder knob value
  interrupts();
  
  //convert to degrees C
@@ -281,21 +305,36 @@ void loop(void)
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
-
-    
-    //if (dell.read_data()==true)
-  //{
-    display.clearDisplay();
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.setCursor(0,0);
+ 
 //float tempfloat = (float)adc_copy * 0.1901 + 1.6192+(float)temperature_copy;
 
  display.print(temperature_copy);
  display.print(" ");
  display.print(adc_copy);
- //display.print(" ");
- //display.print(tempfloat);
+ if (dell.read_data()==true)
+  {
+ display.print(" ");
+ display.print("PWR ");
+  }
+  else
+  {
+ display.print("     ");
+  }
+  if (fastDigitalRead(CRADLE_SENSOR)==false)
+  {
+ display.print(" ");
+ display.print("CRDL ");
+  }
+  else
+  {
+ display.print("      ");
+  }
+display.setCursor(0,20);
+
+display.print(enc);
+
+display.print(" ");
+display.print(current_sense_raw_copy);
 
  display.display();
  //Serial.print(millis());
@@ -314,15 +353,23 @@ void loop(void)
 
 ///////////////
 
+static bool serial_active = false;
+
 //send-receive with processing if it's time
   if(millis()>next_millis)
   {
     if (Serial.available())
     {
-      SerialReceive();
+      if (SerialReceive())
+      {
+         serial_active=true;
+      }
     }
-    SendStatusPacket();
-    next_millis+=100;
+    if (serial_active)
+    {
+      SendStatusPacket();
+    }
+    next_millis+=500;
   }
 }
 
@@ -419,9 +466,9 @@ void SendStatusPacket()
 }
 
 //Receive commands from the tuning PC app
-void SerialReceive()
+bool SerialReceive()
 {
-
+  bool return_value = false;
   // read the bytes sent from tuning app
   int index=0;
   //if there are bytes in the serial buffer, then read them until we have received a full packet
@@ -449,6 +496,8 @@ void SerialReceive()
     }
     //update the gains
     myPID.SetTunings(host_packet.param.kP, host_packet.param.kI, host_packet.param.kD);            // Set PID tunings  
+  return_value=true;
   }
   Serial.flush();                         // * clear any random data from the serial buffer
+  return return_value;
 }
