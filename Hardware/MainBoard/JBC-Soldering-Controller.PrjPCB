@@ -464,23 +464,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document26]
-DocumentPath=..\..\..\..\..\Desktop\SYM-0119-04874-1\Released\TI-ADS1X18XXX10.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=GISYRRXR
-
-[Document27]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\IC_Analog.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -497,7 +480,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document28]
+[Document27]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\IC_Analog.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -514,7 +497,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YXTKBKUV
 
-[Document29]
+[Document28]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\IC_Digital.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -531,7 +514,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document30]
+[Document29]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\IC_Digital.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -548,7 +531,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GYPHWMGP
 
-[Document31]
+[Document30]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\IC_ADC_DAC.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -565,7 +548,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KCMUTHUG
 
-[Document32]
+[Document31]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\IC_ADC_DAC.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -582,41 +565,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TDVLMKAK
 
-[Document33]
-DocumentPath=..\..\..\..\..\Desktop\PCC-0401-00003-1\Released\ADAI-WS2812B_V.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document34]
-DocumentPath=..\..\..\..\..\Desktop\SYM-0366-00001-1\Released\ADAI-WS2812B-4.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document35]
+[Document32]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\Pass_LEDs.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -633,7 +582,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document36]
+[Document33]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\Pass_LEDs.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -650,7 +599,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NHLIYUDL
 
-[Document37]
+[Document34]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\buttons.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -667,7 +616,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FTNSQSXK
 
-[Document38]
+[Document35]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\buttons.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -684,7 +633,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=AGGFPVQI
 
-[Document39]
+[Document36]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\ElectroMech.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -701,7 +650,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UHOBWVVE
 
-[Document40]
+[Document37]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\ElectroMech.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -717,6 +666,40 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document38]
+DocumentPath=Power3.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=ACLALHAC
+
+[Document39]
+DocumentPath=..\..\..\..\..\..\..\temp\Altium\SYM-0016-01524-1\Released\MCHP-MCP16301-SOT-23-6.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=BUNRXEXT
 
 [ProjectVariant1]
 UniqueID=50AEBD16-FA9C-41C9-AD32-C648FCD713B4
