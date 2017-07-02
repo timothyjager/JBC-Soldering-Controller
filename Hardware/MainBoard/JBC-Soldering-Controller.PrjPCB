@@ -684,16 +684,39 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DAEXHOLV
 
-[ProjectVariant1]
-UniqueID=50AEBD16-FA9C-41C9-AD32-C648FCD713B4
-Description=Rev F
-AllowFabrication=0
-ParameterCount=0
-VariationCount=3
-Variation1=Designator=C4|UniqueId=\YPKAYAKK\JUJEGXML|Kind=1|AlternatePart= 
-Variation2=Designator=R22|UniqueId=\GDOPYIKT\GBIEXPAC|Kind=1|AlternatePart= 
-Variation3=Designator=R21|UniqueId=\GDOPYIKT\QPKKNFPC|Kind=1|AlternatePart= 
-ParamVariationCount=0
+[Document39]
+DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\DMCPcbLib.PCBLIB
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document40]
+DocumentPath=..\Shared Libraries\JBC-Soldering-Controller.SCHLIB
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=JOHAAPSK
 
 [SearchPath1]
 Path=..\..\..\..\..\Altium\Footprint Library\*.*
