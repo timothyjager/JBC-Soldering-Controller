@@ -4,7 +4,3 @@ Version=1.0
 ProjectPath=MainBoard\JBC-Soldering-Controller.PrjPCB
 [Project2]
 ProjectPath=..\..\..\eagle\pro-micro\Imported Pro-Micro-v10a.PrjPcb\Pro-Micro-v10a.PrjPcb
-[Project4]
-ProjectPath=..\..\..\..\..\..\Projects\DMC.Altium.SVN\tools\UltraLibrarianImporter\UL_Import.PrjScr
-[Project5]
-ProjectPath=..\..\..\..\Desktop\NR6028T470M.LibPkg

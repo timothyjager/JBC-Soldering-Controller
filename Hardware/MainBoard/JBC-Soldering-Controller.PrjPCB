@@ -718,6 +718,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JOHAAPSK
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for JBC-Soldering-Controller\Design Rule Check - MainBoard.html
+DItemRevisionGUID=
+
 [SearchPath1]
 Path=..\..\..\..\..\Altium\Footprint Library\*.*
 IncludeSubFolders=1
