@@ -786,41 +786,71 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[GeneratedDocument1]
-DocumentPath=Project Outputs for JBC-Soldering-Controller\Design Rule Check - MainBoard.html
+[Document45]
+DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\Misc.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
 DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document46]
+DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\Misc.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [SearchPath1]
 Path=..\..\..\..\..\Altium\Footprint Library\*.*
 IncludeSubFolders=1
 
 [Parameter1]
-Name=TemperatureRangeLowC
-Value=-40
+Name=CompanyName
+Value=-
 
 [Parameter2]
-Name=TemperatureRangeHighC
-Value=71
+Name=MaxRailVoltage
+Value=20
 
 [Parameter3]
-Name=Project
-Value=JBC - Soldering Controller
+Name=MinimumPassiveCaseSizeUS
+Value=0603
 
 [Parameter4]
 Name=PreferredPassiveCaseSizeUS
 Value=0603
 
 [Parameter5]
-Name=MinimumPassiveCaseSizeUS
-Value=0603
+Name=Project
+Value=JBC - Soldering Controller
 
 [Parameter6]
-Name=MaxRailVoltage
-Value=20
+Name=TemperatureRangeHighC
+Value=71
 
 [Parameter7]
-Name=CompanyName
-Value=-
+Name=TemperatureRangeLowC
+Value=-40
 
 [Configuration1]
 Name=Sources
@@ -1635,6 +1665,46 @@ OutputName9=Specctra Design PCB
 OutputDocumentPath9=
 OutputVariantName9=
 OutputDefault9=0
+OutputType10=Ansoft Neutral
+OutputName10=Ansoft Neutral (AutoPCB)
+OutputDocumentPath10=
+OutputVariantName10=
+OutputDefault10=0
+OutputType11=HyperLynx
+OutputName11=HyperLynx (AutoPCB)
+OutputDocumentPath11=
+OutputVariantName11=
+OutputDefault11=0
+OutputType12=Orcad SDT Schematic
+OutputName12=Orcad SDT Schematic (AutoSCH)
+OutputDocumentPath12=
+OutputVariantName12=
+OutputDefault12=0
+OutputType13=Orcad v7 Capture Design
+OutputName13=Orcad v7 Capture Design (AutoSCH)
+OutputDocumentPath13=
+OutputVariantName13=
+OutputDefault13=0
+OutputType14=P-CAD ASCII
+OutputName14=P-CAD ASCII (AutoPCB)
+OutputDocumentPath14=
+OutputVariantName14=
+OutputDefault14=0
+OutputType15=P-CAD V16 Schematic Design
+OutputName15=P-CAD V16 Schematic Design (AutoSCH)
+OutputDocumentPath15=
+OutputVariantName15=
+OutputDefault15=0
+OutputType16=Protel PCB 2.8 ASCII
+OutputName16=Protel PCB 2.8 ASCII (AutoPCB)
+OutputDocumentPath16=
+OutputVariantName16=
+OutputDefault16=0
+OutputType17=SiSoft
+OutputName17=SiSoft (AutoPCB)
+OutputDocumentPath17=
+OutputVariantName17=
+OutputDefault17=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
