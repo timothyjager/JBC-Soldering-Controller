@@ -770,23 +770,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document44]
-DocumentPath=BOM1.BomDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document45]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\Misc.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -803,7 +786,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document46]
+[Document45]
 DocumentPath=..\..\..\..\..\..\..\Projects\Altium.SVNLib.SVN\Misc.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -820,37 +803,82 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document46]
+DocumentPath=BOM1.BomDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for JBC-Soldering-Controller\BOM\JBC-Soldering-Controller_BOM_[No Variations].xlsx
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for JBC-Soldering-Controller\SimpleBOM\JBC-Soldering-Controller_SIMPLE_BOM_[No Variations].xlsx
+DItemRevisionGUID=
+
 [SearchPath1]
 Path=..\..\..\..\..\Altium\Footprint Library\*.*
 IncludeSubFolders=1
 
 [Parameter1]
-Name=CompanyName
-Value=-
+Name=UseComponentFootprintSize
+Value=True
 
 [Parameter2]
-Name=MaxRailVoltage
-Value=20
+Name=TemperatureRangeLowC
+Value=0
 
 [Parameter3]
-Name=MinimumPassiveCaseSizeUS
-Value=0603
+Name=TemperatureRangeHighC
+Value=85
 
 [Parameter4]
+Name=Project
+Value=JBC Soldering Controller
+
+[Parameter5]
+Name=PreferredSuppliersList
+Value=Digi-Key,Mouser,Arrow
+
+[Parameter6]
 Name=PreferredPassiveCaseSizeUS
 Value=0603
 
-[Parameter5]
-Name=Project
-Value=JBC - Soldering Controller
-
-[Parameter6]
-Name=TemperatureRangeHighC
-Value=71
-
 [Parameter7]
-Name=TemperatureRangeLowC
-Value=-40
+Name=PreferredPackaging
+Value=Cut Tape
+
+[Parameter8]
+Name=MinimumPassiveCaseSizeUS
+Value=0603
+
+[Parameter9]
+Name=MaxRailVoltage
+Value=20
+
+[Parameter10]
+Name=DefaultCapacitorDialectric
+Value=X7R
+
+[Parameter11]
+Name=CompanyName
+Value=-
+
+[Parameter12]
+Name=CapacitorVoltageSafetyFactor
+Value=1.5
 
 [Configuration1]
 Name=Sources
@@ -1088,10 +1116,10 @@ OutputDefault3=0
 PageOptions3=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter
 OutputType4=Schematic Print
 OutputName4=Schematic Prints
-OutputDocumentPath4=C:\Projects\Essex\O2_PressureMonitoringSystem\trunk\Hardware\MainBoard\MCU.SchDoc
+OutputDocumentPath4=
 OutputVariantName4=
 OutputDefault4=0
-PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter
+PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.70|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter
 Configuration4_Name1=OutputConfigurationParameter1
 Configuration4_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False
 OutputType5=SimView Print
@@ -1665,46 +1693,6 @@ OutputName9=Specctra Design PCB
 OutputDocumentPath9=
 OutputVariantName9=
 OutputDefault9=0
-OutputType10=Ansoft Neutral
-OutputName10=Ansoft Neutral (AutoPCB)
-OutputDocumentPath10=
-OutputVariantName10=
-OutputDefault10=0
-OutputType11=HyperLynx
-OutputName11=HyperLynx (AutoPCB)
-OutputDocumentPath11=
-OutputVariantName11=
-OutputDefault11=0
-OutputType12=Orcad SDT Schematic
-OutputName12=Orcad SDT Schematic (AutoSCH)
-OutputDocumentPath12=
-OutputVariantName12=
-OutputDefault12=0
-OutputType13=Orcad v7 Capture Design
-OutputName13=Orcad v7 Capture Design (AutoSCH)
-OutputDocumentPath13=
-OutputVariantName13=
-OutputDefault13=0
-OutputType14=P-CAD ASCII
-OutputName14=P-CAD ASCII (AutoPCB)
-OutputDocumentPath14=
-OutputVariantName14=
-OutputDefault14=0
-OutputType15=P-CAD V16 Schematic Design
-OutputName15=P-CAD V16 Schematic Design (AutoSCH)
-OutputDocumentPath15=
-OutputVariantName15=
-OutputDefault15=0
-OutputType16=Protel PCB 2.8 ASCII
-OutputName16=Protel PCB 2.8 ASCII (AutoPCB)
-OutputDocumentPath16=
-OutputVariantName16=
-OutputDefault16=0
-OutputType17=SiSoft
-OutputName17=SiSoft (AutoPCB)
-OutputDocumentPath17=
-OutputVariantName17=
-OutputDefault17=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
