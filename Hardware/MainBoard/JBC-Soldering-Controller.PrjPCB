@@ -834,7 +834,7 @@ IncludeSubFolders=1
 
 [Parameter1]
 Name=UseComponentFootprintSize
-Value=True
+Value=False
 
 [Parameter2]
 Name=TemperatureRangeLowC
@@ -857,26 +857,30 @@ Name=PreferredPassiveCaseSizeUS
 Value=0603
 
 [Parameter7]
+Name=PreferredPassiveCaseSizeDensitySuffix
+Value=N
+
+[Parameter8]
 Name=PreferredPackaging
 Value=Cut Tape
 
-[Parameter8]
+[Parameter9]
 Name=MinimumPassiveCaseSizeUS
 Value=0603
 
-[Parameter9]
+[Parameter10]
 Name=MaxRailVoltage
 Value=20
 
-[Parameter10]
+[Parameter11]
 Name=DefaultCapacitorDialectric
 Value=X7R
 
-[Parameter11]
+[Parameter12]
 Name=CompanyName
 Value=-
 
-[Parameter12]
+[Parameter13]
 Name=CapacitorVoltageSafetyFactor
 Value=1.5
 
