@@ -81,6 +81,7 @@ union controller_packet_converter{
   struct {
       byte  start_of_packet; //always 0xBA. It was arbitrarily chosen.
       byte  automatic;
+      byte  simulate_input;  //this allows us to override the actual input (temperature reading) using the tuning app
       float setpoint;
       float input;
       float output;
@@ -96,6 +97,7 @@ union host_packet_converter{
   struct {
       byte start_of_packet; //this should always be 0xAB. It was arbitrarily chosen
       byte automatic;       //0=manual Auto =1
+      byte  simulate_input;  //this allows us to override the actual input (temperature reading) using the tuning app
       float setpoint;
       float input;
       float output;
@@ -112,7 +114,7 @@ controller_packet_converter controller_packet;
 
 volatile double Setpoint, Input, Output;
 //Specify the links and initial tuning parameters
-PID myPID(&Input, &Output, &Setpoint,kP,kI,kD, DIRECT); //TODO: map this properly
+PID myPID(&Input, &Output, &Setpoint,kP,kI,kD, P_ON_E,DIRECT); //TODO: map this properly
 
 //try to read the wattage of the power supply
 void Check_DELL_PSU(void) 
@@ -283,7 +285,14 @@ static bool rising_edge=true;
    fastDigitalWrite(CS, LOW);
    adc_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
    //long time_start = millis();
-   Input =adc_value; 
+   if (host_packet.param.simulate_input==1)
+   {
+    Input =host_packet.param.input; 
+   }
+   else
+   {
+    Input =adc_value;
+   }
    myPID.Compute();
    Timer1.pwm(LPINA, Output); //100% = 1023
    //TODO: verify calling neopixel code within the interrupt doesn't affect the the heater control
@@ -354,12 +363,12 @@ void loop(void)
  int16_t current_sense_raw_copy = current_sense_raw;
  if (in_cradle)
  {
-  Setpoint = 0; //turn off the power while in the cradle.
+  //Setpoint = 0; //turn off the power while in the cradle. //temporary disable for testing PID tuning
   //pixels.setPixelColor(0, pixels.Color(0,0,10)); // Blue
  }
  else
  {
-  Setpoint = enc; //set the PID loop to our encoder knob value
+  //Setpoint = enc; //set the PID loop to our encoder knob value
   //pixels.setPixelColor(0, pixels.Color(10,0,0)); // Red
  }
  //pixels.show(); 
@@ -408,19 +417,6 @@ display.print(" ");
 display.print(current_sense_raw_copy);
 
  display.display();
- //Serial.print(millis());
- //Serial.print(" ");
- //Serial.print(adc_copy);
- //  Serial.print("ADC_SAMPLE_WINDOW_PWM_DUTY");
- // Serial.println(ADC_SAMPLE_WINDOW_PWM_DUTY);
- //Serial.print(" ");
- //Serial.println(tempfloat);
-  //}
-  //else
- // {
-  //  display.print("plug in adapter");
-  //}
-  //display.display(); 
 
 ///////////////
 
@@ -440,34 +436,11 @@ static bool serial_active = false;
     {
       SendStatusPacket();
     }
-    next_millis+=500;
+    next_millis+=200;
   }
 }
 
-
-
-
-
- /*
-  Serial.println(ADS1118_INT_TEMP_C(0x1000<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0FFF<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0C80<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0960<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0640<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0320<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0008<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0001<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x0000<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x3FF8<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x3CE0<<2));
-  Serial.println(ADS1118_INT_TEMP_C(0x3B00<<2));
-  delay(5000);
-  */
-
-
-
-
-  // note: the _in array should have increasing values
+// note: the _in array should have increasing values
 //multimap2 allows for extrapolation if the input value is outside the bounds of the lookup array
 int multiMap2(int val, int* _in, int* _out, uint8_t size)
 {
@@ -496,12 +469,13 @@ void SendStatusPacket()
   noInterrupts(); //make sure we disable interrupts while grabing these volatile values.
   controller_packet.status.input = Input;
   controller_packet.status.output = Output;
-  //controller_packet.status.ITerm = myPID.GetITerm();
+  //controller_packet.status.ITerm = myPID.GetITerm(); 
   interrupts();
   controller_packet.status.kP = myPID.GetKp();
   controller_packet.status.kI = myPID.GetKi();
   controller_packet.status.kD = myPID.GetKd();
   controller_packet.status.automatic = (myPID.GetMode()==AUTOMATIC);
+  controller_packet.status.simulate_input = host_packet.param.simulate_input;
   int i;
   for (i=0;i<sizeof(controller_packet_converter);i++)
   {
@@ -531,7 +505,7 @@ bool SerialReceive()
     //update PID settings
     Setpoint=host_packet.param.setpoint;
     //Input=host_packet.param.input;
-    //only change the outpput if we are in manual mode
+    //only change the output if we are in manual mode
     if(host_packet.param.automatic==0)    
     {                                     
       Output=host_packet.param.output;    
