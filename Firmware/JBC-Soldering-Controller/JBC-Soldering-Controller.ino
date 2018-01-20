@@ -3,10 +3,11 @@
  * 
  * MIT License. See LICENSE file for details. 
  */
- 
+
 #include <SPI.h>
 #include <Wire.h>
 #include <EEPROM.h>
+#include <Adafruit_NeoPixel.h>
 
 #include <Adafruit_GFX.h>       //https://github.com/adafruit/Adafruit-GFX-Library
 #include <Adafruit_SSD1306.h>   //https://github.com/adafruit/Adafruit_SSD1306
@@ -25,22 +26,23 @@ const int ENC_A            = 0;
 const int ENC_B            = 1;
 const int I2C_SDA          = 2;
 const int I2C_SCL          = 3;
-const int SPARE_4          = 4;
-const int DELL_PSU         = 5;  
-const int debug_pin_B      = 6;
-const int debug_pin_A      = 7;
-const int CS               = 7;
-const int SPARE_8          = 8;
+const int CS               = 4;
+const int debug_pin_A      = 5;
+const int DELL_PSU         = 6;  
+const int WS2812_DATA      = 7;
+const int CRADLE_SENSOR    = 8;
 const int LPINA            = 9;  //Heater PWM
-const int LPINB            = 10;
-const int SPI_MISO         = 14;
-const int SPI_SCLK         = 15;
-const int SPI_MOSI         = 16;
-const int ENC_BUTTON       = 18; //Maybe this should be an interrupt. if it does, we need to move CS to a different pin
-const int SPARE_19         = 19;
-const int CURRENT_SENSE    = 20;
-const int CRADLE_SENSOR    = 21;
-const int OLED_RESET       = 4; //the library asks for a reset pin, but our OLED doesn't have one 
+const int VIN_SENSE        = 21; 
+const int CURRENT_SENSE    = 20; 
+const int debug_pin_B      = 19; 
+const int ENC_BUTTON       = 18; 
+const int SPI_SCLK         = 15; 
+const int SPI_MISO         = 14; 
+const int SPI_MOSI         = 16; 
+const int LPINB            = 10;  //Timer 1 Debug Pin
+
+
+
 
 //EEProm parameter data (https://github.com/Chris--A/EEWrap)
 //Use the xxx_e types rather than the standard types like uint8_t
@@ -72,7 +74,7 @@ double kP=2, kI=0, kD=0;
 Adafruit_SSD1306 display(OLED_RESET);  //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
 Encoder knob(ENC_A, ENC_B);
 DellPSU dell(DELL_PSU);   //specify the desired Arduino pin number
-
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, WS2812_DATA, NEO_GRB + NEO_KHZ800);
 
 //Serial comm /tuning unions/structs
 union controller_packet_converter{
@@ -112,10 +114,51 @@ volatile double Setpoint, Input, Output;
 //Specify the links and initial tuning parameters
 PID myPID(&Input, &Output, &Setpoint,kP,kI,kD, DIRECT); //TODO: map this properly
 
+//try to read the wattage of the power supply
+void Check_DELL_PSU(void) 
+{
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+ 
+  int PSU_VOLTAGE_RAW = analogRead(VIN_SENSE);
+    
+  if (dell.read_data()==true)
+  {
+    display.print(dell.watts());
+    display.print("W "); 
+    display.print(dell.millivolts());
+    display.print("mv ");
+    display.print(dell.milliamps());
+    display.println("mA ");
+    display.println(dell.response_string());
+    Serial.println(dell.response_string());
+  }
+  else
+  {
+    display.print("supply not detected");
+    display.setCursor(0,20);
+     // read the raw power supply voltage from the resistor divider:
+    int PSU_VOLTAGE_RAW = analogRead(VIN_SENSE);
+    long PSU_MILLIVOLTS = map(PSU_VOLTAGE_RAW, 0, 1023, 0.0, 34412); //Resistor divider (30k / 5.1k) scales 34.4V to 5V 
+    display.print(PSU_MILLIVOLTS);
+    display.print("mV ");
+  }
+  display.display(); 
+  delay(2000); 
+ 
+   
+}
+
 
 //----------------Setup-------------------------
 void setup(void)
 {
+  pixels.begin(); // This initializes the NeoPixel library.
+  pixels.setPixelColor(0, pixels.Color(0,0,10)); // Moderately bright green color.
+  pixels.show();
+  
   //Start our debug serial port
   Serial.begin(115200);
   //while(!Serial);
@@ -130,10 +173,13 @@ void setup(void)
   fastPinMode(ENC_BUTTON,INPUT_PULLUP);
   
   //Setup the OLED
-    // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
-    // Clear the buffer.
-    display.clearDisplay();
+  // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
+  // Clear the buffer.
+  display.clearDisplay();
+
+  //Detect DELL power supply
+  Check_DELL_PSU();  
 
   //these are for debugging the Interrupts
   fastPinMode(debug_pin_A, OUTPUT);
@@ -239,9 +285,18 @@ static bool rising_edge=true;
    //long time_start = millis();
    Input =adc_value; 
    myPID.Compute();
-   Timer1.pwm(LPINA, Output); //100% = 1023 
+   Timer1.pwm(LPINA, Output); //100% = 1023
+   //TODO: verify calling neopixel code within the interrupt doesn't affect the the heater control
+   if (Setpoint==0)
+   {
+     pixels.setPixelColor(0, pixels.Color(0,0,10)); // Blue
+   }
+   else
+   {
+     pixels.setPixelColor(0, pixels.Color(10,0,0)); // Red
+   }
+   pixels.show(); 
    //Serial.println(millis()-time_start);
-   //TODO: update the PWM duty
    fastDigitalWrite(CS, HIGH);
   }
   //every other interrupt will be a rising edge, we need to keep track of which is which
@@ -264,7 +319,7 @@ ISR(TIMER1_COMPA_vect)
 //4 pulses for debugging
    PulsePin(debug_pin_B);
    PulsePin(debug_pin_B);
-   current_sense_raw=analogRead(CURRENT_SENSE);
+   
    PulsePin(debug_pin_B);
    PulsePin(debug_pin_B);
 
@@ -278,10 +333,11 @@ ISR(TIMER1_COMPA_vect)
 // The main program 
 void loop(void)
 {
-
+  static bool in_cradle;
+  
   static long next_millis = millis()+1000; 
 
- int16_t enc = knob.read()>>2;
+ int16_t enc = knob.read()>>1;
  if (enc<0 || fastDigitalRead(ENC_BUTTON)==false)
  {
     knob.write(0);
@@ -289,12 +345,25 @@ void loop(void)
  }
 
 
+//current_sense_raw=analogRead(CURRENT_SENSE);  need to figure out how to read this only when the PWM is on.
+ 
  //block interrupts while retreiving the temperature values.
- noInterrupts();
+  noInterrupts();
  int16_t adc_copy=adc_value;
  int16_t temperature_copy=temperature_value;
  int16_t current_sense_raw_copy = current_sense_raw;
- Setpoint = enc; //set the PID loop to our encooder knob value
+ if (in_cradle)
+ {
+  Setpoint = 0; //turn off the power while in the cradle.
+  //pixels.setPixelColor(0, pixels.Color(0,0,10)); // Blue
+ }
+ else
+ {
+  Setpoint = enc; //set the PID loop to our encoder knob value
+  //pixels.setPixelColor(0, pixels.Color(10,0,0)); // Red
+ }
+ //pixels.show(); 
+ //enable interrupts
  interrupts();
  
  //convert to degrees C
@@ -314,7 +383,7 @@ void loop(void)
  if (dell.read_data()==true)
   {
  display.print(" ");
- display.print("PWR ");
+ display.print("DELL PWR ");
   }
   else
   {
@@ -322,12 +391,14 @@ void loop(void)
   }
   if (fastDigitalRead(CRADLE_SENSOR)==false)
   {
- display.print(" ");
- display.print("CRDL ");
+  display.print(" ");
+  display.print("CRDL ");
+  in_cradle=true;
   }
   else
   {
- display.print("      ");
+  in_cradle=false;  
+  display.print("      ");
   }
 display.setCursor(0,20);
 
@@ -374,33 +445,7 @@ static bool serial_active = false;
 }
 
 
-/*
-   display.clearDisplay();
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.setCursor(0,0);
 
-    
-    if (dell.read_data()==true)
-  {
-    display.print(dell.watts());
-    display.print("W "); 
-    display.print(dell.millivolts());
-    display.print("mv ");
-    display.print(dell.milliamps());
-    display.println("mA ");
-    display.println(dell.response_string());
-    //Serial.println(dell.milliamps());
-    Serial.println(dell.response_string());
-  }
-  else
-  {
-    display.print("plug in adapter");
-  }
-  display.display(); 
-  delay(1000); 
- 
- */
 
 
  /*
@@ -418,6 +463,8 @@ static bool serial_active = false;
   Serial.println(ADS1118_INT_TEMP_C(0x3B00<<2));
   delay(5000);
   */
+
+
 
 
   // note: the _in array should have increasing values
@@ -449,7 +496,7 @@ void SendStatusPacket()
   noInterrupts(); //make sure we disable interrupts while grabing these volatile values.
   controller_packet.status.input = Input;
   controller_packet.status.output = Output;
-  controller_packet.status.ITerm = myPID.GetITerm();
+  //controller_packet.status.ITerm = myPID.GetITerm();
   interrupts();
   controller_packet.status.kP = myPID.GetKp();
   controller_packet.status.kI = myPID.GetKi();
