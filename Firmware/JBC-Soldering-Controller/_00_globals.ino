@@ -31,8 +31,12 @@ const int LPINB            = 10;  //Timer 1 Debug Pin
 //----------------Function Prototypes------------------
 bool SerialReceive(void);
 void SendStatusPacket(void);
-int multiMap2(int val, int* _in, int* _out, uint8_t size);
+int  multiMap2(int val, int* _in, int* _out, uint8_t size);
 void Check_DELL_PSU(void);
+void PulsePin(int pin);
+void updateLEDStatus(void);
+void ProcessSerialComm(void);
+void updateDisplay(void);
 //-----------------------------------------------------
 
 
@@ -54,6 +58,11 @@ union controller_packet_struct {
     byte  start_of_packet; //always 0xBA. It was arbitrarily chosen.
     byte  automatic;
     byte  simulate_input;  //this allows us to override the actual input (temperature reading) using the tuning app
+    //Enocder Position
+    //Adapter Voltage
+    //Raw ADC
+    //temperature (is this same as input?)
+    //GPIO status
     float setpoint;
     float input;
     float output;
@@ -64,7 +73,6 @@ union controller_packet_struct {
   } status;
   byte asBytes[sizeof(status)];
 };
-
 
 //Data structure sent from host PC
 union host_packet_struct {
@@ -81,28 +89,33 @@ union host_packet_struct {
   } param;
   byte asBytes[sizeof(param)];
 };
-
-//Instantiate these two structures one from the host to the controller and on
-host_packet_struct host_packet;
-controller_packet_struct controller_packet;
 //-----------------------------------------------------
 
 
 
+//----------------Standard Global Variables----------------
+host_packet_struct host_packet;
+controller_packet_struct controller_packet;
+
 //Hard-coded calibration points.  TODO: make these not hard-coded
 #define NUM_CAL_POINTS 4
-//uint16_t microvolts [NUM_CAL_POINTS] = {0,10,20,30,40,50};
 uint16_t adc_reading [NUM_CAL_POINTS] = {283, 584, 919, 1098};
 uint16_t deg_c [NUM_CAL_POINTS] = {105, 200, 300, 345};
 
 //x = multiMap2(raw, adc_reading, deg_c, NUM_CAL_POINTS);
+
+double kP = 2, kI = 0, kD = 0;            //PID tuning values
+
+int16_t encoder_pos=0;                    //encoder position TODO: add this to the status packet to send to the host.
+//-----------------------------------------------------
+
+
 
 //----------------Volatile Global Variables------------
 volatile int16_t adc_value = 0;           //ADC value read by ADS1118
 volatile int16_t temperature_value = 0;   //internal temp of ADS1118
 volatile int16_t current_sense_raw;       //raw adc reading
 volatile double Setpoint, Input, Output;  //PID input/output variables
-double kP = 2, kI = 0, kD = 0;            //PID tuning values
 //-----------------------------------------------------
 
 

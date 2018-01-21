@@ -27,12 +27,13 @@ ISR(TIMER1_COMPB_vect)
   //else retreive the reading from the ADC
   else
   {
+    //2 pulses for debugging
     PulsePin(debug_pin_B);
     PulsePin(debug_pin_B);
-    //read back from the ADC while simultaneously changing the config to start a oneshot read of internal temp)
+    //read back the tip temperature from the ADC while simultaneously changing the config to start a oneshot read of internal IC temperature (i.e. cold junction temp)
     fastDigitalWrite(CS, LOW);
     adc_value = SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
-    //long time_start = millis();
+    //determine if PID loop shoudl use the actual temperature or simulated temperrature from the host.  TODO: we can probably just re-init the PID loop and change the pointers to avoid doing this every scan.
     if (host_packet.param.simulate_input == 1)
     {
       Input = host_packet.param.input;
@@ -41,18 +42,14 @@ ISR(TIMER1_COMPB_vect)
     {
       Input = adc_value;
     }
+    
+    //Compute PID
     myPID.Compute();
+    //Update PWM output
     Timer1.pwm(LPINA, Output); //100% = 1023
     //TODO: verify calling neopixel code within the interrupt doesn't affect the the heater control
-    if (Setpoint == 0)
-    {
-      pixels.setPixelColor(0, pixels.Color(0, 0, 10)); // Blue
-    }
-    else
-    {
-      pixels.setPixelColor(0, pixels.Color(10, 0, 0)); // Red
-    }
-    pixels.show();
+    updateLEDStatus();
+    
     //Serial.println(millis()-time_start);
     fastDigitalWrite(CS, HIGH);
   }
@@ -62,24 +59,21 @@ ISR(TIMER1_COMPB_vect)
 
 
 //This should only run at the start of the program, then it disables itself
+//It's used to start the B interupt at the right time
 ISR(TIMER1_COMPA_vect)
 {
   static bool one_shot = false;
+  //If we have never run this code before, then run it just once
   if (!one_shot)
   {
-    //clear the Timer 1 B interrupt flag so it doesn't fire right after we enable it. We only want to detect new interrupts, not old ones.
-    TIFR1 |= _BV(OCF1B);
-    //Enable only interrupt B, This also disables A since A has done it's one and only job of synchronizing the B interrupt.
-    TIMSK1 = _BV(OCIE1B);
-    one_shot = true;
+    TIFR1 |= _BV(OCF1B);        //clear the Timer 1 B interrupt flag so it doesn't fire right after we enable it. We only want to detect new interrupts, not old ones.
+    TIMSK1 = _BV(OCIE1B);       //Enable only interrupt B, This also disables A since A has done it's one and only job of synchronizing the B interrupt.
+    one_shot = true;            //set oneshot to prevent this code from ever running again. It shouldn't try to since this interrupt should now be disable. 
   }
-  //4 pulses for debugging
+  //4 pulses for debugging with logi analyzer
   PulsePin(debug_pin_B);
   PulsePin(debug_pin_B);
-
   PulsePin(debug_pin_B);
   PulsePin(debug_pin_B);
-
-  //
 }
 

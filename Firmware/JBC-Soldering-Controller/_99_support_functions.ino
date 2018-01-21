@@ -6,7 +6,7 @@
 //----------------Support Functions------------------------
 
 
-//multimap2 
+//multimap2
 //allows for extrapolation if the input value is outside the bounds of the lookup array
 //This is a modified version of multimap: https://playground.arduino.cc/Main/MultiMap
 //note: the _in array should have increasing values
@@ -50,7 +50,7 @@ void Check_DELL_PSU(void)
     display.print(dell.milliamps());
     display.println("mA ");
     display.println(dell.response_string());
-    Serial.println(dell.response_string());
+    //Serial.println(dell.response_string());
   }
   else
   {
@@ -63,7 +63,90 @@ void Check_DELL_PSU(void)
     display.print("mV ");
   }
   display.display();
-  delay(2000);
-
-
+  delay(4000);
 }
+
+//This function quickly toggles a pin.
+//Used for debugging with the logic analyzer
+void PulsePin(int pin)
+{
+  fastDigitalWrite(pin, HIGH);
+  fastDigitalWrite(pin, LOW);
+}
+
+
+//This function updates the LED status
+//TODO: Implement better LED colors:  blue if the power is off and the tip is 'cold'.  Yellow if the power is off but the tip is still 'hot'. Red if the power is on. Or maybe transition smoothly to red as it heats up. 
+void updateLEDStatus(void)
+{
+    if (Setpoint == 0)
+    {
+      pixels.setPixelColor(0, pixels.Color(0, 0, 10)); // Blue
+    }
+    else
+    {
+      pixels.setPixelColor(0, pixels.Color(10, 0, 0)); // Red
+    }
+    pixels.show();
+}
+
+
+//This updates the OLED display
+void updateDisplay(void)
+{
+  static bool in_cradle;
+
+  //block interrupts while retreiving the temperature values.
+  noInterrupts();
+  int16_t adc_copy = adc_value;
+  int16_t temperature_copy = temperature_value;
+  int16_t current_sense_raw_copy = current_sense_raw;
+  interrupts();
+  //convert to degrees C
+  temperature_copy = ADS1118_INT_TEMP_C(temperature_copy);
+
+
+  ///////////////
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0, 0);
+
+  //float tempfloat = (float)adc_copy * 0.1901 + 1.6192+(float)temperature_copy;
+
+  display.print(temperature_copy);
+  display.print(" ");
+  display.print(adc_copy);
+/*
+  if (dell.read_data() == true)
+  {
+    display.print(" ");
+    display.print("DELL PWR ");
+  }
+  else
+  {
+    display.print("     ");
+  }
+  if (fastDigitalRead(CRADLE_SENSOR) == false)
+  {
+    display.print(" ");
+    display.print("CRDL ");
+    in_cradle = true;
+  }
+  else
+  {
+    in_cradle = false;
+    display.print("      ");
+  }
+  */
+  display.setCursor(0, 20);
+
+  display.print(encoder_pos);
+
+  display.print(" ");
+  display.print(current_sense_raw_copy);
+
+  display.display();
+  
+}
+
