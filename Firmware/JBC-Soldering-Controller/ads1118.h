@@ -1,6 +1,5 @@
 /* Copyright (c) 2017 timothyjager
  * TI ADS1118 ADC configuration bits
- * 
  * MIT License. See LICENSE file for details. 
  */
 #ifndef ads1118_h
