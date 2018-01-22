@@ -34,14 +34,14 @@ ISR(TIMER1_COMPB_vect)
     fastDigitalWrite(CS, LOW);
     adc_value = SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
     //determine if PID loop shoudl use the actual temperature or simulated temperrature from the host.  TODO: we can probably just re-init the PID loop and change the pointers to avoid doing this every scan.
-    if (host_packet.param.simulate_input == 1)
-    {
-      Input = host_packet.param.input;
-    }
-    else
-    {
-      Input = adc_value;
-    }
+//    if (host_packet.param.simulate_input == 1)
+//    {
+//      Input = host_packet.param.input;
+//    }
+//    else
+//    {
+//      Input = adc_value;
+//    }
     
     //Compute PID
     myPID.Compute();

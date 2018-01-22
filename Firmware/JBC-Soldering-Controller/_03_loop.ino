@@ -35,21 +35,7 @@ void loop(void)
   }
   //pixels.show();
   //enable interrupts
-  byte IO[4];
-  IO[0] = PINB;
-  IO[1] = PINC;
-  IO[2] = PIND;
-  IO[3] = PINE;
-
-  int i;
-  for (i = 0; i < sizeof(IO); i++)
-  {
-    const char lookup[] = "0123456789abcdef";
-    Serial.write(lookup[IO[i] >> 4 ]);
-    Serial.write(lookup[IO[i] & 0x0f ]);
-  }
-  Serial.write('\n');
-  //ProcessSerialComm();
+  ProcessSerialComm();
 }
 
 

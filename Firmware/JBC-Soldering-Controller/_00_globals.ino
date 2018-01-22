@@ -52,42 +52,55 @@ struct NVOL {
 };
 NVOL nvol EEMEM;  //EEMEM tells the compiler that the object resides in the EEPROM
 
+//System Parameters Data Structure
+typedef struct {
+  byte  automatic;          //PID mode - Automatic=0, Manual=1
+  byte  simulate_input;     //this allows us to override the actual input (temperature reading) using the tuning app
+  int16_t idle_temp_c;
+  int16_t output_override;
+  float setpoint;
+  float kP;
+  float kI;
+  float kD;
+  float SimulatedInput;
+} system_parameters_struct;
+
+//Status Variables Struct - hold global status values
+typedef struct {
+  byte gpio_port_b;                //Port b of GPIO
+  byte gpio_port_c;                //Port C of GPIO
+  byte gpio_port_d;                //Port d of GPIO
+  byte gpio_port_e;                //Port e of GPIO
+  int16_t encoder_pos;             //Enocder Position
+  int16_t adapter_voltage_mv;      //Input power adapter voltage in millivolts
+  int16_t adc_counts;              //ADC value read by ADS1118
+  int16_t adc_ic_temp_counts;      //internal temp of ADS1118
+  int16_t current_sense_mv;        //current sense in milliamps
+  float pid_setpoint;              //setpoint of the PID loop
+  float pid_input;                 //input value of the PID loop
+  float pid_output;                //computed output value of the PID loop
+} status_struct;
+
+
+
+
 //Data structure sent from Arduino to host PC
 union controller_packet_struct {
   struct {
-    byte  start_of_packet; //always 0xBA. It was arbitrarily chosen.
-    byte  automatic;
-    byte  simulate_input;  //this allows us to override the actual input (temperature reading) using the tuning app
-    //Enocder Position
-    //Adapter Voltage
-    //Raw ADC
-    //temperature (is this same as input?)
-    //GPIO status
-    float setpoint;
-    float input;
-    float output;
-    float kP;
-    float kI;
-    float kD;
-    float ITerm;
-  } status;
-  byte asBytes[sizeof(status)];
+    volatile status_struct status;            //Enture status structure
+    volatile system_parameters_struct params;
+  } payload;
+  byte asBytes[sizeof(payload)];
 };
+
 
 //Data structure sent from host PC
 union host_packet_struct {
   struct {
     byte start_of_packet; //this should always be 0xAB. It was arbitrarily chosen
-    byte automatic;       //0=manual Auto =1
-    byte  simulate_input;  //this allows us to override the actual input (temperature reading) using the tuning app
-    float setpoint;
-    float input;
-    float output;
-    float kP;
-    float kI;
-    float kD;
-  } param;
-  byte asBytes[sizeof(param)];
+    system_parameters_struct params;
+  } payload;
+  byte asBytes[sizeof(payload)];
 };
 //-----------------------------------------------------
 
@@ -96,6 +109,8 @@ union host_packet_struct {
 //----------------Standard Global Variables----------------
 host_packet_struct host_packet;
 controller_packet_struct controller_packet;
+volatile status_struct status;
+volatile system_parameters_struct params;
 
 //Hard-coded calibration points.  TODO: make these not hard-coded
 #define NUM_CAL_POINTS 4
@@ -106,7 +121,7 @@ uint16_t deg_c [NUM_CAL_POINTS] = {105, 200, 300, 345};
 
 double kP = 2, kI = 0, kD = 0;            //PID tuning values
 
-int16_t encoder_pos=0;                    //encoder position TODO: add this to the status packet to send to the host.
+int16_t encoder_pos = 0;                  //encoder position TODO: add this to the status packet to send to the host.
 //-----------------------------------------------------
 
 
@@ -121,8 +136,8 @@ volatile double Setpoint, Input, Output;  //PID input/output variables
 
 //----------------Globals Objects----------------------
 Adafruit_SSD1306 display(oled_reset);     //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
-Encoder knob(ENC_A, ENC_B);
-DellPSU dell(DELL_PSU);                   //specify the desired Arduino pin number
+Encoder knob(ENC_A, ENC_B);               //Setup the encoder object
+DellPSU dell(DELL_PSU);                   //This object reads data from a DELL power adapter using 1-wire protocol
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, WS2812_DATA, NEO_GRB + NEO_KHZ800);
 PID myPID(&Input, &Output, &Setpoint, kP, kI, kD, P_ON_E, DIRECT); //TODO: map this properly to NVOL data storage
 //-----------------------------------------------------
