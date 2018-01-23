@@ -7,7 +7,7 @@
 
 //process serial communications
 //this function shoudl be called cylcilcallly in the main loop
-#define SERIAL_COMM_PERIOD_MS 200 //run every 200ms.
+#define SERIAL_COMM_PERIOD_MS 250 //run every 200ms.
 void ProcessSerialComm(void)
 {
   static long next_millis = millis() + SERIAL_COMM_PERIOD_MS;  //determine the next time this function should activate
@@ -26,7 +26,7 @@ void ProcessSerialComm(void)
       }
     }
     //Once we determine there is serial activity, we assume a host is connected, so begin streaming our packet data to the host. TODO: currently no way to detect if the host dissapears.
-    if (serial_active)
+    if (Serial)
     {
       SendStatusPacket();
     }
@@ -59,8 +59,9 @@ void SendStatusPacket()
   status.gpio_port_c = PINC;
   status.gpio_port_d = PIND;
   status.gpio_port_e = PINE;
-  if (params.idle_temp_c > 1)
-  {
+  /*
+    if (params.idle_temp_c > 1)
+    {
     status.encoder_pos = 1;           //Enocder Position
     status.adapter_voltage_mv = 2;    //Input power adapter voltage in millivolts
     status.adc_counts = 3;            //ADC value read by ADS1118
@@ -79,8 +80,8 @@ void SendStatusPacket()
     params.kI = 4.56;
     params.kD = 6.78;
     params.SimulatedInput = 9.101;
-  }
-  
+    }
+  */
   //Copy status and parameter structures into our packet payload
   noInterrupts();
   memcpy(&controller_packet.payload.status, &status, sizeof(status_struct));
@@ -116,26 +117,24 @@ bool SerialReceive()
   if (index == sizeof(host_packet_struct) && host_packet.payload.start_of_packet == 0xAB)
   {
     noInterrupts();
-    memcpy(&params, &host_packet.payload.params, sizeof(status_struct));
-    interrupts();
+    memcpy(&params, &host_packet.payload.params, sizeof(status_struct));  //copy our payload struct into our param struct
 
-    /*
-      //update PID settings
-      //Setpoint = host_packet.param.setpoint;
-      //Input=host_packet.param.input;
-      //only change the output if we are in manual mode
-      if (host_packet.param.automatic == 0)
-      {
-      Output = host_packet.param.output;
-      myPID.SetMode(MANUAL);
-      }
-      else
-      {
-      myPID.SetMode(AUTOMATIC);
-      }
-      //update the gains
-      myPID.SetTunings(host_packet.param.kP, host_packet.param.kI, host_packet.param.kD);            // Set PID tunings
-    */
+    //Update PID settings
+    myPID.SetMode(params.pid_mode);
+    //if we are in manual mode, override the output  
+    if (params.pid_mode == MANUAL)
+    {
+      status.pid_output = params.output_override;
+    }
+    else
+    {
+    status.pid_setpoint = params.setpoint;      
+    }
+    myPID.SetTunings(params.kP, params.kI, params.kD);
+
+    knob.write(params.setpoint);
+    interrupts();
+    
     return_value = true;
   }
   Serial.flush();                         // * clear any random data from the serial buffer

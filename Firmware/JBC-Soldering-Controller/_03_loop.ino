@@ -7,13 +7,68 @@
 void loop(void)
 {
   static bool in_cradle;
+  bool update_display_now = false;
 
   //read the encoder knob
-  encoder_pos = knob.read() >> 1;  //divide by 2 to decrease sensitivity
-  if (encoder_pos < 0 || fastDigitalRead(ENC_BUTTON) == false)
+  static int16_t knob_pos_last = 0;
+
+  status.encoder_pos = knob.read(); //>> 2;  //divide by 2 to decrease sensitivity
+
+  //Check if knob has changed
+  if (status.encoder_pos != knob_pos_last)
   {
-    knob.write(0);
-    encoder_pos = 0;
+    //Dont allow it to go negative.
+    if (status.encoder_pos < 0)
+    {
+      knob.write(0);
+      status.encoder_pos = 0;
+    }
+    params.setpoint = status.encoder_pos;
+    if (myPID.GetMode() == AUTOMATIC)
+    {
+      status.pid_setpoint = params.setpoint;
+    }
+
+    update_display_now = true;  //refresh the screen more quickly while adjusting the knob
+  }
+  knob_pos_last = status.encoder_pos;
+
+  //When button is pressed toggle power on/off
+  if (fastDigitalRead(ENC_BUTTON) == false)
+  {
+    noInterrupts();
+    if (params.pid_mode == AUTOMATIC)
+    {
+      params.pid_mode = MANUAL;
+      myPID.SetMode(params.pid_mode);
+      status.pid_output = 0;
+      status.pid_setpoint = 0;
+    }
+    else
+    {
+      params.pid_mode = AUTOMATIC;
+      myPID.SetMode(params.pid_mode);
+      status.pid_setpoint = params.setpoint;
+    }
+    interrupts();
+    delay(200);
+    while (fastDigitalRead(ENC_BUTTON) == false)
+      delay(200);
+  }
+
+
+  //When on cradle power on/off
+  if (fastDigitalRead(CRADLE_SENSOR) == false)
+  {
+    noInterrupts();
+    if (params.pid_mode == AUTOMATIC)
+    {
+      params.pid_mode = MANUAL;
+      myPID.SetMode(params.pid_mode);
+      status.pid_output = 0;
+      status.pid_setpoint = 0;
+    }
+    interrupts();
   }
 
 
@@ -33,9 +88,8 @@ void loop(void)
     //Setpoint = enc; //set the PID loop to our encoder knob value
     //pixels.setPixelColor(0, pixels.Color(10,0,0)); // Red
   }
-  //pixels.show();
-  //enable interrupts
   ProcessSerialComm();
+  updateDisplay(update_display_now);
 }
 
 

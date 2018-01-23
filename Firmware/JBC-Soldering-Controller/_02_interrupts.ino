@@ -18,7 +18,7 @@ ISR(TIMER1_COMPB_vect)
     PulsePin(debug_pin_B);
     //read back the internal temp while simultaneously changing the config to start a oneshot read from the ADC)
     fastDigitalWrite(CS, LOW);
-    temperature_value = SPI.transfer16(ADS1118_SINGLE_SHOT_ADC);
+    status.adc_ic_temp_counts = SPI.transfer16(ADS1118_SINGLE_SHOT_ADC);
     //temperature_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
     fastDigitalWrite(CS, HIGH);
     fastDigitalWrite(CS, LOW);
@@ -32,21 +32,31 @@ ISR(TIMER1_COMPB_vect)
     PulsePin(debug_pin_B);
     //read back the tip temperature from the ADC while simultaneously changing the config to start a oneshot read of internal IC temperature (i.e. cold junction temp)
     fastDigitalWrite(CS, LOW);
-    adc_value = SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
-    //determine if PID loop shoudl use the actual temperature or simulated temperrature from the host.  TODO: we can probably just re-init the PID loop and change the pointers to avoid doing this every scan.
-//    if (host_packet.param.simulate_input == 1)
-//    {
-//      Input = host_packet.param.input;
-//    }
-//    else
-//    {
-//      Input = adc_value;
-//    }
+    int16_t adc_raw = SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
+    static int16_t adc_raw_last;
+    //this is a temporary hack because sometimes the ADC returns an odd value.  TODO: investigate this. 
+    if (abs(adc_raw-adc_raw_last)<1000)
+    {
+    status.adc_counts = adc_raw;
+    }
+    adc_raw_last = adc_raw;  
+ 
+    double tip_temp_c = (0.2925 * (double)status.adc_counts) + 3.4536;
+
+    //determine if PID loop should use the actual temperature or simulated temperature from the host.
+    if (params.simulate_input == 1)
+    {
+      status.tip_temperature_c = params.simulated_input;
+    }
+    else
+    {
+      status.tip_temperature_c = tip_temp_c;
+    }
     
     //Compute PID
     myPID.Compute();
     //Update PWM output
-    Timer1.pwm(LPINA, Output); //100% = 1023
+    Timer1.pwm(LPINA, status.pid_output); //100% = 1023
     //TODO: verify calling neopixel code within the interrupt doesn't affect the the heater control
     updateLEDStatus();
     

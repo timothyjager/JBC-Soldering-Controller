@@ -41,7 +41,7 @@ void setup(void)
   fastDigitalWrite(CS, HIGH);
   delay(10);
   fastDigitalWrite(CS, LOW);
-  temperature_value = SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
+  status.adc_ic_temp_counts = SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
   fastDigitalWrite(CS, HIGH);
   delay(10);
 
@@ -74,10 +74,15 @@ void setup(void)
   TIMSK1 = _BV(OCIE1A);                                //enable comparator A interrupt vector. This will fire an interrupt on each edge of our main PWM. we only use this once to synchronise the B sampling interrupt.
   
   //Set up PID Control Loop
-  myPID.SetMode(AUTOMATIC);
+  myPID.SetMode(MANUAL);
   myPID.SetSampleTime(PWM_PERIOD_MS);                //Since we run out PID every interupt cylce, we set the sample time (ms) to our PWM timer period 
   myPID.SetOutputLimits(0, MAX_HEATER_PWM_DUTY);     //961max PWM, otherwise it will cut into the sample window TODO:dont leave hard coded
 
+  //TODO: dont leave this hard-coded
+  params.kP=30.0;
+  params.kI=1;
+  params.kD=0.36;
+  myPID.SetTunings(params.kP, params.kI, params.kD);
 
   //Detect DELL power supply
   Check_DELL_PSU();

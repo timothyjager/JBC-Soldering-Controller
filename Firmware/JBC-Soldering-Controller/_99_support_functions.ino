@@ -79,7 +79,7 @@ void PulsePin(int pin)
 //TODO: Implement better LED colors:  blue if the power is off and the tip is 'cold'.  Yellow if the power is off but the tip is still 'hot'. Red if the power is on. Or maybe transition smoothly to red as it heats up. 
 void updateLEDStatus(void)
 {
-    if (Setpoint == 0)
+    if (status.pid_setpoint == 0)
     {
       pixels.setPixelColor(0, pixels.Color(0, 0, 10)); // Blue
     }
@@ -91,62 +91,4 @@ void updateLEDStatus(void)
 }
 
 
-//This updates the OLED display
-void updateDisplay(void)
-{
-  static bool in_cradle;
-
-  //block interrupts while retreiving the temperature values.
-  noInterrupts();
-  int16_t adc_copy = adc_value;
-  int16_t temperature_copy = temperature_value;
-  int16_t current_sense_raw_copy = current_sense_raw;
-  interrupts();
-  //convert to degrees C
-  temperature_copy = ADS1118_INT_TEMP_C(temperature_copy);
-
-
-  ///////////////
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(0, 0);
-
-  //float tempfloat = (float)adc_copy * 0.1901 + 1.6192+(float)temperature_copy;
-
-  display.print(temperature_copy);
-  display.print(" ");
-  display.print(adc_copy);
-/*
-  if (dell.read_data() == true)
-  {
-    display.print(" ");
-    display.print("DELL PWR ");
-  }
-  else
-  {
-    display.print("     ");
-  }
-  if (fastDigitalRead(CRADLE_SENSOR) == false)
-  {
-    display.print(" ");
-    display.print("CRDL ");
-    in_cradle = true;
-  }
-  else
-  {
-    in_cradle = false;
-    display.print("      ");
-  }
-  */
-  display.setCursor(0, 20);
-
-  display.print(encoder_pos);
-
-  display.print(" ");
-  display.print(current_sense_raw_copy);
-
-  display.display();
-  
-}
 
