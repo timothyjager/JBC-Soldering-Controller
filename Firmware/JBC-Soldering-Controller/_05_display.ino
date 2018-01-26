@@ -25,31 +25,33 @@ void updateDisplay(bool update_now)
 
     display.clearDisplay();
     display.setTextColor(WHITE);
-    
+
     display.setTextSize(1);
     display.setCursor(0, 0);
     display.print("Set");
     display.setCursor(64, 0);
     display.print("Deg C");
-    
+
     display.setTextSize(2);
     display.setCursor(0, 12);
     display.print((int16_t)params.setpoint);
-    
+
     display.setCursor(64, 12);
     display.print(tip_temperature_copy);
-     uint16_t pwm_bar = status.pid_output/7.5;  //scale max PWM value (961) down to 128 pixels. TODO: dont leave this hard coded. 
-     display.fillRect(0, 29, pwm_bar, 3, WHITE);
+    uint16_t pwm_bar = status.pid_output / 7.5; //scale max PWM value (961) down to 128 pixels. TODO: dont leave this hard coded.
+    display.fillRect(0, 29, pwm_bar, 3, WHITE);
     //display.print(" ");
     //display.print(ADS1118_INT_TEMP_C(adc_ic_temp_counts_copy));
     //display.setCursor(0, 20);
 
     //display.print(status.encoder_pos);
 
-    
-    display.display();
 
-    next_millis += DISPLAY_UPDATE_PERIOD;  //set up our loop to run again in x ms
+    display.display();
+    if (!update_now)
+    {
+      next_millis += DISPLAY_UPDATE_PERIOD;  //set up our loop to run again in x ms
+    }
   }
 }
 
