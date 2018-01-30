@@ -15,31 +15,39 @@ ISR(TIMER1_COMPB_vect)
   //Initiate the ADC reading and read back the internal temperature from last time
   if (rising_edge)
   {
-    PulsePin(debug_pin_B);
+    //for (int i=0;i<100;i++)
+    //{
+    //  fastDigitalWrite(CS, LOW);
+    //}
     //read back the internal temp while simultaneously changing the config to start a oneshot read from the ADC)
     fastDigitalWrite(CS, LOW);
     status.adc_ic_temp_counts = SPI.transfer16(ADS1118_SINGLE_SHOT_ADC);
     //temperature_value=SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
     fastDigitalWrite(CS, HIGH);
     fastDigitalWrite(CS, LOW);
-
+    //PulsePin(debug_pin_B);
+    
   }
   //else retreive the reading from the ADC
   else
   {
     //2 pulses for debugging
-    PulsePin(debug_pin_B);
-    PulsePin(debug_pin_B);
+    //PulsePin(debug_pin_B);
+    //PulsePin(debug_pin_B);
     //read back the tip temperature from the ADC while simultaneously changing the config to start a oneshot read of internal IC temperature (i.e. cold junction temp)
     fastDigitalWrite(CS, LOW);
     int16_t adc_raw = SPI.transfer16(ADS1118_SINGLE_SHOT_INTERNAL_TEMPERATURE);
-    static int16_t adc_raw_last;
+    //static int16_t adc_raw_last;
     //this is a temporary hack because sometimes the ADC returns an odd value.  TODO: investigate this. 
-    if (abs(adc_raw-adc_raw_last)<1000)
-    {
+    //if (abs(adc_raw-adc_raw_last)<1000)
+    //{
     status.adc_counts = adc_raw;
-    }
-    adc_raw_last = adc_raw;  
+    //}
+    //else
+    //{
+     //PulsePin(debug_pin_B); 
+    //}
+    //adc_raw_last = adc_raw;  
  
     double tip_temp_c = (0.2925 * (double)status.adc_counts) + 3.4536;
 
@@ -62,6 +70,9 @@ ISR(TIMER1_COMPB_vect)
     
     //Serial.println(millis()-time_start);
     fastDigitalWrite(CS, HIGH);
+
+    //PulsePin(debug_pin_B);
+    //PulsePin(debug_pin_B);
   }
   //every other interrupt will be a rising edge, we need to keep track of which is which
   rising_edge = !rising_edge;
@@ -80,7 +91,7 @@ ISR(TIMER1_COMPA_vect)
     TIMSK1 = _BV(OCIE1B);       //Enable only interrupt B, This also disables A since A has done it's one and only job of synchronizing the B interrupt.
     one_shot = true;            //set oneshot to prevent this code from ever running again. It shouldn't try to since this interrupt should now be disable. 
   }
-  //4 pulses for debugging with logi analyzer
+  //4 pulses for debugging with logic analyzer
   PulsePin(debug_pin_B);
   PulsePin(debug_pin_B);
   PulsePin(debug_pin_B);

@@ -12,9 +12,11 @@ void setup(void)
   fastPinMode(debug_pin_A, OUTPUT);            //for debugging the Interrupts
   fastPinMode(debug_pin_B, OUTPUT);            //for debugging the Interrupts 
   fastPinMode(CS, OUTPUT);                     //SPI chip select pin
+  fastPinMode(LPINA, OUTPUT);                  //PWM output
+  fastDigitalWrite(LPINA, LOW);                //make sure PWM pin is low on startup
 
   //Serial Port
-  Serial.begin(230400);
+  Serial.begin(115200);
 
   //Neopixel
   pixels.begin();                                  // This initializes the NeoPixel library.
@@ -61,13 +63,14 @@ void setup(void)
 #define PWM_PERIOD_US 20000                            //20000us = 20ms = 50Hz PWM frequency. We have to go slow enough to allow time for sampling the ADC during the PWM off time
 #define PWM_PERIOD_MS (PWM_PERIOD_US/1000)             //20000/1000 = 20ms
 #define PWM_MAX_DUTY 1023                              //the timer 1 libray scales the PWM duty cycle from 0 to 1023 where 0=0% and 1023=100%
-#define ADC_SAMPLE_WINDOW_US 1200                      //1200us = 1.2ms //we need 1.2 ms to sample the ADC. assuming 860 SPS setting
-#define ADC_SAMPLE_WINDOW_PWM_DUTY 961                 //(((PWM_PERIOD_US-ADC_SAMPLE_WINDOW_US)*PWM_MAX_DUTY)/PWM_PERIOD_US)  // we set our PWM duty to as close to 100% as possible while still leaving enough time for the ADC sample.
+#define ADC_SAMPLE_WINDOW_US 1600  //1200                      //1200us = 1.2ms //we need 1.2 ms to sample the ADC. assuming 860 SPS setting
+#define ADC_SAMPLE_WINDOW_PWM_DUTY 941//961                 //(((PWM_PERIOD_US-ADC_SAMPLE_WINDOW_US)*PWM_MAX_DUTY)/PWM_PERIOD_US)  // we set our PWM duty to as close to 100% as possible while still leaving enough time for the ADC sample.
 #define MAX_HEATER_PWM_DUTY ADC_SAMPLE_WINDOW_PWM_DUTY //our maximum allowable heater PWM duty is equal to the sampling window PWM duty.  
 
   Timer1.initialize(PWM_PERIOD_US);                    //Set timer1 to our main PWM period
   Timer1.pwm(LPINB, ADC_SAMPLE_WINDOW_PWM_DUTY);       //Set an interupt to define our sample window
-  Timer1.pwm(LPINA, 60); //100% = 1023                 //Set a default PWM value for our output
+  Timer1.pwm(LPINA, 0); //100% = 1023                 //Set a default PWM value for our output
+  status.pid_output=0;
   delay(PWM_PERIOD_MS);                                //make sure both PWM's have run at least one full period before enabling interrupts
 
   TIFR1 |= _BV(OCF1A);                                 //clear the A interrupt flag, so it doesn't fire right away, when we enable the A interrupt
@@ -76,14 +79,17 @@ void setup(void)
   //Set up PID Control Loop
   myPID.SetMode(MANUAL);
   myPID.SetSampleTime(PWM_PERIOD_MS);                //Since we run out PID every interupt cylce, we set the sample time (ms) to our PWM timer period 
-  myPID.SetOutputLimits(0, MAX_HEATER_PWM_DUTY);     //961max PWM, otherwise it will cut into the sample window TODO:dont leave hard coded
-
+  //myPID.SetOutputLimits(0, MAX_HEATER_PWM_DUTY);     //961max PWM, otherwise it will cut into the sample window TODO:dont leave hard coded
+ myPID.SetOutputLimits(0, 650);     //Ideally this would be set to our PWM sample window duty cycle (eg. 961). However, anything above 650 seems to cause the ADC reading to have random errors. TODO: investigate this further. 
+  
   //TODO: dont leave this hard-coded
   params.kP=30.0;
-  params.kI=1;
-  params.kD=0.36;
+  params.kI=2;
+  params.kD=0.1;
   myPID.SetTunings(params.kP, params.kI, params.kD);
-
+  params.setpoint = 350.0;
+  knob.write(350);
+  status.encoder_pos = 350;
   //Detect DELL power supply
   Check_DELL_PSU();
 }

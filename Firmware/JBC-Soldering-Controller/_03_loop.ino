@@ -6,7 +6,7 @@
 //----------------Main Loop------------------------
 void loop(void)
 {
-  static bool in_cradle;
+  static bool cradle_present=false;
   bool update_display_now = false;
 
   //read the encoder knob
@@ -43,6 +43,7 @@ void loop(void)
       myPID.SetMode(params.pid_mode);
       status.pid_output = 0;
       status.pid_setpoint = 0;
+      cradle_present=false;
     }
     else
     {
@@ -60,6 +61,7 @@ void loop(void)
   //When on cradle power on/off
   if (fastDigitalRead(CRADLE_SENSOR) == false)
   {
+    cradle_present = true; //we have deteected a cradle is being used. So from now on, we respond to on/off cradle events.
     noInterrupts();
     if (params.pid_mode == AUTOMATIC)
     {
@@ -69,6 +71,14 @@ void loop(void)
       status.pid_setpoint = 0;
     }
     interrupts();
+  }
+  else if(fastDigitalRead(CRADLE_SENSOR) == true && cradle_present)
+  {
+      noInterrupts();
+      params.pid_mode = AUTOMATIC;
+      myPID.SetMode(params.pid_mode);
+      status.pid_setpoint = params.setpoint;
+      interrupts();
   }
 
 
