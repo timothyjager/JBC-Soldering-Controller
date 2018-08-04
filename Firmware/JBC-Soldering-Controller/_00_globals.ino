@@ -19,7 +19,7 @@ const int LPINA            = 9;  //Heater PWM
 const int VIN_SENSE        = 21;
 const int CURRENT_SENSE    = 20;
 const int debug_pin_B      = 19;
-const int oled_reset       = 19; //The oled library requires a reset pin even though we doen thave one connected. use the debug pin to satisfy this requirement.
+//const int oled_reset       = 19; //The oled library requires a reset pin even though we doen thave one connected. use the debug pin to satisfy this requirement.
 const int ENC_BUTTON       = 18;
 const int SPI_SCLK         = 15;
 const int SPI_MISO         = 14;
@@ -133,7 +133,7 @@ uint16_t deg_c [NUM_CAL_POINTS] = {105, 200, 300, 345};
 
 
 //----------------Globals Objects----------------------
-Adafruit_SSD1306 display(oled_reset);     //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
+Adafruit_SSD1306 display(-1);     //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
 Encoder knob(ENC_A, ENC_B);               //Setup the encoder object
 DellPSU dell(DELL_PSU);                   //This object reads data from a DELL power adapter using 1-wire protocol
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, WS2812_DATA, NEO_GRB + NEO_KHZ800);
