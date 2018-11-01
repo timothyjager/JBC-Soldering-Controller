@@ -20,6 +20,7 @@ void updateDisplay(bool update_now)
     noInterrupts();
     //int16_t adc_copy = status.adc_counts;
     int16_t tip_temperature_copy = status.tip_temperature_c;
+    int16_t tip_temperature_copy2 = status.tip_temperature_c2;
     int16_t adc_ic_temp_counts_copy = status.adc_ic_temp_counts;
     interrupts();
 
@@ -31,15 +32,27 @@ void updateDisplay(bool update_now)
     display.print("Set");
     display.setCursor(64, 0);
     display.print("Deg C");
+    display.setCursor(110, 0);
+    if(iron_active){
+      display.print("on ");
+    }
+    else{
+      display.print("off");
+    }
 
     display.setTextSize(2);
     display.setCursor(0, 12);
     display.print((int16_t)params.setpoint);
 
-    display.setCursor(64, 12);
+    display.setTextSize(1);
+    display.setCursor(64, 10);
     display.print(tip_temperature_copy);
+    display.setCursor(64, 20);
+    display.print(tip_temperature_copy2);
     uint16_t pwm_bar = status.pid_output / 7.5; //scale max PWM value (961) down to 128 pixels. TODO: dont leave this hard coded.
-    display.fillRect(0, 29, pwm_bar, 3, WHITE);
+    uint16_t pwm_bar2 = status.pid_output2 / 7.5;
+    display.fillRect(0, 28, pwm_bar, 2, WHITE);
+    display.fillRect(0, 30, pwm_bar2, 2, WHITE);
     //display.print(" ");
     //display.print(ADS1118_INT_TEMP_C(adc_ic_temp_counts_copy));
     //display.setCursor(0, 20);

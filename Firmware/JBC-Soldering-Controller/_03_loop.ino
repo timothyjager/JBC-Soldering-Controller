@@ -6,7 +6,7 @@
 //----------------Main Loop------------------------
 void loop(void)
 {
-  static bool in_cradle;
+  //static bool in_cradle;
   bool update_display_now = false;
 
   //read the encoder knob
@@ -23,6 +23,11 @@ void loop(void)
       knob.write(0);
       status.encoder_pos = 0;
     }
+    else if(status.encoder_pos > upper_set_limit)
+    {
+      knob.write(upper_set_limit);
+      status.encoder_pos = upper_set_limit;
+    }
     params.setpoint = status.encoder_pos;
     if (myPID.GetMode() == AUTOMATIC)
     {
@@ -37,38 +42,55 @@ void loop(void)
   if (fastDigitalRead(ENC_BUTTON) == false)
   {
     noInterrupts();
-    if (params.pid_mode == AUTOMATIC)
+    if (iron_active == true)
     {
+      iron_active = false;
       params.pid_mode = MANUAL;
       myPID.SetMode(params.pid_mode);
+      myPID2.SetMode(params.pid_mode);
       status.pid_output = 0;
+      status.pid_output2 = 0;
       status.pid_setpoint = 0;
+      cradle_present=false;
     }
     else
     {
+      iron_active = true;
       params.pid_mode = AUTOMATIC;
       myPID.SetMode(params.pid_mode);
+      myPID2.SetMode(params.pid_mode);
       status.pid_setpoint = params.setpoint;
     }
     interrupts();
     delay(200);
     while (fastDigitalRead(ENC_BUTTON) == false)
-      delay(200);
+    delay(200);
   }
 
 
   //When on cradle power on/off
   if (fastDigitalRead(CRADLE_SENSOR) == false)
   {
+    cradle_present = true; //we have deteected a cradle is being used. So from now on, we respond to on/off cradle events.
     noInterrupts();
     if (params.pid_mode == AUTOMATIC)
     {
       params.pid_mode = MANUAL;
       myPID.SetMode(params.pid_mode);
+      myPID2.SetMode(params.pid_mode);
       status.pid_output = 0;
       status.pid_setpoint = 0;
     }
     interrupts();
+  }
+  else if(fastDigitalRead(CRADLE_SENSOR) == true && cradle_present && iron_active)
+  {
+      noInterrupts();
+      params.pid_mode = AUTOMATIC;
+      myPID.SetMode(params.pid_mode);
+      myPID2.SetMode(params.pid_mode);
+      status.pid_setpoint = params.setpoint;
+      interrupts();
   }
 
 
@@ -90,6 +112,7 @@ void loop(void)
   }
   ProcessSerialComm();
   updateDisplay(update_display_now);
+  updateLEDStatus();
 }
 
 
