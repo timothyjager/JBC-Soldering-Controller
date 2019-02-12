@@ -103,7 +103,16 @@ void flash() {
     //Compute PID
     myPID.Compute();
     //Update PWM output
-    Timer1.pwm(LPINA, status.pid_output); //100% = 1023
+    if (status.tip_temperature_c > 1000) //If there is nothing connected...
+    {
+      Timer1.pwm(LPINA, 0); //100% = 1023 //...make sure that nothing is output. (this protects against the thermocouple disconnects)
+    }
+    else
+    {
+      Timer1.pwm(LPINA, status.pid_output); //100% = 1023
+      if(disable_simultaneous_output)Timer1.pwm(LPINB, 0);//set other output to 0%
+    }
+    
     //Timer1.pwm(LPINB, status.pid_output); //100% = 1023
     //TODO: verify calling neopixel code within the interrupt doesn't affect the the heater control
     //updateLEDStatus();
@@ -141,7 +150,16 @@ void flash() {
     //Compute PID
     myPID2.Compute();
     //Update PWM output
-    Timer1.pwm(LPINB, status.pid_output2); //100% = 1023
+    if (status.tip_temperature_c2 > 1000) //If there is nothing connected...
+    {
+      Timer1.pwm(LPINB, 0); //100% = 1023 //...make sure that nothing is output. (this protects against the thermocouple disconnects)
+    }
+    else
+    {
+      Timer1.pwm(LPINB, status.pid_output2); //100% = 1023
+      if(disable_simultaneous_output)Timer1.pwm(LPINA, 0);//set other output to 0%
+    }
+    
     
     fastDigitalWrite(CS, HIGH);
     interrupt_count = 0;

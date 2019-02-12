@@ -27,6 +27,11 @@ const int SPI_MOSI         = 16;
 const int LPINB            = 10;  //Timer 1 Debug Pin
 //-----------------------------------------------------
 
+//----------------Settings-----------------------------
+// You should change these settings depending on your situation.
+const bool disable_simultaneous_output = true;// If true, this will not allow both outputs to be on at the same time.
+
+//-----------------------------------------------------
 
 //----------------Function Prototypes------------------
 bool SerialReceive(void);
