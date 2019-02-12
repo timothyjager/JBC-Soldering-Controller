@@ -1,0 +1,2224 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:arduino
+LIBS:pauls_comp_lib
+LIBS:ac-dc
+LIBS:Altera
+LIBS:analog_devices
+LIBS:Battery_Management
+LIBS:bbd
+LIBS:Bosch
+LIBS:brooktre
+LIBS:Connector
+LIBS:dc-dc
+LIBS:Decawave
+LIBS:Diode
+LIBS:Display
+LIBS:driver_gate
+LIBS:DSP_Microchip_DSPIC33
+LIBS:elec-unifil
+LIBS:ESD_Protection
+LIBS:Espressif
+LIBS:FPGA_Actel
+LIBS:ftdi
+LIBS:gennum
+LIBS:Graphic
+LIBS:hc11
+LIBS:infineon
+LIBS:intersil
+LIBS:ir
+LIBS:Lattice
+LIBS:LED
+LIBS:LEM
+LIBS:Logic_74xgxx
+LIBS:Logic_74xx
+LIBS:Logic_CMOS_4000
+LIBS:Logic_CMOS_IEEE
+LIBS:logic_programmable
+LIBS:Logic_TTL_IEEE
+LIBS:maxim
+LIBS:MCU_Microchip_PIC10
+LIBS:MCU_Microchip_PIC12
+LIBS:MCU_Microchip_PIC16
+LIBS:MCU_Microchip_PIC18
+LIBS:MCU_Microchip_PIC24
+LIBS:MCU_Microchip_PIC32
+LIBS:MCU_NXP_Kinetis
+LIBS:MCU_NXP_LPC
+LIBS:MCU_NXP_S08
+LIBS:MCU_Parallax
+LIBS:MCU_ST_STM8
+LIBS:MCU_ST_STM32
+LIBS:MCU_Texas_MSP430
+LIBS:Mechanical
+LIBS:modules
+LIBS:Motor
+LIBS:motor_drivers
+LIBS:nordicsemi
+LIBS:nxp
+LIBS:onsemi
+LIBS:Oscillators
+LIBS:Power_Management
+LIBS:powerint
+LIBS:pspice
+LIBS:references
+LIBS:Relay
+LIBS:RF_Bluetooth
+LIBS:rfcom
+LIBS:RFSolutions
+LIBS:Sensor_Current
+LIBS:Sensor_Humidity
+LIBS:sensors
+LIBS:silabs
+LIBS:supertex
+LIBS:Switch
+LIBS:Transformer
+LIBS:Transistor
+LIBS:triac_thyristor
+LIBS:Valve
+LIBS:video
+LIBS:wiznet
+LIBS:Worldsemi
+LIBS:Xicor
+LIBS:xilinx-artix7
+LIBS:xilinx-kintex7
+LIBS:xilinx-spartan6
+LIBS:xilinx-virtex5
+LIBS:xilinx-virtex6
+LIBS:xilinx-virtex7
+LIBS:zetex
+LIBS:Zilog
+LIBS:Arduino_Pro_Mini-cache
+LIBS:SeeedOPL-Capacitor-2016
+LIBS:SeeedOPL-Connector-2016
+LIBS:SeeedOPL-Crystal Oscillator-2016
+LIBS:SeeedOPL-Diode-2016
+LIBS:SeeedOPL-Display-2016
+LIBS:SeeedOPL-Fuse-2016
+LIBS:SeeedOPL-IC-2016
+LIBS:SeeedOPL-Inductor-2016
+LIBS:SeeedOPL-LED-2016
+LIBS:SeeedOPL-Relay-2016
+LIBS:SeeedOPL-Resistor-2016
+LIBS:SeeedOPL-Sensor-2016
+LIBS:SeeedOPL-Switch-2016
+LIBS:SeeedOPL-Transistor-2016
+LIBS:main-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L R R24
+U 1 1 5AB4EE4F
+P 8550 2350
+F 0 "R24" V 8630 2350 50  0000 C CNN
+F 1 "30k" V 8550 2350 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 8480 2350 50  0001 C CNN
+F 3 "" H 8550 2350 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    8550 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R27
+U 1 1 5AB4EECF
+P 8550 2750
+F 0 "R27" V 8630 2750 50  0000 C CNN
+F 1 "5k1" V 8550 2750 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 8480 2750 50  0001 C CNN
+F 3 "" H 8550 2750 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    8550 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR42
+U 1 1 5AB4F2EF
+P 8550 3000
+F 0 "#PWR42" H 8550 2750 50  0001 C CNN
+F 1 "GND" H 8550 2850 50  0000 C CNN
+F 2 "" H 8550 3000 50  0001 C CNN
+F 3 "" H 8550 3000 50  0001 C CNN
+	1    8550 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R15
+U 1 1 5AB64BF3
+P 4050 6650
+F 0 "R15" V 4130 6650 50  0000 C CNN
+F 1 "10K" V 4050 6650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3980 6650 50  0001 C CNN
+F 3 "" H 4050 6650 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4050 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R16
+U 1 1 5AB6521B
+P 5000 6650
+F 0 "R16" V 5080 6650 50  0000 C CNN
+F 1 "10K" V 5000 6650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 4930 6650 50  0001 C CNN
+F 3 "" H 5000 6650 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5000 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R17
+U 1 1 5AB652E6
+P 5200 6650
+F 0 "R17" V 5280 6650 50  0000 C CNN
+F 1 "10K" V 5200 6650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5130 6650 50  0001 C CNN
+F 3 "" H 5200 6650 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5200 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR13
+U 1 1 5AB65D3C
+P 5000 6400
+F 0 "#PWR13" H 5000 6250 50  0001 C CNN
+F 1 "+5V" H 5000 6540 50  0000 C CNN
+F 2 "" H 5000 6400 50  0001 C CNN
+F 3 "" H 5000 6400 50  0001 C CNN
+	1    5000 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR7
+U 1 1 5AB69A39
+P 4150 7050
+F 0 "#PWR7" H 4150 6800 50  0001 C CNN
+F 1 "GND" H 4150 6900 50  0000 C CNN
+F 2 "" H 4150 7050 50  0001 C CNN
+F 3 "" H 4150 7050 50  0001 C CNN
+	1    4150 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R9
+U 1 1 5AB7A574
+P 5750 6700
+F 0 "R9" V 5830 6700 50  0000 C CNN
+F 1 "10K" V 5750 6700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5680 6700 50  0001 C CNN
+F 3 "" H 5750 6700 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5750 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R10
+U 1 1 5AB7A580
+P 6000 6950
+F 0 "R10" V 6080 6950 50  0000 C CNN
+F 1 "100R" V 6000 6950 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5930 6950 50  0001 C CNN
+F 3 "" H 6000 6950 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6000 6950
+	0    1    1    0   
+$EndComp
+$Comp
+L +5V #PWR26
+U 1 1 5AB7A58F
+P 5750 6550
+F 0 "#PWR26" H 5750 6400 50  0001 C CNN
+F 1 "+5V" H 5750 6690 50  0000 C CNN
+F 2 "" H 5750 6550 50  0001 C CNN
+F 3 "" H 5750 6550 50  0001 C CNN
+	1    5750 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L D_Zener D6
+U 1 1 5AB7A595
+P 5750 7200
+F 0 "D6" H 5750 7300 50  0000 C CNN
+F 1 "4V7" H 5750 7100 50  0000 C CNN
+F 2 "Diodes_SMD:D_SOD-123F" H 5750 7200 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2582331.pdf" H 5750 7200 50  0001 C CNN
+F 4 "0.0258" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "NEXPERIA" H 0   0   50  0001 C CNN "MFR"
+F 6 "BZT52-C4V7X" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "2851271" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/nexperia/bzt52-c4v7x/zener-diode-aec-q101-4-7v-sod/dp/2851271" H 0   0   50  0001 C CNN "SPURL"
+	1    5750 7200
+	0    1    1    0   
+$EndComp
+$Comp
+L D_Zener D11
+U 1 1 5AB97EF8
+P 8350 2750
+F 0 "D11" H 8350 2850 50  0000 C CNN
+F 1 "4V7" H 8350 2650 50  0000 C CNN
+F 2 "Diodes_SMD:D_SOD-123F" H 8350 2750 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2582331.pdf" H 8350 2750 50  0001 C CNN
+F 4 "0.0258" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "NEXPERIA" H 0   0   50  0001 C CNN "MFR"
+F 6 "BZT52-C4V7X" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "2851271" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/nexperia/bzt52-c4v7x/zener-diode-aec-q101-4-7v-sod/dp/2851271" H 0   0   50  0001 C CNN "SPURL"
+	1    8350 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Jack-DC J8
+U 1 1 5ABCBC82
+P 7450 2350
+F 0 "J8" H 7450 2560 50  0000 C CNN
+F 1 "Jack-DC" H 7450 2175 50  0000 C CNN
+F 2 "Connectors:JACK_ALIM" H 7500 2310 50  0001 C CNN
+F 3 "" H 7500 2310 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    7450 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR39
+U 1 1 5ABCC8A7
+P 7850 2550
+F 0 "#PWR39" H 7850 2300 50  0001 C CNN
+F 1 "GND" H 7850 2400 50  0000 C CNN
+F 2 "" H 7850 2550 50  0001 C CNN
+F 3 "" H 7850 2550 50  0001 C CNN
+	1    7850 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L +24V #PWR38
+U 1 1 5ABCCE06
+P 7850 2100
+F 0 "#PWR38" H 7850 1950 50  0001 C CNN
+F 1 "+24V" H 7850 2240 50  0000 C CNN
+F 2 "" H 7850 2100 50  0001 C CNN
+F 3 "" H 7850 2100 50  0001 C CNN
+	1    7850 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Rotary_Encoder_Switch SW5
+U 1 1 5AC564C2
+P 4450 6950
+F 0 "SW5" H 4450 7210 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 4350 7400 50  0000 C CNN
+F 2 "footprints:rot_encoder" H 4350 7110 50  0001 C CNN
+F 3 "" H 4450 7210 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4450 6950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR6
+U 1 1 5AC57A0F
+P 4050 6500
+F 0 "#PWR6" H 4050 6350 50  0001 C CNN
+F 1 "+5V" H 4050 6640 50  0000 C CNN
+F 2 "" H 4050 6500 50  0001 C CNN
+F 3 "" H 4050 6500 50  0001 C CNN
+	1    4050 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR10
+U 1 1 5AC5818C
+P 4800 7100
+F 0 "#PWR10" H 4800 6850 50  0001 C CNN
+F 1 "GND" H 4800 6950 50  0000 C CNN
+F 2 "" H 4800 7100 50  0001 C CNN
+F 3 "" H 4800 7100 50  0001 C CNN
+	1    4800 7100
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C5
+U 1 1 5AC67E27
+P 8000 2350
+F 0 "C5" H 8025 2450 50  0000 L CNN
+F 1 "0.1uF" H 8025 2250 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 8038 2200 50  0001 C CNN
+F 3 "" H 8000 2350 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    8000 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR37
+U 1 1 5AC630B5
+P 7250 1550
+F 0 "#PWR37" H 7250 1300 50  0001 C CNN
+F 1 "GND" H 7250 1400 50  0000 C CNN
+F 2 "" H 7250 1550 50  0001 C CNN
+F 3 "" H 7250 1550 50  0001 C CNN
+	1    7250 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D12
+U 1 1 5AC62E7F
+P 7250 1400
+F 0 "D12" H 7250 1500 50  0000 C CNN
+F 1 "LED" H 7250 1300 50  0000 C CNN
+F 2 "LEDs:LED_0805_HandSoldering" H 7250 1400 50  0001 C CNN
+F 3 "" H 7250 1400 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    7250 1400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R31
+U 1 1 5AC62C46
+P 7250 1100
+F 0 "R31" V 7330 1100 50  0000 C CNN
+F 1 "330R" V 7250 1100 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 7180 1100 50  0001 C CNN
+F 3 "" H 7250 1100 50  0001 C CNN
+F 4 "0" H 7250 1100 60  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    7250 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR36
+U 1 1 5AC6077B
+P 7250 950
+F 0 "#PWR36" H 7250 800 50  0001 C CNN
+F 1 "+5V" H 7250 1090 50  0000 C CNN
+F 2 "" H 7250 950 50  0001 C CNN
+F 3 "" H 7250 950 50  0001 C CNN
+	1    7250 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR21
+U 1 1 5B39DAF5
+P 5400 1750
+F 0 "#PWR21" H 5400 1500 50  0001 C CNN
+F 1 "GND" H 5400 1600 50  0000 C CNN
+F 2 "" H 5400 1750 50  0001 C CNN
+F 3 "" H 5400 1750 50  0001 C CNN
+	1    5400 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR29
+U 1 1 5B39DBE4
+P 6250 1750
+F 0 "#PWR29" H 6250 1500 50  0001 C CNN
+F 1 "GND" H 6250 1600 50  0000 C CNN
+F 2 "" H 6250 1750 50  0001 C CNN
+F 3 "" H 6250 1750 50  0001 C CNN
+	1    6250 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR20
+U 1 1 5B39DD45
+P 5400 1150
+F 0 "#PWR20" H 5400 1000 50  0001 C CNN
+F 1 "+5V" H 5400 1290 50  0000 C CNN
+F 2 "" H 5400 1150 50  0001 C CNN
+F 3 "" H 5400 1150 50  0001 C CNN
+	1    5400 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR28
+U 1 1 5B39DECC
+P 6250 1150
+F 0 "#PWR28" H 6250 1000 50  0001 C CNN
+F 1 "+5V" H 6250 1290 50  0000 C CNN
+F 2 "" H 6250 1150 50  0001 C CNN
+F 3 "" H 6250 1150 50  0001 C CNN
+	1    6250 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L ADS1118I U5
+U 1 1 5B39E207
+P 7900 4750
+F 0 "U5" H 7300 5200 50  0000 L CNN
+F 1 "ADS1118I" H 8150 5200 50  0000 L CNN
+F 2 "footprints:VSSOP_10_HandSoldered" H 7850 4700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ads1118.pdf" H 7000 5150 50  0001 C CNN
+F 4 "4.62" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "TI" H 0   0   50  0001 C CNN "MFR"
+F 6 "ADS1118IDGST" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "2854467" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/texas-instruments/ads1118idgst/adc-delta-sigma-16bit-860sps-vssop10/dp/2854467" H 0   0   50  0001 C CNN "SPURL"
+	1    7900 4750
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MCP16301 U6
+U 1 1 5B39F116
+P 9750 2250
+F 0 "U6" H 9450 2500 50  0000 L CNN
+F 1 "MCP16301" H 9750 2500 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23-6" H 9800 1900 50  0001 L CNN
+F 3 "http://www.farnell.com/datasheets/2129968.pdf" H 9450 2600 50  0001 C CNN
+F 4 "0.78" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "microchip" H 0   0   50  0001 C CNN "MFR"
+F 6 "MCP16301T-E/CH" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "2809949" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/microchip/mcp16301t-e-ch/dc-dc-conv-auto-buck-500khz-sot23/dp/2809949" H 0   0   50  0001 C CNN "SPURL"
+	1    9750 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R13
+U 1 1 5B3A3BEE
+P 8750 4350
+F 0 "R13" V 8830 4350 50  0000 C CNN
+F 1 "4M7" V 8750 4350 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 8680 4350 50  0001 C CNN
+F 3 "" H 8750 4350 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    8750 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C10
+U 1 1 5B3A402D
+P 9050 4450
+F 0 "C10" H 9075 4550 50  0000 L CNN
+F 1 "0.1uF" H 9075 4350 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9088 4300 50  0001 C CNN
+F 3 "" H 9050 4450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9050 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C12
+U 1 1 5B3A42D6
+P 9300 4450
+F 0 "C12" H 9325 4550 50  0000 L CNN
+F 1 "1uF" H 9325 4350 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9338 4300 50  0001 C CNN
+F 3 "" H 9300 4450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9300 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C14
+U 1 1 5B3A436E
+P 9550 4450
+F 0 "C14" H 9575 4550 50  0000 L CNN
+F 1 "100pF" H 9575 4350 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9588 4300 50  0001 C CNN
+F 3 "" H 9550 4450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R18
+U 1 1 5B3A6EB2
+P 9750 4250
+F 0 "R18" V 9830 4250 50  0000 C CNN
+F 1 "470R" V 9750 4250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 9680 4250 50  0001 C CNN
+F 3 "" H 9750 4250 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9750 4250
+	0    1    1    0   
+$EndComp
+$Comp
+L R R19
+U 1 1 5B3A6F64
+P 9750 4650
+F 0 "R19" V 9830 4650 50  0000 C CNN
+F 1 "0R" V 9750 4650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 9680 4650 50  0001 C CNN
+F 3 "" H 9750 4650 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9750 4650
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR47
+U 1 1 5B3A7EC1
+P 9950 4700
+F 0 "#PWR47" H 9950 4450 50  0001 C CNN
+F 1 "GND" H 9950 4550 50  0000 C CNN
+F 2 "" H 9950 4700 50  0001 C CNN
+F 3 "" H 9950 4700 50  0001 C CNN
+	1    9950 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR43
+U 1 1 5B3AA150
+P 8750 4150
+F 0 "#PWR43" H 8750 4000 50  0001 C CNN
+F 1 "+5V" H 8750 4290 50  0000 C CNN
+F 2 "" H 8750 4150 50  0001 C CNN
+F 3 "" H 8750 4150 50  0001 C CNN
+	1    8750 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR40
+U 1 1 5B3AA269
+P 7900 4250
+F 0 "#PWR40" H 7900 4100 50  0001 C CNN
+F 1 "+5V" H 7900 4390 50  0000 C CNN
+F 2 "" H 7900 4250 50  0001 C CNN
+F 3 "" H 7900 4250 50  0001 C CNN
+	1    7900 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR41
+U 1 1 5B3AA841
+P 7900 5250
+F 0 "#PWR41" H 7900 5000 50  0001 C CNN
+F 1 "GND" H 7900 5100 50  0000 C CNN
+F 2 "" H 7900 5250 50  0001 C CNN
+F 3 "" H 7900 5250 50  0001 C CNN
+	1    7900 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L JBC_iron J2
+U 1 1 5B3ABD93
+P 10200 4500
+F 0 "J2" H 10550 4400 60  0000 C CNN
+F 1 "JBC_iron" H 10500 4550 60  0000 C CNN
+F 2 "Connectors_Phoenix:PhoenixContact_MSTBVA-G_03x5.08mm_Vertical" H 10200 4500 60  0001 C CNN
+F 3 "" H 10200 4500 60  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10200 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R14
+U 1 1 5B3ACB6E
+P 8750 5100
+F 0 "R14" V 8830 5100 50  0000 C CNN
+F 1 "4M7" V 8750 5100 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 8680 5100 50  0001 C CNN
+F 3 "" H 8750 5100 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    8750 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C11
+U 1 1 5B3ACB74
+P 9050 5200
+F 0 "C11" H 9075 5300 50  0000 L CNN
+F 1 "0.1uF" H 9075 5100 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9088 5050 50  0001 C CNN
+F 3 "" H 9050 5200 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9050 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C13
+U 1 1 5B3ACB7A
+P 9300 5200
+F 0 "C13" H 9325 5300 50  0000 L CNN
+F 1 "1uF" H 9325 5100 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9338 5050 50  0001 C CNN
+F 3 "" H 9300 5200 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9300 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C15
+U 1 1 5B3ACB80
+P 9550 5200
+F 0 "C15" H 9575 5300 50  0000 L CNN
+F 1 "100pF" H 9575 5100 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9588 5050 50  0001 C CNN
+F 3 "" H 9550 5200 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9550 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R20
+U 1 1 5B3ACB97
+P 9750 5000
+F 0 "R20" V 9830 5000 50  0000 C CNN
+F 1 "470R" V 9750 5000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 9680 5000 50  0001 C CNN
+F 3 "" H 9750 5000 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9750 5000
+	0    1    1    0   
+$EndComp
+$Comp
+L R R21
+U 1 1 5B3ACB9D
+P 9750 5400
+F 0 "R21" V 9830 5400 50  0000 C CNN
+F 1 "0R" V 9750 5400 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 9680 5400 50  0001 C CNN
+F 3 "" H 9750 5400 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9750 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR48
+U 1 1 5B3ACBA5
+P 9950 5450
+F 0 "#PWR48" H 9950 5200 50  0001 C CNN
+F 1 "GND" H 9950 5300 50  0000 C CNN
+F 2 "" H 9950 5450 50  0001 C CNN
+F 3 "" H 9950 5450 50  0001 C CNN
+	1    9950 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR44
+U 1 1 5B3ACBAD
+P 8750 4900
+F 0 "#PWR44" H 8750 4750 50  0001 C CNN
+F 1 "+5V" H 8750 5040 50  0000 C CNN
+F 2 "" H 8750 4900 50  0001 C CNN
+F 3 "" H 8750 4900 50  0001 C CNN
+	1    8750 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L JBC_iron J3
+U 1 1 5B3ACBB3
+P 10200 5250
+F 0 "J3" H 10550 5150 60  0000 C CNN
+F 1 "JBC_iron" H 10500 5300 60  0000 C CNN
+F 2 "Connectors_Phoenix:PhoenixContact_MSTBVA-G_03x5.08mm_Vertical" H 10200 5250 60  0001 C CNN
+F 3 "" H 10200 5250 60  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10200 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Audio-Jack-3 J1
+U 1 1 5B3B5342
+P 6450 6850
+F 0 "J1" H 6400 7025 50  0000 C CNN
+F 1 "Audio-Jack-3" H 6400 7100 50  0000 C CNN
+F 2 "footprints:3.5mm_jack" H 6700 6950 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/1898427.pdf" H 6700 6950 50  0001 C CNN
+F 4 "2.22" H 6450 6850 60  0001 C CNN "Cost ea @ 100qty"
+F 5 "multicomp" H 0   0   50  0001 C CNN "MFR"
+F 6 "MJ4435-R" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "1638670" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/multicomp/mj4435-r/socket-3-5mm-jack-smd-3pole/dp/1638670" H 0   0   50  0001 C CNN "SPURL"
+	1    6450 6850
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R7
+U 1 1 5B3B64C7
+P 6950 4450
+F 0 "R7" V 6900 4600 50  0000 C CNN
+F 1 "51R" V 6950 4450 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 6880 4450 50  0001 C CNN
+F 3 "" H 6950 4450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6950 4450
+	0    1    1    0   
+$EndComp
+$Comp
+L R R8
+U 1 1 5B3B7864
+P 6950 4550
+F 0 "R8" V 6900 4700 50  0000 C CNN
+F 1 "51R" V 6950 4550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 6880 4550 50  0001 C CNN
+F 3 "" H 6950 4550 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6950 4550
+	0    1    1    0   
+$EndComp
+$Comp
+L R R11
+U 1 1 5B3B791C
+P 6950 4650
+F 0 "R11" V 6900 4800 50  0000 C CNN
+F 1 "51R" V 6950 4650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 6880 4650 50  0001 C CNN
+F 3 "" H 6950 4650 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6950 4650
+	0    1    1    0   
+$EndComp
+$Comp
+L R R12
+U 1 1 5B3B79D7
+P 6950 4750
+F 0 "R12" V 6900 4900 50  0000 C CNN
+F 1 "51R" V 6950 4750 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 6880 4750 50  0001 C CNN
+F 3 "" H 6950 4750 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6950 4750
+	0    1    1    0   
+$EndComp
+$Comp
+L C C6
+U 1 1 5B3B9036
+P 5050 900
+F 0 "C6" H 5075 1000 50  0000 L CNN
+F 1 "0.1uF" H 5075 800 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5088 750 50  0001 C CNN
+F 3 "" H 5050 900 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5050 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR15
+U 1 1 5B3B922B
+P 5050 750
+F 0 "#PWR15" H 5050 600 50  0001 C CNN
+F 1 "+5V" H 5050 890 50  0000 C CNN
+F 2 "" H 5050 750 50  0001 C CNN
+F 3 "" H 5050 750 50  0001 C CNN
+	1    5050 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR16
+U 1 1 5B3B92E7
+P 5050 1050
+F 0 "#PWR16" H 5050 800 50  0001 C CNN
+F 1 "GND" H 5050 900 50  0000 C CNN
+F 2 "" H 5050 1050 50  0001 C CNN
+F 3 "" H 5050 1050 50  0001 C CNN
+	1    5050 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C8
+U 1 1 5B3B9400
+P 6650 900
+F 0 "C8" H 6675 1000 50  0000 L CNN
+F 1 "0.1uF" H 6675 800 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 6688 750 50  0001 C CNN
+F 3 "" H 6650 900 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6650 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR31
+U 1 1 5B3B9406
+P 6650 750
+F 0 "#PWR31" H 6650 600 50  0001 C CNN
+F 1 "+5V" H 6650 890 50  0000 C CNN
+F 2 "" H 6650 750 50  0001 C CNN
+F 3 "" H 6650 750 50  0001 C CNN
+	1    6650 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR32
+U 1 1 5B3B940C
+P 6650 1050
+F 0 "#PWR32" H 6650 800 50  0001 C CNN
+F 1 "GND" H 6650 900 50  0000 C CNN
+F 2 "" H 6650 1050 50  0001 C CNN
+F 3 "" H 6650 1050 50  0001 C CNN
+	1    6650 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR46
+U 1 1 5B3BC92D
+P 9750 2650
+F 0 "#PWR46" H 9750 2400 50  0001 C CNN
+F 1 "GND" H 9750 2500 50  0000 C CNN
+F 2 "" H 9750 2650 50  0001 C CNN
+F 3 "" H 9750 2650 50  0001 C CNN
+	1    9750 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C9
+U 1 1 5B3BCB90
+P 9050 2350
+F 0 "C9" H 9075 2450 50  0000 L CNN
+F 1 "1uF" H 9075 2250 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9088 2200 50  0001 C CNN
+F 3 "" H 9050 2350 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    9050 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR45
+U 1 1 5B3BD0C2
+P 9050 2550
+F 0 "#PWR45" H 9050 2300 50  0001 C CNN
+F 1 "GND" H 9050 2400 50  0000 C CNN
+F 2 "" H 9050 2550 50  0001 C CNN
+F 3 "" H 9050 2550 50  0001 C CNN
+	1    9050 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L L_Small L1
+U 1 1 5B3C20AA
+P 10550 2250
+F 0 "L1" V 10500 2250 50  0000 L CNN
+F 1 "22uH" V 10600 2150 50  0000 L CNN
+F 2 "Inductors_SMD:L_6.3x6.3_H3" H 10550 2250 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2366821.pdf" H 10550 2250 50  0001 C CNN
+F 4 "0.423" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "bourns" H 0   0   50  0001 C CNN "MFR"
+F 6 "SRN6045-220M" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "2061654" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/bourns/srn6045-220m/inductor-power-22uh-semi-shielded/dp/2061654" H 0   0   50  0001 C CNN "SPURL"
+	1    10550 2250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C16
+U 1 1 5B3C29AD
+P 10300 2050
+F 0 "C16" H 10325 2150 50  0000 L CNN
+F 1 "0.1uF" H 10400 2050 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 10338 1900 50  0001 C CNN
+F 3 "" H 10300 2050 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10300 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L 1N4448 D4
+U 1 1 5B3C31EC
+P 10550 1850
+F 0 "D4" H 10550 1950 50  0000 C CNN
+F 1 "1N4448" H 10600 1750 50  0000 C CNN
+F 2 "Diodes_SMD:D_SOD-123F" H 10550 1675 50  0001 C CNN
+F 3 "" H 10550 1850 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10550 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L B140-E3 D3
+U 1 1 5B3C339F
+P 10400 2450
+F 0 "D3" H 10400 2550 50  0000 C CNN
+F 1 "B140-E3" H 10400 2350 50  0000 C CNN
+F 2 "Diodes_SMD:D_SMA" H 10400 2275 50  0001 C CNN
+F 3 "" H 10400 2450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10400 2450
+	0    1    1    0   
+$EndComp
+$Comp
+L C C17
+U 1 1 5B3C3499
+P 10950 2450
+F 0 "C17" H 10975 2550 50  0000 L CNN
+F 1 "22uF" H 10975 2350 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 10988 2300 50  0001 C CNN
+F 3 "" H 10950 2450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10950 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R22
+U 1 1 5B3C392E
+P 10750 2450
+F 0 "R22" V 10830 2450 50  0000 C CNN
+F 1 "30k" V 10750 2450 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 10680 2450 50  0001 C CNN
+F 3 "" H 10750 2450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10750 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R23
+U 1 1 5B3C3B2C
+P 10750 2850
+F 0 "R23" V 10830 2850 50  0000 C CNN
+F 1 "5k1" V 10750 2850 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 10680 2850 50  0001 C CNN
+F 3 "" H 10750 2850 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    10750 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR49
+U 1 1 5B3C5909
+P 10400 2600
+F 0 "#PWR49" H 10400 2350 50  0001 C CNN
+F 1 "GND" H 10400 2450 50  0000 C CNN
+F 2 "" H 10400 2600 50  0001 C CNN
+F 3 "" H 10400 2600 50  0001 C CNN
+	1    10400 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR50
+U 1 1 5B3C5D98
+P 10750 3000
+F 0 "#PWR50" H 10750 2750 50  0001 C CNN
+F 1 "GND" H 10750 2850 50  0000 C CNN
+F 2 "" H 10750 3000 50  0001 C CNN
+F 3 "" H 10750 3000 50  0001 C CNN
+	1    10750 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR52
+U 1 1 5B3C5F4D
+P 10950 2600
+F 0 "#PWR52" H 10950 2350 50  0001 C CNN
+F 1 "GND" H 10950 2450 50  0000 C CNN
+F 2 "" H 10950 2600 50  0001 C CNN
+F 3 "" H 10950 2600 50  0001 C CNN
+	1    10950 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L +VDC #PWR51
+U 1 1 5B3C91B3
+P 10950 2200
+F 0 "#PWR51" H 10950 2100 50  0001 C CNN
+F 1 "+VDC" H 10950 2450 50  0000 C CNN
+F 2 "" H 10950 2200 50  0001 C CNN
+F 3 "" H 10950 2200 50  0001 C CNN
+	1    10950 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR2
+U 1 1 5B3D408D
+P 900 2000
+F 0 "#PWR2" H 900 1750 50  0001 C CNN
+F 1 "GND" H 900 1850 50  0000 C CNN
+F 2 "" H 900 2000 50  0001 C CNN
+F 3 "" H 900 2000 50  0001 C CNN
+	1    900  2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR1
+U 1 1 5B3D47A0
+P 900 1200
+F 0 "#PWR1" H 900 1050 50  0001 C CNN
+F 1 "+5V" H 900 1340 50  0000 C CNN
+F 2 "" H 900 1200 50  0001 C CNN
+F 3 "" H 900 1200 50  0001 C CNN
+	1    900  1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C4
+U 1 1 5B3D71AE
+P 5000 7250
+F 0 "C4" H 5025 7350 50  0000 L CNN
+F 1 "10nF" H 5000 7150 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5038 7100 50  0001 C CNN
+F 3 "" H 5000 7250 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5000 7250
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C7
+U 1 1 5B3D889B
+P 5200 7250
+F 0 "C7" H 5225 7350 50  0000 L CNN
+F 1 "10nF" H 5200 7150 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5238 7100 50  0001 C CNN
+F 3 "" H 5200 7250 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5200 7250
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR14
+U 1 1 5B3D8C71
+P 5000 7400
+F 0 "#PWR14" H 5000 7150 50  0001 C CNN
+F 1 "GND" H 5000 7250 50  0000 C CNN
+F 2 "" H 5000 7400 50  0001 C CNN
+F 3 "" H 5000 7400 50  0001 C CNN
+	1    5000 7400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR19
+U 1 1 5B3D8D36
+P 5200 7400
+F 0 "#PWR19" H 5200 7150 50  0001 C CNN
+F 1 "GND" H 5200 7250 50  0000 C CNN
+F 2 "" H 5200 7400 50  0001 C CNN
+F 3 "" H 5200 7400 50  0001 C CNN
+	1    5200 7400
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C1
+U 1 1 5B3D9854
+P 3950 7150
+F 0 "C1" H 3975 7250 50  0000 L CNN
+F 1 "10nF" H 3950 7050 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3988 7000 50  0001 C CNN
+F 3 "" H 3950 7150 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    3950 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR5
+U 1 1 5B3D9E6E
+P 3950 7300
+F 0 "#PWR5" H 3950 7050 50  0001 C CNN
+F 1 "GND" H 3950 7150 50  0000 C CNN
+F 2 "" H 3950 7300 50  0001 C CNN
+F 3 "" H 3950 7300 50  0001 C CNN
+	1    3950 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR33
+U 1 1 5B3DAE39
+P 6750 6750
+F 0 "#PWR33" H 6750 6500 50  0001 C CNN
+F 1 "GND" H 6750 6600 50  0000 C CNN
+F 2 "" H 6750 6750 50  0001 C CNN
+F 3 "" H 6750 6750 50  0001 C CNN
+	1    6750 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR27
+U 1 1 5B3DD9F8
+P 5750 7350
+F 0 "#PWR27" H 5750 7100 50  0001 C CNN
+F 1 "GND" H 5750 7200 50  0000 C CNN
+F 2 "" H 5750 7350 50  0001 C CNN
+F 3 "" H 5750 7350 50  0001 C CNN
+	1    5750 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR30
+U 1 1 5B3DE46F
+P 6250 6850
+F 0 "#PWR30" H 6250 6700 50  0001 C CNN
+F 1 "+5V" H 6250 6990 50  0000 C CNN
+F 2 "" H 6250 6850 50  0001 C CNN
+F 3 "" H 6250 6850 50  0001 C CNN
+	1    6250 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L VN5E010 U3
+U 1 1 5B3E4ED5
+P 5650 3900
+F 0 "U3" H 5750 3550 60  0000 C CNN
+F 1 "VN5E010" H 5850 4250 60  0000 C CNN
+F 2 "footprints:HPAK" H 5650 3900 60  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2371680.pdf" H 5650 3900 60  0001 C CNN
+F 4 "2.32" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "st" H 0   0   50  0001 C CNN "MFR"
+F 6 "VN5E010AHTR-E" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "2806822" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/stmicroelectronics/vn5e010ahtr-e/power-load-sw-aec-q100-41v-to/dp/2806822" H 0   0   50  0001 C CNN "SPURL"
+	1    5650 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L +24V #PWR22
+U 1 1 5B3E6364
+P 5650 3400
+F 0 "#PWR22" H 5650 3250 50  0001 C CNN
+F 1 "+24V" H 5650 3540 50  0000 C CNN
+F 2 "" H 5650 3400 50  0001 C CNN
+F 3 "" H 5650 3400 50  0001 C CNN
+	1    5650 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR23
+U 1 1 5B3E6A95
+P 5650 4400
+F 0 "#PWR23" H 5650 4150 50  0001 C CNN
+F 1 "GND" H 5650 4250 50  0000 C CNN
+F 2 "" H 5650 4400 50  0001 C CNN
+F 3 "" H 5650 4400 50  0001 C CNN
+	1    5650 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R3
+U 1 1 5B3E9248
+P 5000 3900
+F 0 "R3" V 5080 3900 50  0000 C CNN
+F 1 "10k" V 5000 3900 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 4930 3900 50  0001 C CNN
+F 3 "" H 5000 3900 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5000 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR11
+U 1 1 5B3E9472
+P 4850 3900
+F 0 "#PWR11" H 4850 3650 50  0001 C CNN
+F 1 "GND" H 4850 3750 50  0000 C CNN
+F 2 "" H 4850 3900 50  0001 C CNN
+F 3 "" H 4850 3900 50  0001 C CNN
+	1    4850 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R5
+U 1 1 5B3E9727
+P 5150 4250
+F 0 "R5" V 5230 4250 50  0000 C CNN
+F 1 "10k" V 5150 4250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5080 4250 50  0001 C CNN
+F 3 "" H 5150 4250 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5150 4250
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R1
+U 1 1 5B3E98EC
+P 4750 4200
+F 0 "R1" V 4830 4200 50  0000 C CNN
+F 1 "10k" V 4750 4200 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 4680 4200 50  0001 C CNN
+F 3 "" H 4750 4200 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4750 4200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR17
+U 1 1 5B3E9F71
+P 5150 4400
+F 0 "#PWR17" H 5150 4150 50  0001 C CNN
+F 1 "GND" H 5150 4250 50  0000 C CNN
+F 2 "" H 5150 4400 50  0001 C CNN
+F 3 "" H 5150 4400 50  0001 C CNN
+	1    5150 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR8
+U 1 1 5B3EA03C
+P 4550 4550
+F 0 "#PWR8" H 4550 4300 50  0001 C CNN
+F 1 "GND" H 4550 4400 50  0000 C CNN
+F 2 "" H 4550 4550 50  0001 C CNN
+F 3 "" H 4550 4550 50  0001 C CNN
+	1    4550 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C2
+U 1 1 5B3EA707
+P 4550 4400
+F 0 "C2" H 4575 4500 50  0000 L CNN
+F 1 "10nF" H 4550 4300 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4588 4250 50  0001 C CNN
+F 3 "" H 4550 4400 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4550 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L arduino_pro_micro U2
+U 1 1 5B3ED619
+P 2950 1300
+F 0 "U2" H 3150 0   60  0000 C CNN
+F 1 "arduino_pro_micro" V 2950 900 60  0000 C CNN
+F 2 "Housings_DIP:DIP-24_W15.24mm_LongPads" H 2650 1100 60  0001 C CNN
+F 3 "" H 2650 1100 60  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    2950 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR4
+U 1 1 5B3EDD0C
+P 3050 850
+F 0 "#PWR4" H 3050 700 50  0001 C CNN
+F 1 "+5V" H 3050 990 50  0000 C CNN
+F 2 "" H 3050 850 50  0001 C CNN
+F 3 "" H 3050 850 50  0001 C CNN
+	1    3050 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR3
+U 1 1 5B3EFCD8
+P 2950 2850
+F 0 "#PWR3" H 2950 2600 50  0001 C CNN
+F 1 "GND" H 2950 2700 50  0000 C CNN
+F 2 "" H 2950 2850 50  0001 C CNN
+F 3 "" H 2950 2850 50  0001 C CNN
+	1    2950 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L VN5E010 U4
+U 1 1 5B3F1C14
+P 5650 5400
+F 0 "U4" H 5750 5050 60  0000 C CNN
+F 1 "VN5E010" H 5850 5750 60  0000 C CNN
+F 2 "footprints:HPAK" H 5650 5400 60  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2371680.pdf" H 5650 5400 60  0001 C CNN
+F 4 "2.32" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "st" H 0   0   50  0001 C CNN "MFR"
+F 6 "VN5E010AHTR-E" H 0   0   50  0001 C CNN "MPN"
+F 7 "FARNELL" H 0   0   50  0001 C CNN "SPR"
+F 8 "2806822" H 0   0   50  0001 C CNN "SPN"
+F 9 "http://uk.farnell.com/stmicroelectronics/vn5e010ahtr-e/power-load-sw-aec-q100-41v-to/dp/2806822" H 0   0   50  0001 C CNN "SPURL"
+	1    5650 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L +24V #PWR24
+U 1 1 5B3F1C1A
+P 5650 4900
+F 0 "#PWR24" H 5650 4750 50  0001 C CNN
+F 1 "+24V" H 5650 5040 50  0000 C CNN
+F 2 "" H 5650 4900 50  0001 C CNN
+F 3 "" H 5650 4900 50  0001 C CNN
+	1    5650 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR25
+U 1 1 5B3F1C20
+P 5650 5900
+F 0 "#PWR25" H 5650 5650 50  0001 C CNN
+F 1 "GND" H 5650 5750 50  0000 C CNN
+F 2 "" H 5650 5900 50  0001 C CNN
+F 3 "" H 5650 5900 50  0001 C CNN
+	1    5650 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R4
+U 1 1 5B3F1C29
+P 5000 5400
+F 0 "R4" V 5080 5400 50  0000 C CNN
+F 1 "10k" V 5000 5400 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 4930 5400 50  0001 C CNN
+F 3 "" H 5000 5400 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5000 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR12
+U 1 1 5B3F1C30
+P 4850 5400
+F 0 "#PWR12" H 4850 5150 50  0001 C CNN
+F 1 "GND" H 4850 5250 50  0000 C CNN
+F 2 "" H 4850 5400 50  0001 C CNN
+F 3 "" H 4850 5400 50  0001 C CNN
+	1    4850 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R6
+U 1 1 5B3F1C36
+P 5150 5750
+F 0 "R6" V 5230 5750 50  0000 C CNN
+F 1 "10k" V 5150 5750 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5080 5750 50  0001 C CNN
+F 3 "" H 5150 5750 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5150 5750
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R2
+U 1 1 5B3F1C3E
+P 4750 5700
+F 0 "R2" V 4830 5700 50  0000 C CNN
+F 1 "10k" V 4750 5700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 4680 5700 50  0001 C CNN
+F 3 "" H 4750 5700 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4750 5700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR18
+U 1 1 5B3F1C47
+P 5150 5900
+F 0 "#PWR18" H 5150 5650 50  0001 C CNN
+F 1 "GND" H 5150 5750 50  0000 C CNN
+F 2 "" H 5150 5900 50  0001 C CNN
+F 3 "" H 5150 5900 50  0001 C CNN
+	1    5150 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR9
+U 1 1 5B3F1C4D
+P 4550 6050
+F 0 "#PWR9" H 4550 5800 50  0001 C CNN
+F 1 "GND" H 4550 5900 50  0000 C CNN
+F 2 "" H 4550 6050 50  0001 C CNN
+F 3 "" H 4550 6050 50  0001 C CNN
+	1    4550 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C3
+U 1 1 5B3F1C53
+P 4550 5900
+F 0 "C3" H 4575 6000 50  0000 L CNN
+F 1 "10nF" H 4550 5800 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4588 5750 50  0001 C CNN
+F 3 "" H 4550 5900 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4550 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C18
+U 1 1 5B426F83
+P 7150 5250
+F 0 "C18" H 7175 5350 50  0000 L CNN
+F 1 "0.1uF" H 7175 5150 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 7188 5100 50  0001 C CNN
+F 3 "" H 7150 5250 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    7150 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR34
+U 1 1 5B42740D
+P 7150 5100
+F 0 "#PWR34" H 7150 4950 50  0001 C CNN
+F 1 "+5V" H 7150 5240 50  0000 C CNN
+F 2 "" H 7150 5100 50  0001 C CNN
+F 3 "" H 7150 5100 50  0001 C CNN
+	1    7150 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR35
+U 1 1 5B427AB2
+P 7150 5400
+F 0 "#PWR35" H 7150 5150 50  0001 C CNN
+F 1 "GND" H 7150 5250 50  0000 C CNN
+F 2 "" H 7150 5400 50  0001 C CNN
+F 3 "" H 7150 5400 50  0001 C CNN
+	1    7150 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Neopixel_SMD D1
+U 1 1 5B42C0BF
+P 5400 1450
+F 0 "D1" H 5500 1675 50  0000 L BNN
+F 1 "Neopixel_SMD" H 5500 1225 50  0000 L TNN
+F 2 "footprints:5050-4(L)" H 5500 1150 50  0001 L TNN
+F 3 "" H 5500 1075 50  0001 L TNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5400 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Neopixel_SMD D2
+U 1 1 5B42C1A2
+P 6250 1450
+F 0 "D2" H 6350 1675 50  0000 L BNN
+F 1 "Neopixel_SMD" H 6350 1225 50  0000 L TNN
+F 2 "footprints:5050-4(L)" H 6350 1150 50  0001 L TNN
+F 3 "" H 6350 1075 50  0001 L TNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6250 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01 J6
+U 1 1 5B42C577
+P 6850 1450
+F 0 "J6" H 6850 1550 50  0000 C CNN
+F 1 "Conn_01x01" H 6850 1350 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 6850 1450 50  0001 C CNN
+F 3 "" H 6850 1450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6850 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01 J4
+U 1 1 5B42C87A
+P 4950 1700
+F 0 "J4" H 4950 1800 50  0000 C CNN
+F 1 "Conn_01x01" H 4950 1600 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4950 1700 50  0001 C CNN
+F 3 "" H 4950 1700 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4950 1700
+	0    1    1    0   
+$EndComp
+$Comp
+L OLED_I2C_128x32 U1
+U 1 1 5B42F37F
+P 900 1600
+F 0 "U1" H 1000 1350 60  0000 C CNN
+F 1 "OLED_I2C_128x32" V 1150 1600 60  0000 C CNN
+F 2 "footprints:OLED_I2C_128x32" H 900 1600 60  0001 C CNN
+F 3 "" H 900 1600 60  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "Cost ea @ 100qty"
+F 5 "-" H 0   0   50  0001 C CNN "MFR"
+F 6 "-" H 0   0   50  0001 C CNN "MPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    900  1600
+	-1   0    0    -1  
+$EndComp
+Text Label 8550 2600 0    60   ~ 0
+VinDev
+Text Label 4050 6850 2    60   ~ 0
+swIn
+Text Label 4850 7050 0    60   ~ 0
+aIn
+Text Label 4850 6850 0    60   ~ 0
+bIn
+Text Label 3750 2150 0    60   ~ 0
+MOSI
+Text Label 2150 1750 2    60   ~ 0
+/CS
+Text Label 3750 1950 0    60   ~ 0
+Clk
+Text Label 6800 4550 2    60   ~ 0
+MOSI
+Text Label 6800 4450 2    60   ~ 0
+Clk
+Text Label 6800 4750 2    60   ~ 0
+/CS
+Text Label 6800 4650 2    60   ~ 0
+MISO
+Text Label 10950 2250 0    60   ~ 0
+5V5
+Text Label 5750 6900 2    60   ~ 0
+sleepIn
+Text Label 2850 850  1    60   ~ 0
+5V5
+Text Label 3750 2050 0    60   ~ 0
+MISO
+Text Label 4250 3700 0    60   ~ 0
+Heater_pwm_0
+Text Label 4250 5200 0    60   ~ 0
+Heater_pwm_1
+Text Label 4250 4200 0    60   ~ 0
+Current_sense_0
+Text Label 4250 5700 0    60   ~ 0
+Current_sense_1
+Text Label 2150 2250 2    60   ~ 0
+Heater_pwm_0
+Text Label 3750 2250 0    60   ~ 0
+Heater_pwm_1
+Text Label 3750 1650 0    60   ~ 0
+Current_sense_0
+Text Label 3750 1750 0    60   ~ 0
+Current_sense_1
+Text Label 2150 2150 2    60   ~ 0
+sleepIn
+Text Label 4900 1450 2    60   ~ 0
+led_data
+Text Label 2150 1850 2    60   ~ 0
+led_data
+Text Label 2150 1950 2    60   ~ 0
+bIn
+Text Label 2150 2050 2    60   ~ 0
+aIn
+Text Label 3750 1850 0    60   ~ 0
+swIn
+Text Label 3750 1550 0    60   ~ 0
+VinDev
+Text Label 2150 1450 2    60   ~ 0
+/CS2
+Text Notes 3950 7750 0    60   ~ 0
+In future, use sleep input to detect presence of soldering iron.
+Text Label 6350 3850 0    60   ~ 0
+Heater0
+Text Label 6350 5450 0    60   ~ 0
+Heater1
+Text Label 9900 5250 0    60   ~ 0
+T1
+Text Label 9900 4500 0    60   ~ 0
+T0
+Text Label 8600 4550 0    60   ~ 0
+T0+
+Text Label 8650 5300 0    60   ~ 0
+T1+
+Text Label 8600 4650 0    60   ~ 0
+T0-
+Text Label 8650 5400 0    60   ~ 0
+T1-
+Wire Wire Line
+	8550 2500 8550 2600
+Wire Wire Line
+	4750 7050 5200 7050
+Wire Wire Line
+	5200 6800 5200 7100
+Wire Wire Line
+	5000 6400 5000 6500
+Wire Wire Line
+	5200 6450 5200 6500
+Wire Wire Line
+	5750 7050 5750 6850
+Wire Wire Line
+	8550 2550 8350 2550
+Wire Wire Line
+	8350 2550 8350 2600
+Wire Wire Line
+	8550 3000 8550 2900
+Wire Wire Line
+	8550 2950 8350 2950
+Wire Wire Line
+	8350 2950 8350 2900
+Wire Wire Line
+	7750 2450 7850 2450
+Wire Wire Line
+	7850 2350 7850 2550
+Wire Wire Line
+	7750 2350 7850 2350
+Wire Wire Line
+	3950 6850 4150 6850
+Wire Wire Line
+	4050 6850 4050 6800
+Wire Wire Line
+	5000 6450 5200 6450
+Wire Wire Line
+	4750 6850 5000 6850
+Wire Wire Line
+	5000 6800 5000 7100
+Wire Wire Line
+	8000 2500 7850 2500
+Wire Wire Line
+	5800 1450 5850 1450
+Wire Wire Line
+	8600 4650 9600 4650
+Wire Wire Line
+	9550 4650 9550 4600
+Wire Wire Line
+	9300 4600 9300 4650
+Wire Wire Line
+	9050 4600 9050 4650
+Wire Wire Line
+	9550 4250 9550 4300
+Wire Wire Line
+	8900 4250 9600 4250
+Wire Wire Line
+	9050 4250 9050 4300
+Wire Wire Line
+	9300 4300 9300 4250
+Wire Wire Line
+	8900 4250 8900 4550
+Wire Wire Line
+	8900 4550 8600 4550
+Wire Wire Line
+	8750 4500 8750 4550
+Wire Wire Line
+	8750 4200 8750 4150
+Wire Wire Line
+	9900 4650 10000 4650
+Wire Wire Line
+	9950 4650 9950 4700
+Wire Wire Line
+	10000 4500 9900 4500
+Wire Wire Line
+	9900 4500 9900 4250
+Wire Wire Line
+	9550 5400 9550 5350
+Wire Wire Line
+	9300 5350 9300 5400
+Wire Wire Line
+	9050 5350 9050 5400
+Wire Wire Line
+	9550 5000 9550 5050
+Wire Wire Line
+	8900 5000 9600 5000
+Wire Wire Line
+	9050 5000 9050 5050
+Wire Wire Line
+	9300 5050 9300 5000
+Wire Wire Line
+	8900 5000 8900 5300
+Wire Wire Line
+	8750 5250 8750 5300
+Wire Wire Line
+	8750 4950 8750 4900
+Wire Wire Line
+	9900 5400 10000 5400
+Wire Wire Line
+	9950 5400 9950 5450
+Wire Wire Line
+	10000 5250 9900 5250
+Wire Wire Line
+	9900 5250 9900 5000
+Wire Wire Line
+	8600 5400 9600 5400
+Wire Wire Line
+	8600 4950 8600 5400
+Wire Wire Line
+	8600 4850 8650 4850
+Wire Wire Line
+	8650 4850 8650 5300
+Wire Wire Line
+	8650 5300 8900 5300
+Wire Wire Line
+	10000 5100 10000 4950
+Wire Wire Line
+	10000 3850 10000 4350
+Wire Wire Line
+	7100 4450 7200 4450
+Wire Wire Line
+	7100 4550 7200 4550
+Wire Wire Line
+	7100 4650 7200 4650
+Wire Wire Line
+	7100 4750 7200 4750
+Wire Wire Line
+	8550 2150 8550 2200
+Wire Wire Line
+	9350 2250 9250 2250
+Wire Wire Line
+	9250 2250 9250 2150
+Wire Wire Line
+	9050 2200 9050 2150
+Wire Wire Line
+	9050 2500 9050 2550
+Wire Wire Line
+	8000 2150 8000 2200
+Wire Wire Line
+	7850 2100 7850 2250
+Wire Wire Line
+	7850 2250 7750 2250
+Wire Wire Line
+	9350 2150 7850 2150
+Wire Wire Line
+	10450 2250 10150 2250
+Wire Wire Line
+	10750 1850 10750 2300
+Wire Wire Line
+	10650 2250 10950 2250
+Wire Wire Line
+	10750 2700 10750 2600
+Wire Wire Line
+	10400 2300 10400 2250
+Wire Wire Line
+	10150 2450 10150 2800
+Wire Wire Line
+	10150 2800 10600 2800
+Wire Wire Line
+	10600 2800 10600 2650
+Wire Wire Line
+	10600 2650 10750 2650
+Wire Wire Line
+	10950 2200 10950 2300
+Wire Wire Line
+	10300 2200 10300 2250
+Wire Wire Line
+	10150 2150 10150 1850
+Wire Wire Line
+	10150 1850 10400 1850
+Wire Wire Line
+	10300 1850 10300 1900
+Wire Wire Line
+	10700 1850 10750 1850
+Wire Wire Line
+	4800 7100 4800 6950
+Wire Wire Line
+	4800 6950 4750 6950
+Wire Wire Line
+	3950 7000 3950 6850
+Wire Wire Line
+	5750 6950 5850 6950
+Wire Wire Line
+	6150 6950 6250 6950
+Wire Wire Line
+	6750 6750 6650 6750
+Wire Wire Line
+	6100 3850 10000 3850
+Wire Wire Line
+	6200 3850 6200 3950
+Wire Wire Line
+	6200 3950 6100 3950
+Wire Wire Line
+	5150 3900 5200 3900
+Wire Wire Line
+	5150 4100 5150 4050
+Wire Wire Line
+	5000 4050 5200 4050
+Wire Wire Line
+	4900 4200 5000 4200
+Wire Wire Line
+	5000 4200 5000 4050
+Wire Wire Line
+	4250 4200 4600 4200
+Wire Wire Line
+	4550 4200 4550 4250
+Wire Wire Line
+	5200 3700 4250 3700
+Wire Wire Line
+	2850 2750 2850 2750
+Wire Wire Line
+	2850 2750 2850 2800
+Wire Wire Line
+	2850 2800 3050 2800
+Wire Wire Line
+	3050 2800 3050 2750
+Wire Wire Line
+	2950 2750 2950 2850
+Wire Wire Line
+	6100 5350 6200 5350
+Wire Wire Line
+	6200 5350 6200 5450
+Wire Wire Line
+	5150 5400 5200 5400
+Wire Wire Line
+	5150 5600 5150 5550
+Wire Wire Line
+	5000 5550 5200 5550
+Wire Wire Line
+	4900 5700 5000 5700
+Wire Wire Line
+	5000 5700 5000 5550
+Wire Wire Line
+	4250 5700 4600 5700
+Wire Wire Line
+	4550 5700 4550 5750
+Wire Wire Line
+	5200 5200 4250 5200
+Wire Wire Line
+	6750 5700 10150 5700
+Wire Wire Line
+	10150 5700 10150 4950
+Wire Wire Line
+	10150 4950 10000 4950
+Wire Wire Line
+	1250 1550 1650 1550
+Wire Wire Line
+	1650 1550 1650 1600
+Wire Wire Line
+	1650 1600 1750 1600
+Wire Wire Line
+	1750 1600 1750 1650
+Wire Wire Line
+	1750 1650 2150 1650
+Wire Wire Line
+	2150 1550 1700 1550
+Wire Wire Line
+	1700 1550 1700 1650
+Wire Wire Line
+	1700 1650 1250 1650
+Wire Wire Line
+	6100 5450 6750 5450
+Wire Wire Line
+	6750 5450 6750 5700
+Wire Wire Line
+	4900 1450 5000 1450
+Wire Wire Line
+	4950 1500 4950 1450
+Wire Wire Line
+	900  1300 900  1200
+Wire Wire Line
+	900  1900 900  2000
+Connection ~ 5000 6450
+Connection ~ 5750 6950
+Connection ~ 8550 2550
+Connection ~ 8550 2950
+Connection ~ 7850 2450
+Connection ~ 7850 2500
+Connection ~ 9300 4650
+Connection ~ 9050 4650
+Connection ~ 9300 4250
+Connection ~ 9050 4250
+Connection ~ 8750 4550
+Connection ~ 9550 4650
+Connection ~ 9550 4250
+Connection ~ 9950 4650
+Connection ~ 9300 5400
+Connection ~ 9050 5400
+Connection ~ 9300 5000
+Connection ~ 9050 5000
+Connection ~ 8750 5300
+Connection ~ 9550 5400
+Connection ~ 9550 5000
+Connection ~ 9950 5400
+Connection ~ 9250 2150
+Connection ~ 9050 2150
+Connection ~ 8550 2150
+Connection ~ 8000 2150
+Connection ~ 7850 2150
+Connection ~ 10400 2250
+Connection ~ 10750 2650
+Connection ~ 10750 2250
+Connection ~ 10300 2250
+Connection ~ 10300 1850
+Connection ~ 10950 2250
+Connection ~ 5200 7050
+Connection ~ 5000 6850
+Connection ~ 4050 6850
+Connection ~ 5150 4050
+Connection ~ 4550 4200
+Connection ~ 2950 2800
+Connection ~ 5150 5550
+Connection ~ 4550 5700
+Connection ~ 6200 3850
+Connection ~ 6200 5450
+Connection ~ 4950 1450
+NoConn ~ 2150 1150
+$EndSCHEMATC

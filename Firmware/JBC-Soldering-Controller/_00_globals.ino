@@ -6,20 +6,20 @@
 //----------------Pin Mapping-------------------------
 //Arduino Pro-Micro Pinout
 //https://cdn.sparkfun.com/assets/9/c/3/c/4/523a1765757b7f5c6e8b4567.png
-const int ENC_A            = 0;
-const int ENC_B            = 1;
+const int ENC_A            = 7;
+const int ENC_B            = 6;
 const int I2C_SDA          = 2;
 const int I2C_SCL          = 3;
 const int CS               = 4;
-const int debug_pin_A      = 5;
-const int DELL_PSU         = 6;
-const int WS2812_DATA      = 7;
+//const int debug_pin_A      = 8;
+//const int DELL_PSU         = 6; //not used!
+const int WS2812_DATA      = 5;
 const int CRADLE_SENSOR    = 8;
 const int LPINA            = 9;  //Heater PWM
 const int VIN_SENSE        = 21;
 const int CURRENT_SENSE    = 20;
-const int debug_pin_B      = 19;
-const int oled_reset       = 19; //The oled library requires a reset pin even though we doen thave one connected. use the debug pin to satisfy this requirement.
+//const int debug_pin_B      = 8;
+//const int oled_reset       = 19; //The oled library requires a reset pin even though we doen thave one connected. use the debug pin to satisfy this requirement.
 const int ENC_BUTTON       = 18;
 const int SPI_SCLK         = 15;
 const int SPI_MISO         = 14;
@@ -27,6 +27,11 @@ const int SPI_MOSI         = 16;
 const int LPINB            = 10;  //Timer 1 Debug Pin
 //-----------------------------------------------------
 
+//----------------Settings-----------------------------
+// You should change these settings depending on your situation.
+const bool disable_simultaneous_output = true;// If true, this will not allow both outputs to be on at the same time.
+
+//-----------------------------------------------------
 
 //----------------Function Prototypes------------------
 bool SerialReceive(void);
@@ -39,7 +44,12 @@ void ProcessSerialComm(void);
 void updateDisplay(bool update_now);
 //-----------------------------------------------------
 
-
+const uint16_t PixelCount = 4; // this example assumes 4 pixels, making it smaller will cause a failure
+#define colorSaturation 128
+#define coldTemp 80
+bool cradle_present = false;
+bool iron_active =  false;
+int upper_set_limit = 450;
 
 //----------------Structure Definitions----------------
 //EEProm parameter data (https://github.com/Chris--A/EEWrap)
@@ -78,7 +88,9 @@ typedef struct {
   int16_t current_sense_mv;        //current sense in milliamps
   double pid_setpoint;             //setpoint of the PID loop
   double tip_temperature_c;        //input value of the PID loop
+  double tip_temperature_c2;
   double pid_output;              //computed output value of the PID loop
+  double pid_output2;
 } status_struct;
 
 
@@ -133,11 +145,14 @@ uint16_t deg_c [NUM_CAL_POINTS] = {105, 200, 300, 345};
 
 
 //----------------Globals Objects----------------------
-Adafruit_SSD1306 display(oled_reset);     //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
+ADS1118 ADS;
+Adafruit_SSD1306 display(-1);     //TODO: look into this reset pin. The LCD i'm using does not have a reset pin, just PWR,GND,SDA,SCL
 Encoder knob(ENC_A, ENC_B);               //Setup the encoder object
-DellPSU dell(DELL_PSU);                   //This object reads data from a DELL power adapter using 1-wire protocol
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, WS2812_DATA, NEO_GRB + NEO_KHZ800);
+//DellPSU dell(DELL_PSU);                   //This object reads data from a DELL power adapter using 1-wire protocol
+//Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, WS2812_DATA, NEO_GRB + NEO_KHZ800);
+NeoPixelBus<NeoRgbwFeature, Neo800KbpsMethod> pixels(PixelCount, WS2812_DATA);
 PID myPID(&status.tip_temperature_c, &status.pid_output, &status.pid_setpoint, params.kP, params.kI, params.kD, P_ON_E, DIRECT); //TODO: map this properly to NVOL data storage
+PID myPID2(&status.tip_temperature_c2, &status.pid_output2, &status.pid_setpoint, params.kP, params.kI, params.kD, P_ON_E, DIRECT); //TODO: map this properly to NVOL data storage
 //-----------------------------------------------------
 
 

@@ -16,6 +16,8 @@
 #include <dell_psu.h>           //https://github.com/timothyjager/DellPSU
 #include <EEWrap.h>             //https://github.com/Chris--A/EEWrap
 #include <PID_v1.h>             //https://github.com/br3ttb/Arduino-PID-Library/
+#include <NeoPixelBus.h>
 
-#include "ads1118.h"            //Header file for TI Signma Delta ADC
+#include "ADS1118.h"            //Header file for TI Signma Delta ADC
+#include <MsTimer2.h>
 

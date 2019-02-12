@@ -1,0 +1,46 @@
+Component,Description,Part,References,Value,Footprint,Quantity Per PCB,Datasheet,SPURL,Cost ea @ 100qty,MPN,MFR,SPN,SPR
+1,Unpolarized capacitor,C,C5 C6 C8 C10 C11 C16 C18,0.1uF,C_0805_HandSoldering,7,,-,-,-,-,-,-
+2,Unpolarized capacitor,C,C14 C15,100pF,C_0805_HandSoldering,2,,-,-,-,-,-,-
+3,Unpolarized capacitor,C,C1 C2 C3 C4 C7,10nF,C_0805_HandSoldering,5,,-,-,-,-,-,-
+4,Unpolarized capacitor,C,C9 C12 C13,1uF,C_0805_HandSoldering,3,,-,-,-,-,-,-
+5,Unpolarized capacitor,C,C17,22uF,C_0805_HandSoldering,1,,-,-,-,-,-,-
+6,"100V 0.15A standard switching diode, DO-35",1N4448,D4,1N4448,D_SOD-123F,1,http://www.nxp.com/documents/data_sheet/1N4148_1N4448.pdf,-,-,-,-,-,-
+7,Zener Diode,D_Zener,D6 D11,4V7,D_SOD-123F,2,http://www.farnell.com/datasheets/2582331.pdf,http://uk.farnell.com/nexperia/bzt52-c4v7x/zener-diode-aec-q101-4-7v-sod/dp/2851271,0.0258,BZT52-C4V7X,NEXPERIA,2851271,FARNELL
+8,"20V 1A Schottky Barrier Rectifier Diode, SMA/DO-214AC",B140-E3,D3,B140-E3,D_SMA,1,http://www.vishay.com/docs/88946/b120.pdf,-,-,-,-,-,-
+9,LED generic,LED,D12,LED,LED_0805_HandSoldering,1,,-,-,-,-,-,-
+10,"WS2812B (""Neopixel"") digital RGB LED, 5mm/8mm LED package",Neopixel_SMD,D1 D2,Neopixel_SMD,5050-4(L),2,https://www.adafruit.com/product/1938,-,-,-,-,-,-
+11,3-pin audio jack receptable (stereo/TRS connector),Audio-Jack-3,J1,Audio-Jack-3,3.5mm_jack,1,MJ4435-R,-,0,-,-,-,-
+12,"Generic connector, single row, 01x01",Conn_01x01,J4 J6,Conn_01x01,Pin_Header_Straight_1x01_Pitch2.54mm,2,,-,-,-,-,-,-
+13,,JBC_iron,J2 J3,JBC_iron,PhoenixContact_MSTBVA-G_03x5.08mm_Vertical,2,,-,-,-,-,-,-
+14,DC Barrel Jack,Jack-DC,J8,Jack-DC,JACK_ALIM,1,,-,-,-,-,-,-
+15,"Inductor, small symbol",L_Small,L1,22uH,L_6.3x6.3_H3,1,http://www.farnell.com/datasheets/2366821.pdf,http://uk.farnell.com/bourns/srn6045-220m/inductor-power-22uh-semi-shielded/dp/2061654,0.423,SRN6045-220M,bourns,2061654,FARNELL
+16,Resistor,R,R19 R21,0R,R_0805_HandSoldering,2,,-,-,-,-,-,-
+17,Resistor,R,R10,100R,R_0805_HandSoldering,1,,-,-,-,-,-,-
+18,Resistor,R,R1 R2 R3 R4 R5 R6 R9 R15 R16 R17,10k,R_0805_HandSoldering,10,,-,-,-,-,-,-
+19,Resistor,R,R22 R24,30k,R_0805_HandSoldering,2,,-,-,-,-,-,-
+20,Resistor,R,R31,330R,R_0805_HandSoldering,1,,-,0,-,-,-,-
+21,Resistor,R,R18 R20,470R,R_0805_HandSoldering,2,,-,-,-,-,-,-
+22,Resistor,R,R13 R14,4M7,R_0805_HandSoldering,2,,-,-,-,-,-,-
+23,Resistor,R,R7 R8 R11 R12,51R,R_0805_HandSoldering,4,,-,-,-,-,-,-
+24,Resistor,R,R23 R27,5k1,R_0805_HandSoldering,2,,-,-,-,-,-,-
+25,"Rotary encoder, dual channel, incremental quadrate outputs, with switch",Rotary_Encoder_Switch,SW5,Rotary_Encoder_Switch,rot_encoder,1,,-,-,-,-,-,-
+26,"16-bit analog to digital converter, 2 or 4 inputs, integrated temperature sensor, SPI interface",ADS1118I,U5,ADS1118I,VSSOP_10_HandSoldered,1,http://www.ti.com/lit/ds/symlink/ads1118.pdf,http://uk.farnell.com/texas-instruments/ads1118idgst/adc-delta-sigma-16bit-860sps-vssop10/dp/2854467,4.62,ADS1118IDGST,TI,2854467,FARNELL
+27,"1A, 4.0 to 30V Input, High Voltage Input integrated switch step-down regulator, SOT-23-6",MCP16301,U6,MCP16301,SOT-23-6,1,http://www.farnell.com/datasheets/2129968.pdf,http://uk.farnell.com/microchip/mcp16301t-e-ch/dc-dc-conv-auto-buck-500khz-sot23/dp/2809949,0.78,MCP16301T-E/CH,microchip,2809949,FARNELL
+28,,OLED_I2C_128x32,U1,OLED_I2C_128x32,OLED_I2C_128x32,1,,-,-,-,-,-,-
+29,,VN5E010,U3 U4,VN5E010,HPAK,2,http://www.farnell.com/datasheets/2371680.pdf,http://uk.farnell.com/stmicroelectronics/vn5e010ahtr-e/power-load-sw-aec-q100-41v-to/dp/2806822,2.32,VN5E010AHTR-E,st,2806822,FARNELL
+30,,arduino_pro_micro,U2,arduino_pro_micro,DIP-24_W15.24mm_LongPads,1,,-,-,-,-,-,-
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Component Groups:,30,,,,,,,,,,,,
+Component Count:,65,,,,,,,,,,,,
+Fitted Components:,65,,,,,,,,,,,,
+Number of PCBs:,1,,,,,,,,,,,,
+Total components:,65,,,,,,,,,,,,
+Schematic Version:,,,,,,,,,,,,,
+Schematic Date:,,,,,,,,,,,,,
+BoM Date:,16/07/2018 11:32,,,,,,,,,,,,
+Schematic Source:,C:/Users/paul.withers/Google Drive/Soldering Iron/myProject2/main.sch,,,,,,,,,,,,
+KiCad Version:,Eeschema 4.0.7,,,,,,,,,,,,

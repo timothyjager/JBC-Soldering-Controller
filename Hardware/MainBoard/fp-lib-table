@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name arduino)(type Legacy)(uri "C:/Users/paul.withers/Google Drive/KiCad/Libraries/Arduino_nano/arduino.mod")(options "")(descr ""))
+)

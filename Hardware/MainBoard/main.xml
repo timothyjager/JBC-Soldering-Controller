@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:/Users/paul.withers/Google Drive/Soldering Iron/myProject2/main.sch</source>
+    <date>16/07/2018 11:32:29</date>
+    <tool>Eeschema 4.0.7</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>main.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="R24">
+      <value>30k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB4EE4F</tstamp>
+    </comp>
+    <comp ref="R27">
+      <value>5k1</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB4EECF</tstamp>
+    </comp>
+    <comp ref="R15">
+      <value>10K</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB64BF3</tstamp>
+    </comp>
+    <comp ref="R16">
+      <value>10K</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB6521B</tstamp>
+    </comp>
+    <comp ref="R17">
+      <value>10K</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB652E6</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>10K</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB7A574</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>100R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB7A580</tstamp>
+    </comp>
+    <comp ref="D6">
+      <value>4V7</value>
+      <footprint>Diodes_SMD:D_SOD-123F</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2582331.pdf</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">0.0258</field>
+        <field name="MFR">NEXPERIA</field>
+        <field name="MPN">BZT52-C4V7X</field>
+        <field name="SPR">FARNELL</field>
+        <field name="SPN">2851271</field>
+        <field name="SPURL">http://uk.farnell.com/nexperia/bzt52-c4v7x/zener-diode-aec-q101-4-7v-sod/dp/2851271</field>
+      </fields>
+      <libsource lib="device" part="D_Zener"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB7A595</tstamp>
+    </comp>
+    <comp ref="D11">
+      <value>4V7</value>
+      <footprint>Diodes_SMD:D_SOD-123F</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2582331.pdf</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">0.0258</field>
+        <field name="MFR">NEXPERIA</field>
+        <field name="MPN">BZT52-C4V7X</field>
+        <field name="SPR">FARNELL</field>
+        <field name="SPN">2851271</field>
+        <field name="SPURL">http://uk.farnell.com/nexperia/bzt52-c4v7x/zener-diode-aec-q101-4-7v-sod/dp/2851271</field>
+      </fields>
+      <libsource lib="device" part="D_Zener"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AB97EF8</tstamp>
+    </comp>
+    <comp ref="J8">
+      <value>Jack-DC</value>
+      <footprint>Connectors:JACK_ALIM</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="conn" part="Jack-DC"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ABCBC82</tstamp>
+    </comp>
+    <comp ref="SW5">
+      <value>Rotary_Encoder_Switch</value>
+      <footprint>footprints:rot_encoder</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="Rotary_Encoder_Switch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AC564C2</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AC67E27</tstamp>
+    </comp>
+    <comp ref="D12">
+      <value>LED</value>
+      <footprint>LEDs:LED_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AC62E7F</tstamp>
+    </comp>
+    <comp ref="R31">
+      <value>330R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">0</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AC62C46</tstamp>
+    </comp>
+    <comp ref="U5">
+      <value>ADS1118I</value>
+      <footprint>footprints:VSSOP_10_HandSoldered</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/ads1118.pdf</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">4.62</field>
+        <field name="MFR">TI</field>
+        <field name="MPN">ADS1118IDGST</field>
+        <field name="SPR">FARNELL</field>
+        <field name="SPN">2854467</field>
+        <field name="SPURL">http://uk.farnell.com/texas-instruments/ads1118idgst/adc-delta-sigma-16bit-860sps-vssop10/dp/2854467</field>
+      </fields>
+      <libsource lib="adc-dac" part="ADS1118I"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B39E207</tstamp>
+    </comp>
+    <comp ref="U6">
+      <value>MCP16301</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23-6</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2129968.pdf</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">0.78</field>
+        <field name="MFR">microchip</field>
+        <field name="MPN">MCP16301T-E/CH</field>
+        <field name="SPR">FARNELL</field>
+        <field name="SPN">2809949</field>
+        <field name="SPURL">http://uk.farnell.com/microchip/mcp16301t-e-ch/dc-dc-conv-auto-buck-500khz-sot23/dp/2809949</field>
+      </fields>
+      <libsource lib="dc-dc" part="MCP16301"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B39F116</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>4M7</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3A3BEE</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3A402D</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3A42D6</tstamp>
+    </comp>
+    <comp ref="C14">
+      <value>100pF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3A436E</tstamp>
+    </comp>
+    <comp ref="R18">
+      <value>470R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3A6EB2</tstamp>
+    </comp>
+    <comp ref="R19">
+      <value>0R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3A6F64</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>JBC_iron</value>
+      <footprint>Connectors_Phoenix:PhoenixContact_MSTBVA-G_03x5.08mm_Vertical</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="pauls_comp_lib" part="JBC_iron"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ABD93</tstamp>
+    </comp>
+    <comp ref="R14">
+      <value>4M7</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ACB6E</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ACB74</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ACB7A</tstamp>
+    </comp>
+    <comp ref="C15">
+      <value>100pF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ACB80</tstamp>
+    </comp>
+    <comp ref="R20">
+      <value>470R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ACB97</tstamp>
+    </comp>
+    <comp ref="R21">
+      <value>0R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ACB9D</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>JBC_iron</value>
+      <footprint>Connectors_Phoenix:PhoenixContact_MSTBVA-G_03x5.08mm_Vertical</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="pauls_comp_lib" part="JBC_iron"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ACBB3</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>Audio-Jack-3</value>
+      <footprint>footprints:3.5mm_jack</footprint>
+      <datasheet>MJ4435-R</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">0</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="conn" part="Audio-Jack-3"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3B5342</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>51R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3B64C7</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>51R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3B7864</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>51R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3B791C</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>51R</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3B79D7</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3B9036</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3B9400</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3BCB90</tstamp>
+    </comp>
+    <comp ref="L1">
+      <value>22uH</value>
+      <footprint>Inductors_SMD:L_6.3x6.3_H3</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2366821.pdf</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">0.423</field>
+        <field name="MFR">bourns</field>
+        <field name="MPN">SRN6045-220M</field>
+        <field name="SPR">FARNELL</field>
+        <field name="SPN">2061654</field>
+        <field name="SPURL">http://uk.farnell.com/bourns/srn6045-220m/inductor-power-22uh-semi-shielded/dp/2061654</field>
+      </fields>
+      <libsource lib="device" part="L_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3C20AA</tstamp>
+    </comp>
+    <comp ref="C16">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3C29AD</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>1N4448</value>
+      <footprint>Diodes_SMD:D_SOD-123F</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="Diode" part="1N4448"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3C31EC</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>B140-E3</value>
+      <footprint>Diodes_SMD:D_SMA</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="Diode" part="B140-E3"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3C339F</tstamp>
+    </comp>
+    <comp ref="C17">
+      <value>22uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3C3499</tstamp>
+    </comp>
+    <comp ref="R22">
+      <value>30k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3C392E</tstamp>
+    </comp>
+    <comp ref="R23">
+      <value>5k1</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3C3B2C</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>10nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3D71AE</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>10nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3D889B</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>10nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3D9854</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>VN5E010</value>
+      <footprint>footprints:HPAK</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2371680.pdf</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">2.32</field>
+        <field name="MFR">st</field>
+        <field name="MPN">VN5E010AHTR-E</field>
+        <field name="SPR">FARNELL</field>
+        <field name="SPN">2806822</field>
+        <field name="SPURL">http://uk.farnell.com/stmicroelectronics/vn5e010ahtr-e/power-load-sw-aec-q100-41v-to/dp/2806822</field>
+      </fields>
+      <libsource lib="pauls_comp_lib" part="VN5E010"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3E4ED5</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3E9248</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3E9727</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3E98EC</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>10nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3EA707</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>arduino_pro_micro</value>
+      <footprint>Housings_DIP:DIP-24_W15.24mm_LongPads</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="pauls_comp_lib" part="arduino_pro_micro"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3ED619</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>VN5E010</value>
+      <footprint>footprints:HPAK</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2371680.pdf</datasheet>
+      <fields>
+        <field name="Cost ea @ 100qty">2.32</field>
+        <field name="MFR">st</field>
+        <field name="MPN">VN5E010AHTR-E</field>
+        <field name="SPR">FARNELL</field>
+        <field name="SPN">2806822</field>
+        <field name="SPURL">http://uk.farnell.com/stmicroelectronics/vn5e010ahtr-e/power-load-sw-aec-q100-41v-to/dp/2806822</field>
+      </fields>
+      <libsource lib="pauls_comp_lib" part="VN5E010"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3F1C14</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3F1C29</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3F1C36</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3F1C3E</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>10nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B3F1C53</tstamp>
+    </comp>
+    <comp ref="C18">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B426F83</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>Neopixel_SMD</value>
+      <footprint>footprints:5050-4(L)</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="LED" part="Neopixel_SMD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B42C0BF</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>Neopixel_SMD</value>
+      <footprint>footprints:5050-4(L)</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="LED" part="Neopixel_SMD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B42C1A2</tstamp>
+    </comp>
+    <comp ref="J6">
+      <value>Conn_01x01</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B42C577</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>Conn_01x01</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B42C87A</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>OLED_I2C_128x32</value>
+      <footprint>footprints:OLED_I2C_128x32</footprint>
+      <fields>
+        <field name="Cost ea @ 100qty">-</field>
+        <field name="MFR">-</field>
+        <field name="MPN">-</field>
+        <field name="SPR">-</field>
+        <field name="SPN">-</field>
+        <field name="SPURL">-</field>
+      </fields>
+      <libsource lib="pauls_comp_lib" part="OLED_I2C_128x32"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B42F37F</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Diode" part="1N4148">
+      <aliases>
+        <alias>1N4448</alias>
+        <alias>1N4149</alias>
+        <alias>1N4151</alias>
+        <alias>1N914</alias>
+        <alias>BA243</alias>
+        <alias>BA244</alias>
+        <alias>BA282</alias>
+        <alias>BA283</alias>
+        <alias>BAV17</alias>
+        <alias>BAV18</alias>
+        <alias>BAV19</alias>
+        <alias>BAV20</alias>
+        <alias>BAV21</alias>
+        <alias>BAW75</alias>
+        <alias>BAW76</alias>
+        <alias>BAY93</alias>
+      </aliases>
+      <description>100V 0.15A standard switching diode, DO-35</description>
+      <docs>http://www.nxp.com/documents/data_sheet/1N4148_1N4448.pdf</docs>
+      <footprints>
+        <fp>D*DO?35*</fp>
+        <fp>D*SOD27*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">1N4148</field>
+        <field name="Footprint">Diodes_THT:D_DO-35_SOD27_Horizontal_RM10</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="adc-dac" part="ADS1118I">
+      <description>16-bit analog to digital converter, 2 or 4 inputs, integrated temperature sensor, SPI interface</description>
+      <docs>http://www.ti.com/lit/ds/sbas457e/sbas457e.pdf</docs>
+      <footprints>
+        <fp>SOP*3x3mm*Pitch0.5mm*</fp>
+        <fp>*QFN*2x1.5mm*Pitch0.5mm</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ADS1118I</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SCLK" type="input"/>
+        <pin num="2" name="~CS" type="input"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="AIN0" type="input"/>
+        <pin num="5" name="AIN1" type="input"/>
+        <pin num="6" name="AIN2" type="input"/>
+        <pin num="7" name="AIN3" type="input"/>
+        <pin num="8" name="VDD" type="power_in"/>
+        <pin num="9" name="DOUT/~DRDY" type="output"/>
+        <pin num="10" name="DIN" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="Audio-Jack-3">
+      <description>3-pin audio jack receptable (stereo/TRS connector)</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Audio-Jack-3</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Diode" part="B120-E3">
+      <aliases>
+        <alias>B130-E3</alias>
+        <alias>B140-E3</alias>
+        <alias>B150-E3</alias>
+        <alias>B160-E3</alias>
+      </aliases>
+      <description>20V 1A Schottky Barrier Rectifier Diode, SMA/DO-214AC</description>
+      <docs>http://www.vishay.com/docs/88946/b120.pdf</docs>
+      <footprints>
+        <fp>D*DO?214AC*</fp>
+        <fp>D*SMA*</fp>
+        <fp>DO?214AC*</fp>
+        <fp>SMA*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">B120-E3</field>
+        <field name="Footprint">Diodes_SMD:SMA_Standard</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="Barrel_Jack">
+      <aliases>
+        <alias>Jack-DC</alias>
+      </aliases>
+      <description>DC Barrel Jack</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Barrel_Jack</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_??x*mm*</fp>
+        <fp>Connector*:*1x??x*mm*</fp>
+        <fp>Pin?Header?Straight?1X*</fp>
+        <fp>Pin?Header?Angled?1X*</fp>
+        <fp>Socket?Strip?Straight?1X*</fp>
+        <fp>Socket?Strip?Angled?1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D_Zener">
+      <description>Zener Diode</description>
+      <docs>https://en.wikipedia.org/wiki/Zener_diode</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*SingleDiode</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Zener</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="pauls_comp_lib" part="JBC_iron">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">JBC_iron</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Gnd" type="input"/>
+        <pin num="2" name="T+" type="input"/>
+        <pin num="3" name="Heater" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <description>LED generic</description>
+      <footprints>
+        <fp>LED*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="L_Small">
+      <description>Inductor, small symbol</description>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="dc-dc" part="MCP16301">
+      <aliases>
+        <alias>MCP16301H</alias>
+      </aliases>
+      <description>1A, 4.0 to 30V Input, High Voltage Input integrated switch step-down regulator, SOT-23-6</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/20005004D.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MCP16301</field>
+        <field name="Footprint">TO_SOT_Packages_SMD:SOT-23-6</field>
+      </fields>
+      <pins>
+        <pin num="1" name="BOOST" type="output"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="Vfb" type="input"/>
+        <pin num="4" name="EN" type="input"/>
+        <pin num="5" name="Vin" type="power_in"/>
+        <pin num="6" name="SW" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="LED" part="Neopixel_SMD">
+      <description>WS2812B ("Neopixel") digital RGB LED, 5mm/8mm LED package</description>
+      <docs>https://www.adafruit.com/product/1938</docs>
+      <footprints>
+        <fp>LED*D5.0mm*</fp>
+        <fp>LED*D8.0mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">Neopixel_SMD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="5V" type="power_in"/>
+        <pin num="2" name="DOUT" type="output"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="DIN" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="pauls_comp_lib" part="OLED_I2C_128x32">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">OLED_I2C_128x32</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Gnd" type="output"/>
+        <pin num="2" name="5V" type="output"/>
+        <pin num="3" name="SCL" type="output"/>
+        <pin num="4" name="SDA" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="Rotary_Encoder_Switch">
+      <description>Rotary encoder, dual channel, incremental quadrate outputs, with switch</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">Rotary_Encoder_Switch</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="input"/>
+        <pin num="2" name="C" type="input"/>
+        <pin num="3" name="B" type="input"/>
+        <pin num="4" name="~" type="input"/>
+        <pin num="5" name="~" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="pauls_comp_lib" part="VN5E010">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">VN5E010</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT" type="input"/>
+        <pin num="2" name="Gnd" type="input"/>
+        <pin num="3" name="En" type="input"/>
+        <pin num="4" name="Vcc" type="input"/>
+        <pin num="5" name="CS" type="input"/>
+        <pin num="6" name="CS_dis" type="input"/>
+        <pin num="7" name="OUT" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="pauls_comp_lib" part="arduino_pro_micro">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">arduino_pro_micro</field>
+      </fields>
+      <pins>
+        <pin num="1" name="D1/Tx" type="input"/>
+        <pin num="2" name="D0/Rx" type="input"/>
+        <pin num="3" name="Gnd" type="input"/>
+        <pin num="4" name="Gnd" type="input"/>
+        <pin num="5" name="D2/SDA" type="input"/>
+        <pin num="6" name="D3/SCL" type="input"/>
+        <pin num="7" name="D4/A6" type="input"/>
+        <pin num="8" name="D5/PWM" type="input"/>
+        <pin num="9" name="D6/A7/PWM" type="input"/>
+        <pin num="10" name="D7" type="input"/>
+        <pin num="11" name="D8/A8" type="input"/>
+        <pin num="12" name="D9/A9/PWM" type="input"/>
+        <pin num="13" name="D10/A10/PWM" type="input"/>
+        <pin num="14" name="D16/MOSI" type="input"/>
+        <pin num="15" name="D14/MISO" type="input"/>
+        <pin num="16" name="D15/SCLK" type="input"/>
+        <pin num="17" name="D18/A0" type="input"/>
+        <pin num="18" name="D19/A1" type="input"/>
+        <pin num="19" name="D20/A2" type="input"/>
+        <pin num="20" name="D21/A3" type="input"/>
+        <pin num="21" name="Vcc" type="input"/>
+        <pin num="22" name="rst" type="input"/>
+        <pin num="23" name="Gnd" type="input"/>
+        <pin num="24" name="Raw" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="conn">
+      <uri>C:\Program Files\KiCad\share\kicad\library\conn.lib</uri>
+    </library>
+    <library logical="adc-dac">
+      <uri>C:\Program Files\KiCad\share\kicad\library\adc-dac.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>C:\Program Files\KiCad\share\kicad\library\device.lib</uri>
+    </library>
+    <library logical="LED">
+      <uri>C:\Users\paul.withers\Google Drive\KiCad\Libraries\kicad-library-master\library\LED.lib</uri>
+    </library>
+    <library logical="Diode">
+      <uri>C:\Users\paul.withers\Google Drive\KiCad\Libraries\kicad-library-master\library\Diode.lib</uri>
+    </library>
+    <library logical="pauls_comp_lib">
+      <uri>C:\Users\paul.withers\Google Drive\KiCad\Libraries\pauls_comp_lib.lib</uri>
+    </library>
+    <library logical="dc-dc">
+      <uri>C:\Users\paul.withers\Google Drive\KiCad\Libraries\kicad-library-master\library\dc-dc.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(D1-Pad2)">
+      <node ref="D1" pin="2"/>
+      <node ref="D2" pin="4"/>
+    </net>
+    <net code="2" name="/T0">
+      <node ref="J2" pin="2"/>
+      <node ref="R18" pin="1"/>
+    </net>
+    <net code="3" name="/T1">
+      <node ref="R20" pin="1"/>
+      <node ref="J3" pin="2"/>
+    </net>
+    <net code="4" name="/T1+">
+      <node ref="C11" pin="1"/>
+      <node ref="R14" pin="2"/>
+      <node ref="R20" pin="2"/>
+      <node ref="U5" pin="6"/>
+      <node ref="C13" pin="1"/>
+      <node ref="C15" pin="1"/>
+    </net>
+    <net code="5" name="/T1-">
+      <node ref="R21" pin="2"/>
+      <node ref="U5" pin="7"/>
+      <node ref="C15" pin="2"/>
+      <node ref="C11" pin="2"/>
+      <node ref="C13" pin="2"/>
+    </net>
+    <net code="6" name="/T0+">
+      <node ref="U5" pin="4"/>
+      <node ref="R13" pin="2"/>
+      <node ref="C10" pin="1"/>
+      <node ref="C12" pin="1"/>
+      <node ref="C14" pin="1"/>
+      <node ref="R18" pin="2"/>
+    </net>
+    <net code="7" name="/T0-">
+      <node ref="C10" pin="2"/>
+      <node ref="U5" pin="5"/>
+      <node ref="C12" pin="2"/>
+      <node ref="R19" pin="2"/>
+      <node ref="C14" pin="2"/>
+    </net>
+    <net code="8" name="GND">
+      <node ref="R21" pin="1"/>
+      <node ref="J3" pin="1"/>
+      <node ref="J1" pin="3"/>
+      <node ref="U2" pin="4"/>
+      <node ref="U2" pin="3"/>
+      <node ref="D1" pin="3"/>
+      <node ref="D11" pin="2"/>
+      <node ref="J8" pin="2"/>
+      <node ref="J8" pin="3"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C9" pin="2"/>
+      <node ref="SW5" pin="5"/>
+      <node ref="SW5" pin="2"/>
+      <node ref="R5" pin="1"/>
+      <node ref="U2" pin="23"/>
+      <node ref="U4" pin="2"/>
+      <node ref="U3" pin="2"/>
+      <node ref="J2" pin="1"/>
+      <node ref="C17" pin="2"/>
+      <node ref="U6" pin="2"/>
+      <node ref="D3" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="R19" pin="1"/>
+      <node ref="R4" pin="2"/>
+      <node ref="U5" pin="3"/>
+      <node ref="C7" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="D6" pin="2"/>
+      <node ref="R23" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="D12" pin="1"/>
+      <node ref="R6" pin="1"/>
+      <node ref="C5" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="C18" pin="2"/>
+      <node ref="U1" pin="1"/>
+      <node ref="D2" pin="3"/>
+      <node ref="C4" pin="2"/>
+      <node ref="R27" pin="2"/>
+      <node ref="C6" pin="2"/>
+    </net>
+    <net code="9" name="Net-(D2-Pad2)">
+      <node ref="D2" pin="2"/>
+      <node ref="J6" pin="1"/>
+    </net>
+    <net code="10" name="+5V">
+      <node ref="R9" pin="1"/>
+      <node ref="R17" pin="1"/>
+      <node ref="J1" pin="1"/>
+      <node ref="R15" pin="1"/>
+      <node ref="U5" pin="8"/>
+      <node ref="R13" pin="1"/>
+      <node ref="R31" pin="1"/>
+      <node ref="R16" pin="1"/>
+      <node ref="R14" pin="1"/>
+      <node ref="D1" pin="1"/>
+      <node ref="C8" pin="1"/>
+      <node ref="C6" pin="1"/>
+      <node ref="D2" pin="1"/>
+      <node ref="U2" pin="21"/>
+      <node ref="C18" pin="1"/>
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="11" name="Net-(R4-Pad1)">
+      <node ref="R4" pin="1"/>
+      <node ref="U4" pin="6"/>
+    </net>
+    <net code="12" name="Net-(U1-Pad4)">
+      <node ref="U2" pin="5"/>
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="13" name="/sleepIn">
+      <node ref="R9" pin="2"/>
+      <node ref="U2" pin="11"/>
+      <node ref="R10" pin="2"/>
+      <node ref="D6" pin="1"/>
+    </net>
+    <net code="14" name="Net-(U1-Pad3)">
+      <node ref="U2" pin="6"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="15" name="Net-(U2-Pad22)">
+      <node ref="U2" pin="22"/>
+    </net>
+    <net code="16" name="/Heater1">
+      <node ref="U4" pin="7"/>
+      <node ref="J3" pin="3"/>
+      <node ref="U4" pin="1"/>
+    </net>
+    <net code="17" name="Net-(C16-Pad1)">
+      <node ref="U6" pin="1"/>
+      <node ref="C16" pin="1"/>
+      <node ref="D4" pin="1"/>
+    </net>
+    <net code="18" name="Net-(R22-Pad2)">
+      <node ref="U6" pin="3"/>
+      <node ref="R22" pin="2"/>
+      <node ref="R23" pin="1"/>
+    </net>
+    <net code="19" name="Net-(C16-Pad2)">
+      <node ref="D3" pin="1"/>
+      <node ref="C16" pin="2"/>
+      <node ref="U6" pin="6"/>
+      <node ref="L1" pin="1"/>
+    </net>
+    <net code="20" name="+24V">
+      <node ref="R24" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="U3" pin="4"/>
+      <node ref="U4" pin="4"/>
+      <node ref="C9" pin="1"/>
+      <node ref="U6" pin="4"/>
+      <node ref="J8" pin="1"/>
+      <node ref="U6" pin="5"/>
+    </net>
+    <net code="21" name="Net-(R12-Pad1)">
+      <node ref="U5" pin="2"/>
+      <node ref="R12" pin="1"/>
+    </net>
+    <net code="22" name="Net-(R11-Pad1)">
+      <node ref="R11" pin="1"/>
+      <node ref="U5" pin="9"/>
+    </net>
+    <net code="23" name="Net-(R8-Pad1)">
+      <node ref="R8" pin="1"/>
+      <node ref="U5" pin="10"/>
+    </net>
+    <net code="24" name="Net-(R7-Pad1)">
+      <node ref="U5" pin="1"/>
+      <node ref="R7" pin="1"/>
+    </net>
+    <net code="25" name="Net-(R2-Pad2)">
+      <node ref="U4" pin="5"/>
+      <node ref="R6" pin="2"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="26" name="Net-(R1-Pad2)">
+      <node ref="U3" pin="5"/>
+      <node ref="R5" pin="2"/>
+      <node ref="R1" pin="2"/>
+    </net>
+    <net code="27" name="Net-(R3-Pad1)">
+      <node ref="R3" pin="1"/>
+      <node ref="U3" pin="6"/>
+    </net>
+    <net code="28" name="/Heater0">
+      <node ref="J2" pin="3"/>
+      <node ref="U3" pin="7"/>
+      <node ref="U3" pin="1"/>
+    </net>
+    <net code="29" name="Net-(J1-Pad2)">
+      <node ref="J1" pin="2"/>
+      <node ref="R10" pin="1"/>
+    </net>
+    <net code="30" name="/MOSI">
+      <node ref="U2" pin="14"/>
+      <node ref="R8" pin="2"/>
+    </net>
+    <net code="31" name="/Clk">
+      <node ref="R7" pin="2"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="32" name="Net-(D12-Pad2)">
+      <node ref="D12" pin="2"/>
+      <node ref="R31" pin="2"/>
+    </net>
+    <net code="33" name="//CS2">
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="34" name="Net-(U2-Pad1)">
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="35" name="/Current_sense_1">
+      <node ref="R2" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="U2" pin="18"/>
+    </net>
+    <net code="36" name="/Current_sense_0">
+      <node ref="C2" pin="1"/>
+      <node ref="U2" pin="19"/>
+      <node ref="R1" pin="1"/>
+    </net>
+    <net code="37" name="/swIn">
+      <node ref="U2" pin="17"/>
+      <node ref="C1" pin="1"/>
+      <node ref="R15" pin="2"/>
+      <node ref="SW5" pin="4"/>
+    </net>
+    <net code="38" name="/MISO">
+      <node ref="R11" pin="2"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="39" name="+VDC">
+      <node ref="L1" pin="2"/>
+      <node ref="D4" pin="2"/>
+      <node ref="U2" pin="24"/>
+      <node ref="C17" pin="1"/>
+      <node ref="R22" pin="1"/>
+    </net>
+    <net code="40" name="/Heater_pwm_1">
+      <node ref="U2" pin="13"/>
+      <node ref="U4" pin="3"/>
+    </net>
+    <net code="41" name="/Heater_pwm_0">
+      <node ref="U3" pin="3"/>
+      <node ref="U2" pin="12"/>
+    </net>
+    <net code="42" name="/VinDev">
+      <node ref="U2" pin="20"/>
+      <node ref="D11" pin="1"/>
+      <node ref="R27" pin="1"/>
+      <node ref="R24" pin="2"/>
+    </net>
+    <net code="43" name="/aIn">
+      <node ref="C7" pin="1"/>
+      <node ref="SW5" pin="3"/>
+      <node ref="R17" pin="2"/>
+      <node ref="U2" pin="10"/>
+    </net>
+    <net code="44" name="/bIn">
+      <node ref="R16" pin="2"/>
+      <node ref="SW5" pin="1"/>
+      <node ref="C4" pin="1"/>
+      <node ref="U2" pin="9"/>
+    </net>
+    <net code="45" name="/led_data">
+      <node ref="D1" pin="4"/>
+      <node ref="U2" pin="8"/>
+      <node ref="J4" pin="1"/>
+    </net>
+    <net code="46" name="//CS">
+      <node ref="R12" pin="2"/>
+      <node ref="U2" pin="7"/>
+    </net>
+  </nets>
+</export>
