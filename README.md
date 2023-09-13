@@ -1,6 +1,7 @@
 # JBC-Soldering-Controller
 
-The idea of this project is to make a simple JBC soldering station for the T245 and PA120 Micro Tweezers. It runs from a 24V DC power supply.
+The idea of this project is to make a simple JBC soldering station for the T245. It runs from a 24V DC power supply.
+Please note: I burnt out a C210 cartridge using this. I think it would be ok if there was power limiting, so I will try that at some point. 
 
 Tested:
 
@@ -11,7 +12,7 @@ Not tested:
 
 Software - I have kept this because it might be fun to play with at some point, but it is not tested.
 
-AM120 Micro Tweezers (I have not got any yet :( ), although I am confident it will work.
+AM120 Micro Tweezers (I have not got any yet :( )
 
 
 Todo:
