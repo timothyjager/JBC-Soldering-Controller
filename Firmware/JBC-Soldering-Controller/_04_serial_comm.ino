@@ -20,15 +20,29 @@ void ProcessSerialComm(void)
     if (Serial.available())
     {
       //try to read and process the serial commands
-      if (SerialReceive())
+      /*if (SerialReceive())
       {
         serial_active = true;
-      }
+      }*/
     }
     //Once we determine there is serial activity, we assume a host is connected, so begin streaming our packet data to the host. TODO: currently no way to detect if the host dissapears.
     if (Serial)
     {
-      SendStatusPacket();
+      //SendStatusPacket();
+      //Serial.print(0.03125 * status.adc_ic_temp_counts);
+      //Serial.print(status.adc_ic_temp_counts);
+      //Serial.print("\t\t");
+      //Serial.println(status.tip_temperature_c);
+      //double tip_temp_c = ADS.ADCcode2temp(status.adc_counts + ADS.localCompensation(status.adc_ic_temp_counts));
+      Serial.print(status.tip_temperature_c);
+      Serial.print("\t");
+      Serial.print(status.adc_counts);
+      Serial.print("\t");
+      Serial.print(status.adc_ic_temp_counts/128.0);
+      Serial.print("\t");
+      Serial.print(ADS.localCompensation(status.adc_ic_temp_counts));
+      Serial.print("\t");
+      Serial.println(ADS.ADCcode2temp(status.adc_counts)/10.0);
     }
     next_millis += SERIAL_COMM_PERIOD_MS;  //set up our loop to run again in x ms
   }

@@ -32,7 +32,7 @@ int multiMap2(int val, int* _in, int* _out, uint8_t size)
 
 
 //try to read the wattage of the power supply
-void Check_DELL_PSU(void)
+/*void Check_DELL_PSU(void)
 {
   display.clearDisplay();
   display.setTextSize(1);
@@ -88,7 +88,71 @@ void updateLEDStatus(void)
       pixels.setPixelColor(0, pixels.Color(10, 0, 0)); // Red
     }
     pixels.show();
-}
+}*/
 
+void updateLEDStatus(void)
+{
+    if (status.pid_setpoint == 0) //if off..
+    {
+      if(status.tip_temperature_c < coldTemp){ //if cold..
+        pixels.SetPixelColor(0, RgbwColor(0, 0, 10)); // Blue
+      }
+      else {
+        pixels.SetPixelColor(0, RgbwColor(0, 10, 10)); // ??
+      }
+      if(status.tip_temperature_c2 < coldTemp){ //if cold..
+        pixels.SetPixelColor(1, RgbwColor(0, 0, 10)); // Blue
+      }
+      else {
+        pixels.SetPixelColor(1, RgbwColor(0, 10, 10)); // ??
+      }
+      //pixels.SetPixelColor(0, RgbwColor(0, 0, 10)); // Blue
+      //pixels.SetPixelColor(1, RgbwColor(0, 0, 10)); // Blue
+      pixels.SetPixelColor(2, RgbwColor(0, 0, 10)); // Blue
+      pixels.SetPixelColor(3, RgbwColor(0, 0, 10)); // Blue
+    }
+    else if(fastDigitalRead(CRADLE_SENSOR) == true && cradle_present) //if in cradle
+    {
+      pixels.SetPixelColor(0, RgbwColor(10, 0, 0)); // Green
+      pixels.SetPixelColor(1, RgbwColor(10, 0, 0)); // Green
+      pixels.SetPixelColor(2, RgbwColor(10, 0, 0)); // Green
+      pixels.SetPixelColor(3, RgbwColor(10, 0, 0)); // Green
+    }
+    else if(status.pid_setpoint > 0) //heating
+    {
+      if(status.tip_temperature_c > (status.pid_setpoint - 10)) //if at temperature
+      {
+        pixels.SetPixelColor(0, RgbwColor(5, 10, 0)); // red/green
+      }
+      else
+      {
+        pixels.SetPixelColor(0, RgbwColor(0, 10, 0)); // red
+      }
+      if(status.tip_temperature_c2 > (status.pid_setpoint - 10)) //if at temperature
+      {
+        pixels.SetPixelColor(1, RgbwColor(5, 10, 0)); // red/green
+      }
+      else
+      {
+        pixels.SetPixelColor(1, RgbwColor(0, 10, 0)); // red
+      }
+    }
+    else //something else???
+    {
+      pixels.SetPixelColor(0, RgbwColor(10)); // White
+      pixels.SetPixelColor(1, RgbwColor(10)); // White
+      pixels.SetPixelColor(2, RgbwColor(10)); // White
+      pixels.SetPixelColor(3, RgbwColor(10)); // White
+    }
+    if (status.tip_temperature_c > 1000) //it must not be connected
+    {
+      pixels.SetPixelColor(0, RgbwColor(0)); // Black
+    }
+    if (status.tip_temperature_c2 > 1000) //it must not be connected
+    {
+      pixels.SetPixelColor(1, RgbwColor(0)); // Black
+    }
+    pixels.Show();
+}
 
 
